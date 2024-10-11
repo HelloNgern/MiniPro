@@ -41,7 +41,8 @@ function validateLoginForm() {
             title: 'Error!',
             text: 'กรุณากรอกข้อมูลให้ครบทุกช่อง',
             icon: 'error',
-            confirmButtonText: 'ตกลง'
+            confirmButtonText: 'ตกลง',
+           
         });
         return false;
     }
