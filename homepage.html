@@ -22,6 +22,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            overflow: auto;
         }
 
         /* ตั้งค่าขนาดและตำแหน่งของภาพ
@@ -83,8 +84,9 @@
         .menu.show {
             display: block; /* เมื่อมี class show จะแสดงเมนู */
         }
-        img{
-            margin-left: 60px;
+        .img{
+            margin-left: 80px;
+            margin-right: 70px;
         }
         .navbar a {
         float: left;
@@ -110,7 +112,8 @@
 
     <!-- ส่วนของ Navbar -->
     <div class="navbar">
-        <h2> Remind me! </h2>
+        <h2> Remind me! <img src="register/image/remindd.png" width="40" height="50"></h2>
+            
 
         <div class="navbar">
             <a class="active" href="#"><i class="fa fa-fw fa-home"></i> หน้าหลัก</a>
@@ -144,7 +147,7 @@
     </script>
 
     <div>
-        <img src="register/image/remindd.png" width="200" height="300">
+        <img src="register/image/remindd.png" width="300" height="400">
     </div>
 
 </body>
