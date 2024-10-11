@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <style>
+        /* ตั้งค่าพื้นฐานให้กับ body เช่น font และ margin */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navbar  สไตล์สำหรับ Navbar (แถบเมนูด้านบน) */
+        .navbar {
+            background-color: #E8A44B;
+            color: white;
+            padding: 0px;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* ตั้งค่าขนาดและตำแหน่งของภาพ
+        .navbar img {
+            width: 100px;
+            height: 120px;  กำหนดความสูงของภาพ 
+            margin-right: 20px;  เพิ่มช่องว่างระหว่างภาพกับข้อความ 
+            margin-left: 50px;
+        }*/
+
+        /* ตั้งค่าสไตล์สำหรับชื่อใน Navbar */
+        .navbar h2 {
+            padding: 0;
+            margin-left: 40px;
+            display: flex; /* จัดให้ข้อความและภาพอยู่ในบรรทัดเดียวกัน */
+            align-items: center; /* จัดให้ข้อความอยู่ตรงกลางแนวตั้งของภาพ */
+        }
+
+        /* สไตล์สำหรับปุ่ม Hamburger Menu */
+        .hamburger {
+            margin-right: 30px;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        /* กำหนดสไตล์สำหรับขีดแต่ละอันใน Hamburger (ใช้ div 3 อัน) */
+        .hamburger div {
+            width: 30px;
+            height: 3px;
+            background-color: white;
+            margin: 5px 0;
+            transition: 0.4s;
+        }
+
+        /* Menu Hidden by Default สไตล์สำหรับเมนูที่ซ่อนอยู่ (เริ่มต้นจะซ่อน) */
+        .menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 10px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        /* สไตล์สำหรับลิงก์ภายในเมนู */
+        .menu a {
+            display: block; /* ลิงก์แต่ละอันเป็นบล็อกแยก */
+            padding: 10px 20px; /* เพิ่มระยะห่างภายในลิงก์ */
+            text-decoration: none; /* ลบเส้นใต้ลิงก์ */
+            color: #333; /* ตั้งค่าสีของลิงก์ */
+        }
+
+        /* เอฟเฟกต์เมื่อ hover ที่ลิงก์ในเมนู */
+        .menu a:hover {
+            background-color: #f4f4f4; /* เปลี่ยนสีพื้นหลังของลิงก์เมื่อ hover */
+        }
+
+        /* แสดงเมนูเมื่อมี class "show" */
+        .menu.show {
+            display: block; /* เมื่อมี class show จะแสดงเมนู */
+        }
+        img{
+            margin-left: 60px;
+        }
+    </style>
+</head>
+<body bgcolor="#1D0066">
+    
+
+    <!-- ส่วนของ Navbar -->
+    <div class="navbar">
+        <h2> Remind me! </h2>
+        <!-- ปุ่ม Hamburger -->
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- เมนูที่ซ่อนอยู่ -->
+    <div class="menu" id="menu"> <!-- เมนูที่ถูกซ่อนอยู่ มี id="menu" เพื่อให้เรียกใช้ได้ง่าย -->
+        <a href="#">Profile</a> <!-- ลิงก์ไปยังหน้า Profile -->
+        <a href="#">Settings</a> <!-- ลิงก์ไปยังหน้า Settings -->
+        <a href="#">Logout</a> <!-- ลิงก์ไปยังหน้า Logout -->
+    </div>
+
+    <!-- สคริปต์สำหรับจัดการ Hamburger Menu -->
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("menu"); // เข้าถึงเมนูด้วย id="menu"
+            menu.classList.toggle("show"); // สลับการเพิ่ม/ลบ class "show" เพื่อแสดงหรือซ่อนเมนู
+        }
+    </script>
+
+    <div>
+        <img src="image/remindd.png" width="200" height="300">
+    </div>
+
+</body>
+</html>
