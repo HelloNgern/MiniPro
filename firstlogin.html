@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ยินดีต้อนรับ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+            background-color: #1D0066; /* กำหนดสีพื้นหลังเป็นสีน้ำเงิน */
+            color: white; /* กำหนดสีข้อความเป็นสีขาว */
+        }
+        h1 {
+            color: #FFFFFF; /* กำหนดสีตัวอักษรของหัวข้อเป็นสีขาว */
+        }
+    </style>
+    <script>
+        // ฟังก์ชันเพื่อเปลี่ยนไปยังหน้าถัดไป
+        function redirectToNextPage() {
+            window.location.href = "login.html"; // ลิงก์ไปยังหน้าถัดไป
+        }
+
+        // ตั้งเวลา 3 วินาที (3000 มิลลิวินาที) เพื่อเปลี่ยนหน้า
+        setTimeout(redirectToNextPage, 1000);
+    </script>
+</head>
+<body>
+    <img src="image/remindd.png" width="200" height="300" >
+    <h1>Welcome to ReMind Me</h1>
+    <p>Build your work on your need!</p>
+</body>
+</html>

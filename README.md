@@ -1,1 +1,2 @@
-# MiniPro
+# MiniProject
+Web Application
