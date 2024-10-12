@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Calendar</title>
+    <title>Calendar</title>
     <style>
         .calendar {
             width: 80%;
@@ -58,11 +58,6 @@
         }
 
         .day:hover {
-            background-color: #4CAF50;
-            color: white;
-        }
-
-        .today {
             background-color: #4CAF50;
             color: white;
         }
@@ -127,6 +122,20 @@
 
         .event-form button.cancel {
             background-color: #dc3545;
+        }
+
+        .today {
+            border: 2px solid red;
+            border-radius: 50%;
+            background-color: transparent; /* ทำให้พื้นหลังใส */
+            color: black; /* สีของตัวเลขเป็นสีดำ */
+        }
+
+        /* เพิ่มสไตล์สำหรับวันที่ถูกเลือกให้เป็นสีเขียว */
+        .selected {
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
         }
     </style>
 </head>
@@ -226,17 +235,26 @@
 
         // Function to select a day
         function selectDay(day, month, year, dayCell) {
-            // Clear previous selected day highlight
+            // ถ้าวันที่เดิมถูกเลือกซ้ำ ให้ยกเลิกการเลือก
+            if (dayCell.classList.contains('selected')) {
+                dayCell.classList.remove('selected');
+                selectedDay = null;
+                document.getElementById('createEventBtn').disabled = true;
+                document.getElementById('deleteEventBtn').disabled = true;
+                return;
+            }
+
+            // ล้างการเลือกวันก่อนหน้า
             const previousSelected = document.querySelector('.selected');
             if (previousSelected) {
                 previousSelected.classList.remove('selected');
             }
 
-            // Highlight the new selected day
+            // เลือกวันใหม่
             dayCell.classList.add('selected');
             selectedDay = { day, month, year };
 
-            // Enable create and delete buttons
+            // เปิดปุ่มสำหรับสร้างและลบกิจกรรม
             document.getElementById('createEventBtn').disabled = false;
             document.getElementById('deleteEventBtn').disabled = !events[`${day}-${month}-${year}`];
         }
