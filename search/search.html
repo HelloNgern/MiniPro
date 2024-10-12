@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Search</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="style2.css"/>
     <style>
         /* ตั้งค่าพื้นฐานให้กับ body เช่น font และ margin */
         body {
@@ -232,11 +233,11 @@
             
 
         <div class="navbar">
-            <a class="active" href="#" onclick="loadContent('home.html')"><i class="fa fa-fw fa-home"></i>หน้าหลัก</a>
-            <a href="#" onclick="loadContent('calendar01.html')"><i class="fa fa fa-calendar"></i> ปฏิทิน</a>
+            <a href="#" onclick="loadContent('home.html')">หน้าหลัก</a>
+            <a href="#" onclick="loadContent('calendar.html')"><i class="fa fa fa-calendar"></i> ปฏิทิน</a>
             <a href="#" onclick="loadContent('favorites.html')"><i class="fa fa fa-bookmark"></i> รายการโปรด</a>
             <a href="#" onclick="loadContent('HomepageMP3.html')"><i class="fa fa fa fa-bell"> </i>การแจ้งเตือน</a>
-            <a href="#"><i class="fa fa-fw fa-search"></i> Search</a>
+            <a class="active" href="#" onclick="loadContent('search.html')"><i class="fa fa-fw fa-search"></i> Search</a>
           </div>
 
         <!-- ปุ่ม Hamburger -->
@@ -273,51 +274,45 @@
             <p id="user-id">User ID: </p>
         </div>
     </div>
+
     <div id="content">
-    <h2>ยินดีต้อนรับสู่หน้าแรก</h2>
-    <p>นี่คือเนื้อหาหน้าแรก</p>
-    </div>
-    </div>
+    <!--Search Bar start-->
+    <div class="search-bar">
+        <!--dropdown start-->
+            <div class="dropdown">
+                <div id="drop-text" class="dropdown-text">
+                    <span id="span">สิ่งที่ต้องทำ</span>
+                    <i id="icon" class="fa-solid fa-chevron-down"></i>
+                </div>
 
-    <script>
-        function loadContent(filename) {
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', filename, true);
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    document.getElementById('content').innerHTML = xhr.responseText;
-                }
-            };
-            xhr.send();
-        }
-    </script>
-
-    <div>
-        <h2 class="move-down" >งานของฉัน</h2>
-    </div>
-
-
-    <div>
-        <div class="container">
-            <!-- กล่องที่ 1: สำหรับ "สิ่งที่ต้องทำ" -->
-            <div class="box" onclick="window.location.href='สิ่งที่ต้องทำ.html'">
-                <img src="register/image/remindd.png" alt="สิ่งที่ต้องทำ"> <!-- ไอคอนรูปภาพ -->
-                <p>สิ่งที่ต้องทำ!</p> <!-- ข้อความในกล่อง -->
-            </div>
-
-            <!-- กล่องที่ 2: สำหรับ "กำลังดำเนินการ" -->
-            <div class="box student" onclick="window.location.href='กำลังดำเนินการ.html'">
-                <img src="register/image/remindd.png" alt="กำลังดำเนินการ"> <!-- ไอคอนรูปภาพ -->
-                <p>กำลังดำเนินการ...</p> <!-- ข้อความในกล่อง -->
+                <ul id="list" class="dropdown-list">
+                    <li class="dropdown-list-item">สิ่งที่ต้องทำ!</li>
+                    <li class="dropdown-list-item">กำลังดำเนินการ...</li>
+                    <li class="dropdown-list-item">เสร็จสิ้นแล้ว</li>
+                </ul>
             </div>
     
-            <!-- กล่องที่ 3: สำหรับ "เสร็จสิ้นแล้ว" -->
-            <div class="box research" onclick="window.location.href='เสร็จสิ้นแล้ว.html'">
-                <img src="register/image/remindd.png" alt="เสร็จสิ้นแล้ว"> <!-- ไอคอนรูปภาพ -->
-                <p>เสร็จสิ้นแล้ว</p> <!-- ข้อความในกล่อง -->
+            
+        <!--dropdown end-->
+    
+        <!--search box input start-->
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="ค้นหา สิ่งที่ต้องทำ!">
+                <i class="fa-solid fa-magnifying-glass"></i>
+    
             </div>
+        <!--search box input end-->
+    
+    
         </div>
+    
+        <!--Search Bar end-->
+    
+        
     </div>
+    </div>
+
+    <script src="script.js"></script>
 
     <script>
         // ตัวอย่างข้อมูลผู้ใช้ที่สามารถดึงมาจาก backend
@@ -333,11 +328,5 @@
         document.getElementById('user-id').textContent = `User ID: ${user.id}`;
     </script>
 
-    <!--script ปฏิทิน-->
-    <script src="calendar.js">
-        
-    </script>
-</body>
-</html>
 </body>
 </html>

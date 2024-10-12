@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <style>
+        .calendar {
+            width: 80%;
+            max-width: 600px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .month-year {
+            font-size: 1.5em;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .day, .empty {
+            background-color: #f4f4f4;
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .day-name, .day {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .day-name {
+            font-weight: bold;
+        }
+
+        .day:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .empty {
+            visibility: hidden;
+        }
+
+        .event-marker {
+            color: red;
+            font-weight: bold;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .buttons div {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .action-button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .action-button:hover {
+            background-color: #0056b3;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .action-button.delete {
+            background-color: #DC3545;
+        }
+
+        .action-button.delete:hover {
+            background-color: #c82333;
+        }
+
+        .action-button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        .event-form {
+            display: none;
+            margin-top: 20px;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .event-form input, .event-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .event-form button {
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .event-form button.cancel {
+            background-color: #dc3545;
+        }
+
+        .today {
+            border: 2px solid red;
+            border-radius: 50%;
+            background-color: transparent;
+            color: black;
+        }
+
+        .selected {
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover, .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .month-year {
+    font-size: 1.5em;
+    cursor: pointer; /* เพิ่ม cursor pointer */
+    transition: color 0.3s; /* เพิ่มการเปลี่ยนสี */
+    }
+
+    .month-year:hover {
+    color: #4CAF50; /* เปลี่ยนสีเมื่อ hover */
+    }
+
+    </style>
+    </head>
+    <body>
+    <div class="calendar">
+        <div class="calendar-header">
+            <button class="nav-button" onclick="prevMonth()">❮</button>
+            <div class="month-year">
+                <span id="monthName"></span>
+                <span id="yearDisplay" class="month-year" onclick="openYearSelector()"></span>
+            </div>
+            <button class="nav-button" onclick="nextMonth()">❯</button>
+        </div>
+
+        <!-- Modal สำหรับเลือกปี -->
+        <div id="yearSelectorModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeYearSelector()">&times;</span>
+                <input type="date" id="yearInput" onchange="selectYearFromInput()">
+            </div>
+        </div>
+
+        <div class="calendar-grid">
+            <div class="day-name">Sun</div>
+            <div class="day-name">Mon</div>
+            <div class="day-name">Tue</div>
+            <div class="day-name">Wed</div>
+            <div class="day-name">Thu</div>
+            <div class="day-name">Fri</div>
+            <div class="day-name">Sat</div>
+        </div>
+
+        <div class="calendar-grid" id="daysContainer">
+            <!-- Days will be dynamically generated here -->
+        </div>
+
+        <div class="buttons">
+            <div>
+                <button class="action-button" id="createEventBtn" disabled onclick="openEventForm()">Create Event</button>
+                <button class="action-button" id="viewEventBtn" style="display: none;">View Event Details</button>
+            </div>
+            <button class="action-button delete" id="deleteEventBtn" disabled onclick="deleteEvent()">Delete Event</button>
+        </div>
+
+        <div class="event-form" id="eventForm">
+            <h3>Create Event for <span id="selectedDate"></span></h3>
+            <input type="text" id="eventName" placeholder="Event Name" required>
+            <textarea id="eventDescription" rows="3" placeholder="Event Description" required></textarea>
+            <button onclick="saveEvent()">Save Event</button>
+            <button class="cancel" onclick="closeEventForm()">Cancel</button>
+        </div>
+    </div>
+
+    <script>
+        let currentMonth = new Date().getMonth();
+        let currentYear = new Date().getFullYear();
+        let selectedDay = null;
+        let events = JSON.parse(localStorage.getItem('events')) || {};
+
+        function generateCalendar(month, year) {
+            const monthNames = [
+                "January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            ];
+
+            document.getElementById("monthName").textContent = monthNames[month];
+            document.getElementById("yearDisplay").textContent = year;
+
+            const daysContainer = document.getElementById("daysContainer");
+            daysContainer.innerHTML = '';
+            const firstDay = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+            for (let i = 0; i < firstDay; i++) {
+                const emptyCell = document.createElement("div");
+                emptyCell.classList.add("empty");
+                daysContainer.appendChild(emptyCell);
+            }
+
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dayCell = document.createElement("div");
+                dayCell.classList.add("day");
+                dayCell.textContent = day;
+
+                const today = new Date();
+                if (day === today.getDate() && month === today.getMonth() && year === today.getFullYear()) {
+                    dayCell.classList.add("today");
+                }
+
+                if (events[`${day}-${month}-${year}`]) {
+                    const eventMarker = document.createElement('span');
+                    eventMarker.classList.add('event-marker');
+                    eventMarker.textContent = ' *';
+                    dayCell.appendChild(eventMarker);
+                }
+
+                dayCell.addEventListener('click', function() {
+                    selectDay(day, month, year, dayCell);
+                });
+
+                daysContainer.appendChild(dayCell);
+            }
+        }
+
+        function selectDay(day, month, year, dayCell) {
+            if (dayCell.classList.contains("selected")) {
+                dayCell.classList.remove("selected");
+                selectedDay = null;
+                document.getElementById("createEventBtn").disabled = true;
+                document.getElementById("viewEventBtn").style.display = "none";
+                document.getElementById("deleteEventBtn").disabled = true;
+            } else {
+                const previouslySelected = document.querySelector(".selected");
+                if (previouslySelected) {
+                    previouslySelected.classList.remove("selected");
+                }
+                dayCell.classList.add("selected");
+                selectedDay = day;
+
+                document.getElementById("createEventBtn").disabled = false;
+                document.getElementById("selectedDate").textContent = `${day}/${month + 1}/${year}`;
+
+                // Check if there's an event on the selected date
+                if (events[`${day}-${month}-${year}`]) {
+                    document.getElementById("viewEventBtn").style.display = "inline-block";
+                    document.getElementById("deleteEventBtn").disabled = false;
+                } else {
+                    document.getElementById("viewEventBtn").style.display = "none";
+                    document.getElementById("deleteEventBtn").disabled = true;
+                }
+            }
+        }
+
+        function openEventForm() {
+            document.getElementById("eventForm").style.display = "block";
+            document.getElementById("eventName").value = '';
+            document.getElementById("eventDescription").value = '';
+        }
+
+        function closeEventForm() {
+            document.getElementById("eventForm").style.display = "none";
+        }
+
+        function saveEvent() {
+            const eventName = document.getElementById("eventName").value;
+            const eventDescription = document.getElementById("eventDescription").value;
+
+            if (selectedDay !== null) {
+                events[`${selectedDay}-${currentMonth}-${currentYear}`] = {
+                    name: eventName,
+                    description: eventDescription
+                };
+                localStorage.setItem('events', JSON.stringify(events));
+                generateCalendar(currentMonth, currentYear);
+                closeEventForm();
+            }
+        }
+
+        function viewEventDetails() {
+            const event = events[`${selectedDay}-${currentMonth}-${currentYear}`];
+            alert(`Event: ${event.name}\nDescription: ${event.description}`);
+        }
+
+        function deleteEvent() {
+            if (selectedDay !== null) {
+                delete events[`${selectedDay}-${currentMonth}-${currentYear}`];
+                localStorage.setItem('events', JSON.stringify(events));
+                generateCalendar(currentMonth, currentYear);
+            }
+        }
+
+        function prevMonth() {
+            if (currentMonth === 0) {
+                currentMonth = 11;
+                currentYear--;
+            } else {
+                currentMonth--;
+            }
+            generateCalendar(currentMonth, currentYear);
+        }
+
+        function nextMonth() {
+            if (currentMonth === 11) {
+                currentMonth = 0;
+                currentYear++;
+            } else {
+                currentMonth++;
+            }
+            generateCalendar(currentMonth, currentYear);
+        }
+
+        function openYearSelector() {
+            const dateInput = document.getElementById('yearInput');
+            const today = new Date();
+            dateInput.value = today.toISOString().split('T')[0]; // ตั้งค่าวันที่เป็นวันนี้
+            document.getElementById('yearSelectorModal').style.display = 'block'; // เปิด modal
+        }
+
+        function closeYearSelector() {
+            document.getElementById('yearSelectorModal').style.display = 'none';
+        }
+
+        function selectYearFromInput() {
+            const dateInput = document.getElementById('yearInput');
+            const selectedDate = new Date(dateInput.value);
+            currentYear = selectedDate.getFullYear();
+            currentMonth = selectedDate.getMonth();
+            generateCalendar(currentMonth, currentYear);
+            closeYearSelector();
+        }
+
+        // เริ่มต้นปฏิทิน
+        generateCalendar(currentMonth, currentYear);
+    </script>
+</body>
+</html>
