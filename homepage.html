@@ -190,6 +190,37 @@
             font-size: 1.2em;
         }
 
+        .main-content {
+            display: flex; /* จัดเนื้อหาเป็นแถว */
+            align-items: flex-start; /* จัดให้อยู่บนบรรทัดเดียวกัน */
+            margin: 20px;
+        }
+        .main-content img {
+            margin-right: 20px; /* ระยะห่างระหว่างรูปภาพกับ content */
+        }
+        #content {
+            padding: 80px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            min-height: 400px;
+            flex: 1; /* ขยาย content ให้เต็มที่เท่าที่จะทำได้ */
+            margin-left: 40px; /* เพิ่มระยะห่างจากขอบซ้าย */
+            margin-right: 40px; /* เพิ่มระยะห่างจากขอบขวา */
+            margin-top: 40px;
+        }
+        .bottom-left-button {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            padding: 30px 40px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 20px;
+        }
     </style>
 </head>
 <body bgcolor="#1D0066">
@@ -199,10 +230,10 @@
             
 
         <div class="navbar">
-            <a class="active" href="#"><i class="fa fa-fw fa-home"></i> หน้าหลัก</a>
-            <a href="#"><i class="fa fa fa-calendar"></i> ปฏิทิน</a>
-            <a href="#"><i class="fa fa fa-bookmark"></i> รายการโปรด</a>
-            <a href="#"><i class="fa fa fa fa-bell"></i> การแจ้งเตือน</a>
+            <a class="active" href="#" onclick="loadContent('home.html')">หน้าหลัก</a>
+            <a href="#" onclick="loadContent('calendar.html')">ปฏิทิน</a>
+            <a href="#" onclick="loadContent('favorites.html')">รายการโปรด</a>
+            <a href="#" onclick="loadContent('HomepageMP3.html')">การแจ้งเตือน</a>
             <a href="#"><i class="fa fa-fw fa-search"></i> Search</a>
           </div>
 
@@ -228,6 +259,23 @@
             menu.classList.toggle("show"); // สลับการเพิ่ม/ลบ class "show" เพื่อแสดงหรือซ่อนเมนู
         }
     </script>
+
+    <div class="main-content">
+    <div class="profile">
+        <!-- รูปโปรไฟล์จะแสดงที่นี่ -->
+        <img id="profile-image" src="" alt="Profile Image">
+
+        <!-- ข้อมูลผู้ใช้จะแสดงที่นี่ -->
+        <div class="profile-info">
+            <p id="username">Username: </p>
+            <p id="user-id">User ID: </p>
+        </div>
+    </div>
+    <div id="content">
+    <h2>ยินดีต้อนรับสู่หน้าแรก</h2>
+    <p>นี่คือเนื้อหาหน้าแรก</p>
+    </div>
+    </div>
     <div>
         <h2 class="move-down" >งานของฉัน</h2>
     </div>
@@ -253,16 +301,6 @@
             </div>
         </div>
     </div>
-    <div class="profile">
-        <!-- รูปโปรไฟล์จะแสดงที่นี่ -->
-        <img id="profile-image" src="" alt="Profile Image">
-
-        <!-- ข้อมูลผู้ใช้จะแสดงที่นี่ -->
-        <div class="profile-info">
-            <p id="username">Username: </p>
-            <p id="user-id">User ID: </p>
-        </div>
-    </div>
 
     <script>
         // ตัวอย่างข้อมูลผู้ใช้ที่สามารถดึงมาจาก backend
@@ -277,8 +315,6 @@
         document.getElementById('username').textContent = `Username: ${user.name}`;
         document.getElementById('user-id').textContent = `User ID: ${user.id}`;
     </script>
-
-    
 
 </body>
 </html>
