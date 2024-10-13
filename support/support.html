@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search</title>
+    <title>Support</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-    <link rel="stylesheet" href="style2.css"/>
+    <link rel="stylesheet" href="style4.css"/>
     <style>
         /* ตั้งค่าพื้นฐานให้กับ body เช่น font และ margin */
         body {
@@ -229,15 +229,15 @@
 <body bgcolor="#1D0066">
     <!-- ส่วนของ Navbar -->
     <div class="navbar">
-        <h2> Remind me! <img src="imageja/remind.png" width="40" height="50"></h2>
+        <h2> Remind me! <img src="about us/imageja/remaind.png" width="40" height="50"></h2>
             
 
         <div class="navbar">
-            <a href="#" onclick="loadContent('home.html')"><i class="fa fa-fw fa-home"></i>หน้าหลัก</a>
+            <a href="#" onclick="loadContent('home.html')">หน้าหลัก</a>
             <a href="#" onclick="loadContent('calendar.html')"><i class="fa fa fa-calendar"></i> ปฏิทิน</a>
             <a href="#" onclick="loadContent('favorites.html')"><i class="fa fa fa-bookmark"></i> รายการโปรด</a>
             <a href="#" onclick="loadContent('HomepageMP3.html')"><i class="fa fa fa fa-bell"> </i>การแจ้งเตือน</a>
-            <a class="active" href="#" onclick="loadContent('search.html')"><i class="fa fa-fw fa-search"></i> Search</a>
+            <a href="#" onclick="loadContent('search.html')"><i class="fa fa-fw fa-search"></i> Search</a>
           </div>
 
         <!-- ปุ่ม Hamburger -->
@@ -251,8 +251,33 @@
     <!-- เมนูที่ซ่อนอยู่ -->
     <div class="menu" id="menu"> <!-- เมนูที่ถูกซ่อนอยู่ มี id="menu" เพื่อให้เรียกใช้ได้ง่าย -->
         <a href="#">Profile</a> <!-- ลิงก์ไปยังหน้า Profile -->
-        <a href="#">Settings</a> <!-- ลิงก์ไปยังหน้า Settings -->
+        <a href="#">Support</a> <!-- ลิงก์ไปยังหน้า support -->
         <a href="#">Logout</a> <!-- ลิงก์ไปยังหน้า Logout -->
+    </div>
+
+
+    <div class="container1">
+            <div class="main-title1">Support</div>
+            <div class="content1">
+                <input type="radio" name="indicator" id="help">
+                <input type="radio" name="indicator" id="aboutUs">
+                <input type="radio" name="indicator" id="contactUs">
+            <div class="list1">
+                <label for="help" class="help">
+                    <i class="fa-solid fa-circle-question"></i>
+                    <span class="topic">Help</span>
+                </label>
+                <label for="aboutUs" class="aboutUs">
+                    <i class="fa-solid fa-user-group"></i>
+                    <span class="topic">About Us</span>
+                </label>
+                <label for="contactUs" class="contactUs">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span class="topic">Contact Us</span>
+                </label>
+                <div class="indicator"></div>
+            </div>
+            </div>
     </div>
 
     <!-- สคริปต์สำหรับจัดการ Hamburger Menu -->
@@ -263,70 +288,6 @@
         }
     </script>
 
-    <div class="main-content">
-    <div class="profile">
-        <!-- รูปโปรไฟล์จะแสดงที่นี่ -->
-        <img id="profile-image" src="" alt="Profile Image">
-
-        <!-- ข้อมูลผู้ใช้จะแสดงที่นี่ -->
-        <div class="profile-info">
-            <p id="username">Username: </p>
-            <p id="user-id">User ID: </p>
-        </div>
-    </div>
-
-    <div id="content">
-    <!--Search Bar start-->
-    <div class="search-bar">
-        <!--dropdown start-->
-            <div class="dropdown">
-                <div id="drop-text" class="dropdown-text">
-                    <span id="span">สิ่งที่ต้องทำ</span>
-                    <i id="icon" class="fa-solid fa-chevron-down"></i>
-                </div>
-
-                <ul id="list" class="dropdown-list">
-                    <li class="dropdown-list-item">สิ่งที่ต้องทำ!</li>
-                    <li class="dropdown-list-item">กำลังดำเนินการ...</li>
-                    <li class="dropdown-list-item">เสร็จสิ้นแล้ว</li>
-                </ul>
-            </div>
-    
-            
-        <!--dropdown end-->
-    
-        <!--search box input start-->
-            <div class="search-box">
-                <input type="text" id="search-input" placeholder="ค้นหา สิ่งที่ต้องทำ!">
-                <i class="fa-solid fa-magnifying-glass"></i>
-    
-            </div>
-        <!--search box input end-->
-    
-    
-        </div>
-    
-        <!--Search Bar end-->
-    
-        
-    </div>
-    </div>
-
-    <script src="script.js"></script>
-
-    <script>
-        // ตัวอย่างข้อมูลผู้ใช้ที่สามารถดึงมาจาก backend
-        const user = {
-            id: '12345',
-            name: 'John Doe',
-            profileImage: 'https://via.placeholder.com/100' // ลิงก์ไปยังรูปโปรไฟล์ของผู้ใช้
-        };
-
-        // อัปเดตรูปโปรไฟล์และข้อมูลผู้ใช้ใน HTML
-        document.getElementById('profile-image').src = user.profileImage;
-        document.getElementById('username').textContent = `Username: ${user.name}`;
-        document.getElementById('user-id').textContent = `User ID: ${user.id}`;
-    </script>
 
 </body>
 </html>

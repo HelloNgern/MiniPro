@@ -15,18 +15,19 @@ if ($conn->connect_error) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $pass = $_POST['password'];
-    $status=$row['status'];
+    
     $sql = "SELECT * FROM users WHERE email='$email'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
+        $role=$row['role'];
         if (password_verify($pass, $row['password'])) {
             $_SESSION['email'] = $email;
-            if($status == '0'){
+            if($role == '0'){
                 header("Location: ../homepage.php"); // เปลี่ยนเส้นทางไปยังหน้า Home
             }else{
-                header("Location: ../admin/dashboard.php"); 
+                header("Location: ../admin/showdata.php");
             }
            
             exit(); // จบการทำงานของสคริปต์

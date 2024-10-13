@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>รายการโปรด</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="navbar">
+        <h2> Remind me! <img src="image/remindd.png" width="40" height="50"></h2>
+
+        <div class="navbar">
+            <a href="#" onclick="loadContent('home.html')"><i class="fa fa-fw fa-home"></i>หน้าหลัก</a>
+            <a href="#" onclick="loadContent('calendar01.html')"><i class="fa fa fa-calendar"></i> ปฏิทิน</a>
+            <a   class="active" href="#" onclick="loadContent('favorites.html')"><i class="fa fas fa-heart"></i> รายการโปรด</a>
+            <a href="#" onclick="loadContent('HomepageMP3.html')"><i class="fa fa fa fa-bell"> </i>การแจ้งเตือน</a>
+            <a href="#"><i class="fa fa-fw fa-search"></i> Search</a>
+          </div>
+
+        <!-- ปุ่ม Hamburger -->
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- เมนูที่ซ่อนอยู่ -->
+    <div class="menu" id="menu"> <!-- เมนูที่ถูกซ่อนอยู่ มี id="menu" เพื่อให้เรียกใช้ได้ง่าย -->
+        <a href="#">Profile</a> <!-- ลิงก์ไปยังหน้า Profile -->
+        <a href="#">Settings</a> <!-- ลิงก์ไปยังหน้า Settings -->
+        <a href="#">Logout</a> <!-- ลิงก์ไปยังหน้า Logout -->
+    </div>
+
+    <div class="main-content">
+    <div class="profile">
+        <!-- รูปโปรไฟล์จะแสดงที่นี่ -->
+        <img id="profile-image" src="" alt="Profile Image">
+
+        <!-- ข้อมูลผู้ใช้จะแสดงที่นี่ -->
+        <div class="profile-info">
+            <p id="username">Username: </p>
+            <p id="user-id">User ID: </p>
+        </div>
+
+    </div>
+
+    <script>
+        function loadContent(filename) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', filename, true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    document.getElementById('content').innerHTML = xhr.responseText;
+                }
+            };
+            xhr.send();
+        }
+    </script>
+
+    <div class="container">
+        <h1>รายการโปรด</h1>
+        <ul id="favorite-list"></ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
