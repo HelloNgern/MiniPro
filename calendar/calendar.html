@@ -3,257 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../homepage.css">
+    <link rel="stylesheet" href="calendar.css">
     <title>Calendar</title>
-    <style>
-        .calendar {
-            width: 80%;
-            max-width: 600px;
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .calendar-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        .month-year {
-            font-size: 1.5em;
-        }
-
-        .calendar-grid {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .day, .empty {
-            background-color: #f4f4f4;
-            border-radius: 5px;
-            padding: 10px;
-            text-align: center;
-            cursor: pointer;
-        }
-
-        .day-name, .day {
-            text-align: center;
-            padding: 10px;
-        }
-
-        .day-name {
-            font-weight: bold;
-        }
-
-        .day:hover {
-            background-color: #4CAF50;
-            color: white;
-        }
-
-        .empty {
-            visibility: hidden;
-        }
-
-        .event-marker {
-            color: red;
-            font-weight: bold;
-        }
-
-        .buttons {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 20px;
-        }
-
-        .buttons div {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .action-button {
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 1em;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .action-button:hover {
-            background-color: #0056b3;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .action-button.delete {
-            background-color: #DC3545;
-        }
-
-        .action-button.delete:hover {
-            background-color: #c82333;
-        }
-
-        .action-button:disabled {
-            background-color: #ccc;
-            cursor: not-allowed;
-        }
-
-        .event-form {
-            display: none;
-            margin-top: 20px;
-            background-color: #f9f9f9;
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .event-form input, .event-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-
-        .event-form button {
-            padding: 10px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        .event-form button.cancel {
-            background-color: #dc3545;
-        }
-
-        .today {
-            border: 2px solid red;
-            border-radius: 50%;
-            background-color: transparent;
-            color: black;
-        }
-
-        .selected {
-            background-color: #4CAF50;
-            color: white;
-            border-radius: 5px;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-
-        .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 400px;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover, .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        .month-year {
-    font-size: 1.5em;
-    cursor: pointer; /* เพิ่ม cursor pointer */
-    transition: color 0.3s; /* เพิ่มการเปลี่ยนสี */
-    }
-
-    .month-year:hover {
-    color: #4CAF50; /* เปลี่ยนสีเมื่อ hover */
-    }
-
-    .active {
-        background-color: #7082de;
-        }
-    </style>
     </head>
-    <body>
-    <div class="calendar">
-        <div class="calendar-header">
-            <button class="nav-button" onclick="prevMonth()">❮</button>
-            <div class="month-year">
-                <span id="monthName"></span>
-                <span id="yearDisplay" class="month-year" onclick="openYearSelector()"></span>
-            </div>
-            <button class="nav-button" onclick="nextMonth()">❯</button>
-        </div>
+    <body bgcolor="#1D0066">
+        <!-- ส่วนของ Navbar -->
+    <div class="navbar">
+        <h2> Remind me! <img src="../register/image/remindd.png" width="40" height="50"></h2>
+            
 
-        <!-- Modal สำหรับเลือกปี -->
-        <div id="yearSelectorModal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeYearSelector()">&times;</span>
-                <input type="date" id="yearInput" onchange="selectYearFromInput()">
-            </div>
-        </div>
+        <div class="navbar">
+            <a class="active" href="../homepage.html"><i class="fa fa-fw fa-home"></i>หน้าหลัก</a>
+            <a href="calendar.html"><i class="fa fa fa-calendar"></i> ปฏิทิน</a>
+            <a href="#"></i> รายการโปรด</a>
+            <a href="#"><i class="fa fa fa fa-bell"> </i>การแจ้งเตือน</a>
+            <a href="search/search.html"><i class="fa fa-fw fa-search"></i> Search</a>
+          </div>
 
-        <div class="calendar-grid">
-            <div class="day-name">Sun</div>
-            <div class="day-name">Mon</div>
-            <div class="day-name">Tue</div>
-            <div class="day-name">Wed</div>
-            <div class="day-name">Thu</div>
-            <div class="day-name">Fri</div>
-            <div class="day-name">Sat</div>
-        </div>
-
-        <div class="calendar-grid" id="daysContainer">
-            <!-- Days will be dynamically generated here -->
-        </div>
-
-        <div class="buttons">
-            <div>
-                <button class="action-button" id="createEventBtn" disabled onclick="openEventForm()">Create Event</button>
-                <button class="action-button" id="viewEventBtn" style="display: none;">View Event Details</button>
-            </div>
-            <button class="action-button delete" id="deleteEventBtn" disabled onclick="deleteEvent()">Delete Event</button>
-        </div>
-
-        <div class="event-form" id="eventForm">
-            <h3>Create Event for <span id="selectedDate"></span></h3>
-            <input type="text" id="eventName" placeholder="Event Name" required>
-            <textarea id="eventDescription" rows="3" placeholder="Event Description" required></textarea>
-            <button onclick="saveEvent()">Save Event</button>
-            <button class="cancel" onclick="closeEventForm()">Cancel</button>
+        <!-- ปุ่ม Hamburger -->
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
     </div>
-    <script src="calendar.js"></script>
+
+    <!-- เมนูที่ซ่อนอยู่ -->
+    <div class="menu" id="menu"> <!-- เมนูที่ถูกซ่อนอยู่ มี id="menu" เพื่อให้เรียกใช้ได้ง่าย -->
+        <a href="#">Profile</a> <!-- ลิงก์ไปยังหน้า Profile -->
+        <a href="#">Settings</a> <!-- ลิงก์ไปยังหน้า Settings -->
+        <a href="#">Logout</a> <!-- ลิงก์ไปยังหน้า Logout -->
+    </div>
+
+    <!-- สคริปต์สำหรับจัดการ Hamburger Menu -->
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("menu"); // เข้าถึงเมนูด้วย id="menu"
+            menu.classList.toggle("show"); // สลับการเพิ่ม/ลบ class "show" เพื่อแสดงหรือซ่อนเมนู
+        }
+    </script>
+
+    <div class="main-content">
+    <div class="profile">
+        <!-- รูปโปรไฟล์จะแสดงที่นี่ -->
+        <img id="profile-image" src="" alt="Profile Image">
+
+        <!-- ข้อมูลผู้ใช้จะแสดงที่นี่ -->
+        <div class="profile-info">
+            <p id="username">Username: </p>
+            <p id="user-id">User ID: </p>
+        </div>
+    </div>
+    <div id="content">
+        <div class="calendar">
+            <div class="calendar-header">
+                <button class="nav-button" onclick="prevMonth()">❮</button>
+                <div class="month-year">
+                    <span id="monthName"></span>
+                    <span id="yearDisplay" class="month-year" onclick="openYearSelector()"></span>
+                </div>
+                <button class="nav-button" onclick="nextMonth()">❯</button>
+            </div>
+    
+            <!-- Modal สำหรับเลือกปี -->
+            <div id="yearSelectorModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeYearSelector()">&times;</span>
+                    <input type="date" id="yearInput" onchange="selectYearFromInput()">
+                </div>
+            </div>
+    
+            <div class="calendar-grid">
+                <div class="day-name">Sun</div>
+                <div class="day-name">Mon</div>
+                <div class="day-name">Tue</div>
+                <div class="day-name">Wed</div>
+                <div class="day-name">Thu</div>
+                <div class="day-name">Fri</div>
+                <div class="day-name">Sat</div>
+            </div>
+    
+            <div class="calendar-grid" id="daysContainer">
+                <!-- Days will be dynamically generated here -->
+            </div>
+    
+            <div class="buttons">
+                <div>
+                    <button class="action-button" id="createEventBtn" disabled onclick="openEventForm()">Create Event</button>
+                    <button class="action-button" id="viewEventBtn" style="display: none;">View Event Details</button>
+                </div>
+                <button class="action-button delete" id="deleteEventBtn" disabled onclick="deleteEvent()">Delete Event</button>
+            </div>
+    
+            <div class="event-form" id="eventForm">
+                <h3>Create Event for <span id="selectedDate"></span></h3>
+                <input type="text" id="eventName" placeholder="Event Name" required>
+                <textarea id="eventDescription" rows="3" placeholder="Event Description" required></textarea>
+                <button onclick="saveEvent()">Save Event</button>
+                <button class="cancel" onclick="closeEventForm()">Cancel</button>
+            </div>
+        </div>
+        <script src="calendar.js"></script>
+    </div>
+    </div>
+
+    <div>
+        <h2 class="move-down" >งานของฉัน</h2>
+    </div>
+
+
+    <div>
+        <div class="container">
+            <!-- กล่องที่ 1: สำหรับ "สิ่งที่ต้องทำ" -->
+            <div class="box" onclick="window.location.href='สิ่งที่ต้องทำ.html'">
+                <img src="../register/image/remindd.png" alt="สิ่งที่ต้องทำ"> <!-- ไอคอนรูปภาพ -->
+                <p>สิ่งที่ต้องทำ!</p> <!-- ข้อความในกล่อง -->
+            </div>
+
+            <!-- กล่องที่ 2: สำหรับ "กำลังดำเนินการ" -->
+            <div class="box student" onclick="window.location.href='กำลังดำเนินการ.html'">
+                <img src="../register/image/remindd.png" alt="กำลังดำเนินการ"> <!-- ไอคอนรูปภาพ -->
+                <p>กำลังดำเนินการ...</p> <!-- ข้อความในกล่อง -->
+            </div>
+    
+            <!-- กล่องที่ 3: สำหรับ "เสร็จสิ้นแล้ว" -->
+            <div class="box research" onclick="window.location.href='เสร็จสิ้นแล้ว.html'">
+                <img src="../register/image/remindd.png" alt="เสร็จสิ้นแล้ว"> <!-- ไอคอนรูปภาพ -->
+                <p>เสร็จสิ้นแล้ว</p> <!-- ข้อความในกล่อง -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ตัวอย่างข้อมูลผู้ใช้ที่สามารถดึงมาจาก backend
+        const user = {
+            id: '12345',
+            name: 'John Doe',
+            profileImage: 'https://via.placeholder.com/100' // ลิงก์ไปยังรูปโปรไฟล์ของผู้ใช้
+        };
+
+        // อัปเดตรูปโปรไฟล์และข้อมูลผู้ใช้ใน HTML
+        document.getElementById('profile-image').src = user.profileImage;
+        document.getElementById('username').textContent = `Username: ${user.name}`;
+        document.getElementById('user-id').textContent = `User ID: ${user.id}`;
+    </script>
 </body>
 </html>
