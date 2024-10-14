@@ -8,14 +8,15 @@
     <link rel="stylesheet" href="home.css"> 
 </head>
 <body bgcolor="#1D0066">
-    <?php
-    session_start();
-    if (isset($_SESSION['id'])) {
-        $userId = $_SESSION['id']; // ดึง user_id จาก session
-    } else {
-        echo "กรุณาล็อกอินก่อนใช้งาน";
-    }
-    ?>
+<?php
+session_start(); // เริ่ม session
+
+// ตรวจสอบว่า session มีค่า user_id หรือไม่
+if (!isset($_SESSION['id'])) {
+    die("Error: User not logged in.");
+}
+?>
+
     <!-- ส่วนของ Navbar -->
     <div class="navbar">
         <h2> Remind me! <img src="../register/image/remindd.png" width="40" height="50"></h2>
@@ -41,9 +42,14 @@
     <div class="menu" id="menu"> <!-- เมนูที่ถูกซ่อนอยู่ มี id="menu" เพื่อให้เรียกใช้ได้ง่าย -->
         <a href="#">Profile</a> <!-- ลิงก์ไปยังหน้า Profile -->
         <a href="#">Settings</a> <!-- ลิงก์ไปยังหน้า Settings -->
-        <a href="#">Logout</a> <!-- ลิงก์ไปยังหน้า Logout -->
+        <a onclick="lockoutUser()" href="#">Logout</a> <!-- ลิงก์ไปยังหน้า Logout -->
     </div>
     <script>
+        function lockoutUser() {
+    if (confirm("คุณต้องการล็อกเอาท์ใช่ไหม?")) {
+        window.location.href = 'logout.php'; // เปลี่ยนเส้นทางไปยังหน้า logout
+    }
+}
         function toggleMenu() {
             var menu = document.getElementById("menu"); // เข้าถึงเมนูด้วย id="menu"
             menu.classList.toggle("show"); // สลับการเพิ่ม/ลบ class "show" เพื่อแสดงหรือซ่อนเมนู
