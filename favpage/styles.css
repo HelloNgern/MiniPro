@@ -1,0 +1,191 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #2c0057;
+    text-align: right; 
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar  สไตล์สำหรับ Navbar (แถบเมนูด้านบน) */
+.navbar {
+    background-color: #E8A44B; /* กำหนดสีพื้นหลังเป็นสีส้ม */
+    color: white; /* กำหนดสีตัวอักษรเป็นสีขาว */
+    padding: 5px 10px; /* กำหนดระยะห่าง (padding) ด้านบนและด้านล่าง 5px, ด้านซ้ายและขวา 10px */
+    height: 50px; /* กำหนดความสูงของแถบนำทางให้เป็น 50px */
+    position: relative;         /* กำหนดตำแหน่งเป็น relative เพื่อให้สามารถจัดวางองค์ประกอบภายในได้อย่างยืดหยุ่น */
+    display: flex;              /* ใช้ Flexbox เพื่อจัดเรียงองค์ประกอบภายใน Navbar */
+    justify-content: space-between; /* กระจายองค์ประกอบภายใน Navbar ให้มีระยะห่างเท่ากัน (ซ้ายสุดและขวาสุด) */
+    align-items: center;        /* จัดให้องค์ประกอบภายในอยู่ตรงกลางในแนวตั้ง */
+    /* overflow: auto; */       /* ถ้าใช้จะช่วยจัดการเนื้อหาที่เกินในกรณีที่ Navbar มีความกว้างไม่พอ */
+}
+/* 
+คือระยะห่างภายในขององค์ประกอบ (element)
+รูปแบบของ padding สามารถกำหนดได้หลายทิศทาง เช่น
+padding-top: ระยะห่างด้านบน
+padding-right: ระยะห่างด้านขวา
+padding-bottom: ระยะห่างด้านล่าง 
+padding-left: ระยะห่างด้านซ้าย
+
+margin คือระยะห่างภายนอกขององค์ประกอบ (element)
+รูปแบบของ margin สามารถกำหนดได้หลายทิศทางเช่นเดียวกับ padding
+*/
+
+/* ตั้งค่าขนาดและตำแหน่งของภาพ
+.navbar img {
+    width: 100px;
+    height: 120px;  กำหนดความสูงของภาพ 
+    margin-right: 20px;  เพิ่มช่องว่างระหว่างภาพกับข้อความ 
+    margin-left: 50px;
+}*/
+
+/* ตั้งค่าสไตล์สำหรับชื่อใน Navbar */
+.navbar h2 {
+    padding: 0;
+    margin-left: 40px;
+    display: flex; /* จัดให้ข้อความและภาพอยู่ในบรรทัดเดียวกัน */
+    align-items: center; /* จัดให้ข้อความอยู่ตรงกลางแนวตั้งของภาพ */
+}
+
+/* สไตล์สำหรับปุ่ม Hamburger Menu */
+.hamburger {
+    margin-left: 20;
+    margin-right: 40px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* กำหนดสไตล์สำหรับขีดแต่ละอันใน Hamburger (ใช้ div 3 อัน) */
+.hamburger div {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+    transition: 0.4s;
+}
+
+/* Menu Hidden by Default สไตล์สำหรับเมนูที่ซ่อนอยู่ (เริ่มต้นจะซ่อน) */
+.menu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+/* สไตล์สำหรับลิงก์ภายในเมนู */
+.menu a {
+    display: block; /* ลิงก์แต่ละอันเป็นบล็อกแยก */
+    padding: 10px 20px; /* เพิ่มระยะห่างภายในลิงก์ */
+    text-decoration: none; /* ลบเส้นใต้ลิงก์ */
+    color: #333; /* ตั้งค่าสีของลิงก์ */
+}
+
+/* เอฟเฟกต์เมื่อ hover ที่ลิงก์ในเมนู */
+.menu a:hover {
+    background-color: #f4f4f4; /* เปลี่ยนสีพื้นหลังของลิงก์เมื่อ hover */
+}
+
+/* แสดงเมนูเมื่อมี class "show" */
+.menu.show {
+    display: block; /* เมื่อมี class show จะแสดงเมนู */
+}
+
+.navbar a {
+    float: left;
+    padding: 5px;
+    margin-left: 60px;
+    margin-right: 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.navbar a:hover {
+background-color: #7082de;
+}
+
+.active {
+background-color: #7082de;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.profile img {
+    margin-left: 40px;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.profile-info {
+    font-size: 1.2em;
+}
+
+.main-content img {
+    margin-right: 20px; /* ระยะห่างระหว่างรูปภาพกับ content */
+}
+
+.container {
+    position: absolute; /* ให้ container มีตำแหน่งแบบ absolute */
+    top: 100px; /* ให้อยู่ติดขอบบนสุด */
+    right: 100px; /* หรือใช้ right: 0; หากต้องการให้ติดขอบด้านขวา */
+    /* margin-top: -200px; */
+    /* margin-right: 180px; */
+    text-align: center;
+    background-color: #3d0069;
+    border-radius: 15px;
+    padding: 20px;
+    display: inline-block;
+    width: 500px;
+    height: 350px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+p {
+    font-size: 14px;
+    color: lightgray;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    font-size: 18px;
+    color: white;
+    margin: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.heart {
+    color: red;
+    font-size: 20px;
+    cursor: pointer; /* Make it clickable */
+}
+
+.heart.inactive {
+    color: lightgray;
+}
+
+.circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #b195d3;
+    margin-right: 10px;
+}

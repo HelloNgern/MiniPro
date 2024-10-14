@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search</title>
+    <title>Support</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-    <link rel="stylesheet" href="style2.css"/>
+    <link rel="stylesheet" href="style4.css"/>
     <style>
         /* ตั้งค่าพื้นฐานให้กับ body เช่น font และ margin */
         body {
@@ -233,11 +233,11 @@
             
 
         <div class="navbar">
-            <a href="#" onclick="loadContent('home.html')"><i class="fa fa-fw fa-home"></i>หน้าหลัก</a>
+            <a href="#" onclick="loadContent('home.html')">หน้าหลัก</a>
             <a href="#" onclick="loadContent('calendar.html')"><i class="fa fa fa-calendar"></i> ปฏิทิน</a>
             <a href="#" onclick="loadContent('favorites.html')"><i class="fa fa fa-bookmark"></i> รายการโปรด</a>
             <a href="#" onclick="loadContent('HomepageMP3.html')"><i class="fa fa fa fa-bell"> </i>การแจ้งเตือน</a>
-            <a class="active" href="#" onclick="loadContent('search.html')"><i class="fa fa-fw fa-search"></i> Search</a>
+            <a href="#" onclick="loadContent('search.html')"><i class="fa fa-fw fa-search"></i> Search</a>
           </div>
 
         <!-- ปุ่ม Hamburger -->
@@ -251,9 +251,113 @@
     <!-- เมนูที่ซ่อนอยู่ -->
     <div class="menu" id="menu"> <!-- เมนูที่ถูกซ่อนอยู่ มี id="menu" เพื่อให้เรียกใช้ได้ง่าย -->
         <a href="#">Profile</a> <!-- ลิงก์ไปยังหน้า Profile -->
-        <a href="#">Settings</a> <!-- ลิงก์ไปยังหน้า Settings -->
+        <a href="#">Support</a> <!-- ลิงก์ไปยังหน้า support -->
         <a href="#">Logout</a> <!-- ลิงก์ไปยังหน้า Logout -->
     </div>
+
+
+    <div class="container1">
+            <div class="main-title1">Support</div>
+            <div class="content1">
+                <input type="radio" name="indicator" checked id="help">
+                <input type="radio" name="indicator" id="aboutUs">
+                <input type="radio" name="indicator" id="contactUs">
+            <div class="list1">
+                <label for="help" class="help">
+                    <i class="fa-solid fa-circle-question"></i>
+                    <span class="topic">Help</span>
+                </label>
+                <label for="aboutUs" class="aboutUs">
+                    <i class="fa-solid fa-user-group"></i>
+                    <span class="topic">About Us</span>
+                </label>
+                <label for="contactUs" class="contactUs">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span class="topic">Contact Us</span>
+                </label>
+                <div class="indicator"></div>
+            </div>
+            <div class="text-content">
+                <div class="help text">
+                <div class="title">Help</div>
+                <p>1. การสร้างและจัดการกิจกรรม (Event Creation & Management)<br>
+                    วิธีสร้างกิจกรรมใหม่: <br>
+                    การแก้ไขกิจกรรม: <br>
+                    การยกเลิกกิจกรรม:  <br>
+                    2. การลงทะเบียนและเข้าร่วมกิจกรรม (Event Registration & Participation)
+                    วิธีลงทะเบียนเข้าร่วมกิจกรรม: <br>
+                    การยืนยันการเข้าร่วม:  <br>
+                    การยกเลิกการลงทะเบียน: <br>
+                    3. การจัดการบัญชีผู้ใช้ (Account Management)<br>
+                    การสร้างบัญชีผู้ใช้ใหม่: <br>
+                    การลืมรหัสผ่าน/การรีเซ็ตรหัสผ่าน: <br>
+                    การแก้ไขโปรไฟล์ส่วนตัว: <br>
+                    4. การแจ้งเตือนและติดตามกิจกรรม (Notifications & Tracking)<br>
+                    การเปิด/ปิดการแจ้งเตือน: <br>
+                    การติดตามกิจกรรมที่ชื่นชอบ: <br>
+                    5. คำถามที่พบบ่อย (FAQ)
+                    วิธีเข้าร่วมกิจกรรมออนไลน์: <br>
+                    การจัดการปัญหาทางเทคนิค: <br>
+                    6. การติดต่อฝ่ายสนับสนุน (Contact Support)<br>
+                    ช่องทางการติดต่อ: <br>
+                </p>
+            </div>
+            <div class="aboutUs text">
+                <div class="title">About Us</div>
+                <p>ยินดีต้อนรับสู่ Remind Me! แพลตฟอร์มการจัดการกิจกรรมที่ถูกออกแบบมาเพื่อช่วยให้ทุกคนสามารถจัดกิจกรรมได้อย่างง่ายดาย ไม่ว่าจะเป็นการจัดกิจกรรมขนาดเล็กสำหรับกลุ่มเพื่อนหรือกิจกรรมใหญ่ระดับองค์กร เรามุ่งมั่นที่จะทำให้กระบวนการจัดการกิจกรรมทุกขั้นตอนเป็นไปอย่างราบรื่น สะดวกสบาย และประหยัดเวลา<br>
+                    <br>
+                    ภารกิจของเรา<br>
+                    เราเชื่อว่าการจัดกิจกรรมไม่ควรเป็นเรื่องยุ่งยาก นั่นเป็นเหตุผลที่เราพัฒนาแพลตฟอร์มที่ช่วยให้ผู้ใช้งานสามารถ วางแผน จัดการ และโปรโมตกิจกรรมได้ในที่เดียว เราออกแบบ Remind Me! เพื่อให้รองรับทุกประเภทของกิจกรรม ตั้งแต่การจัดการตารางเวลา การลงทะเบียนผู้เข้าร่วม การแจ้งเตือนอัตโนมัติ จนถึงการติดตามผลหลังจบงาน<br>
+                    <br>
+                    ฟีเจอร์หลักของเรา<br>
+                    การสร้างกิจกรรมที่ง่ายและรวดเร็ว : เพียงไม่กี่ขั้นตอน คุณสามารถสร้างกิจกรรมที่ต้องการได้ ทั้งการตั้งค่าการเข้าร่วม การกำหนดเวลาและสถานที่<br>
+                    ระบบแจ้งเตือนอัตโนมัติ : ไม่พลาดทุกการอัปเดต! ผู้เข้าร่วมจะได้รับการแจ้งเตือนล่วงหน้าเกี่ยวกับกิจกรรม ไม่ว่าจะเป็นการเปลี่ยนแปลงตารางหรือข่าวสารที่สำคัญ<br>
+                    การลงทะเบียนออนไลน์ : ผู้เข้าร่วมสามารถลงทะเบียนเข้าร่วมกิจกรรมผ่านระบบของเราได้อย่างง่ายดาย พร้อมทั้งติดตามสถานะการลงทะเบียนและข้อมูลการเข้าร่วม<br>
+                    การจัดการหลายกิจกรรม : สำหรับผู้จัดกิจกรรมที่มีหลายงานพร้อมกัน ระบบของเราช่วยให้คุณสามารถจัดการหลายกิจกรรมได้ในเวลาเดียวกัน<br>
+                    <br>
+                    เป้าหมายของเรา<br>
+                    Remind Me! มุ่งมั่นที่จะเป็นเครื่องมือที่ช่วยลดภาระของผู้จัดงาน และเพิ่มประสิทธิภาพในการจัดกิจกรรม เราต้องการให้ทุกกิจกรรมไม่ว่าจะเล็กหรือใหญ่ สำเร็จลุล่วงได้ด้วยความราบรื่น ด้วยการเชื่อมต่อผู้จัดและผู้เข้าร่วมเข้าด้วยกันอย่างลงตัว<br>
+                    <br>
+                    ทีมงานของเรา<br>
+                    ทีมงานของเราประกอบด้วยผู้เชี่ยวชาญด้านการพัฒนาเทคโนโลยีและการจัดการกิจกรรม เราเข้าใจความท้าทายในการจัดการงานต่างๆ และเรายินดีที่จะให้คำปรึกษาและสนับสนุนผู้ใช้งานทุกท่านอย่างเต็มที่<br>
+                    <br>
+                    ติดต่อเรา<br>
+                    หากคุณมีคำถามหรือข้อสงสัย สามารถติดต่อเราได้ผ่านช่องทางต่างๆ ในหน้า Contact Us เราพร้อมที่จะรับฟังข้อเสนอแนะและช่วยแก้ไขปัญหา เพื่อให้คุณได้รับประสบการณ์ที่ดีที่สุด<br>
+                    <br>
+                    Remind Me! - ทุกกิจกรรมเป็นเรื่องง่ายกว่าที่เคย
+                </p>
+            </div>
+            <div class="contactUs text">
+                <div class="title">Contact Us</div>
+                <p>เรายินดีที่จะให้ความช่วยเหลือและตอบคำถามของคุณ หากคุณต้องการติดต่อเราเกี่ยวกับการใช้งานเว็บไซต์ Remind Me! หรือต้องการสอบถามข้อมูลเพิ่มเติมเกี่ยวกับการจัดการกิจกรรม กรุณาเลือกช่องทางการติดต่อที่สะดวกที่สุดตามรายละเอียดด้านล่าง : <br>
+                    <br>
+                    ช่องทางการติดต่อ<br>
+                    1. อีเมล :<br>
+                    สำหรับข้อสงสัยทั่วไป: support@remindme.com<br>
+                    สำหรับข้อเสนอแนะหรือปัญหาการใช้งาน: feedback@remindme.com<br>
+                    <br>
+                    2. โทรศัพท์ :<br>
+                    ฝ่ายบริการลูกค้า: +66 1234 5678<br>
+                    เวลาทำการ: วันจันทร์ - ศุกร์ เวลา 9:00 - 18:00 น. (ยกเว้นวันหยุดราชการ)<br>
+                    <br>
+                    3. ที่อยู่สำนักงาน :
+                    123 อาคาร Remind Me! ถนนสาทร กรุงเทพฯ 10120<br>
+                    <br>
+                    โซเชียลมีเดีย :<br>
+                    ติดตามข่าวสารและอัปเดตต่างๆ ของเราได้ทางโซเชียลมีเดีย :<br>
+                    Facebook: facebook.com/remindme<br>
+                    Twitter: @remindme<br>
+                    Instagram: @remindme_official<br>
+
+                    เรามุ่งมั่นที่จะให้การสนับสนุนที่ดีที่สุดแก่ผู้ใช้งานทุกท่าน ทีมงานของเราพร้อมที่จะช่วยคุณให้การจัดการกิจกรรมเป็นเรื่องง่ายและราบรื่นมากยิ่งขึ้น!<br>
+                    <br>
+                    Remind Me! - ทุกกิจกรรมสำเร็จได้ง่ายกว่าที่คิด
+                </p>
+            </div>
+            </div>
+    </div>
+    </div>
+
 
     <!-- สคริปต์สำหรับจัดการ Hamburger Menu -->
     <script>
@@ -263,70 +367,6 @@
         }
     </script>
 
-    <div class="main-content">
-    <div class="profile">
-        <!-- รูปโปรไฟล์จะแสดงที่นี่ -->
-        <img id="profile-image" src="" alt="Profile Image">
-
-        <!-- ข้อมูลผู้ใช้จะแสดงที่นี่ -->
-        <div class="profile-info">
-            <p id="username">Username: </p>
-            <p id="user-id">User ID: </p>
-        </div>
-    </div>
-
-    <div id="content">
-    <!--Search Bar start-->
-    <div class="search-bar">
-        <!--dropdown start-->
-            <div class="dropdown">
-                <div id="drop-text" class="dropdown-text">
-                    <span id="span">สิ่งที่ต้องทำ</span>
-                    <i id="icon" class="fa-solid fa-chevron-down"></i>
-                </div>
-
-                <ul id="list" class="dropdown-list">
-                    <li class="dropdown-list-item">สิ่งที่ต้องทำ!</li>
-                    <li class="dropdown-list-item">กำลังดำเนินการ...</li>
-                    <li class="dropdown-list-item">เสร็จสิ้นแล้ว</li>
-                </ul>
-            </div>
-    
-            
-        <!--dropdown end-->
-    
-        <!--search box input start-->
-            <div class="search-box">
-                <input type="text" id="search-input" placeholder="ค้นหา สิ่งที่ต้องทำ!">
-                <i class="fa-solid fa-magnifying-glass"></i>
-    
-            </div>
-        <!--search box input end-->
-    
-    
-        </div>
-    
-        <!--Search Bar end-->
-    
-        
-    </div>
-    </div>
-
-    <script src="script.js"></script>
-
-    <script>
-        // ตัวอย่างข้อมูลผู้ใช้ที่สามารถดึงมาจาก backend
-        const user = {
-            id: '12345',
-            name: 'John Doe',
-            profileImage: 'https://via.placeholder.com/100' // ลิงก์ไปยังรูปโปรไฟล์ของผู้ใช้
-        };
-
-        // อัปเดตรูปโปรไฟล์และข้อมูลผู้ใช้ใน HTML
-        document.getElementById('profile-image').src = user.profileImage;
-        document.getElementById('username').textContent = `Username: ${user.name}`;
-        document.getElementById('user-id').textContent = `User ID: ${user.id}`;
-    </script>
 
 </body>
 </html>

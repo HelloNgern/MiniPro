@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+/*body{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    background: #dad3f8;
+}*/
+
+.container1{
+    max-width: 1490px;
+    width: 100%;
+    background: #fff;
+    border-radius: 12px;
+    margin: 0 20px;
+    padding: 40px 50px 40px 40px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.container1 .main-title1{
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.container1 .content1{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container1 .content1 .list1{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 20%;
+    margin-right: 100px;
+}
+
+.content1 .list1 label{
+    height: 120px;
+    /*background: rebeccapurple;*/
+    font-size: 22px;
+    font-weight: 500;
+    border-radius: 12px;
+    line-height: 60px;
+    cursor: pointer;
+    margin: 5px 0;
+    padding-left: 10px;
+    color: #333;
+    z-index: 12;
+    transition: all 0.4s ease;
+}
+
+.content1 .list1 label:hover{
+    color: #f0ad4e;
+}
+
+#help:checked ~ .list1 .help,
+#aboutUs:checked ~ .list1 .aboutUs,
+#contactUs:checked ~ .list1 .contactUs{
+    color: #fff;
+}
+
+.content1 .indicator{
+    position: absolute;
+    height: 60px;
+    width: 110%;
+    top: 0;
+    left: 0;
+    background: #f0ad4e;
+    border-radius: 12px;
+    transition: all 0.4s ease;
+}
+
+#help:checked ~ .list1 .indicator{
+    top: 0;
+}
+
+#aboutUs:checked ~ .list1 .indicator{
+    top: 130px;
+}
+
+#contactUs:checked ~ .list1 .indicator{
+    top: 260px;
+}
+
+.container1 input[type="radio"]{
+    display: none;
+}
+
+.container1 .content1 .text-content{
+    width: 80%;
+    height: 100%;
+}
+
+.content1 .text-content .text{
+    display: none;
+}
+.content1 .text-content .help{
+    display: block;
+}
+
+#help:checked ~ .text-content .help,
+#aboutUs:checked ~ .text-content .aboutUs,
+#contactUs:checked ~ .text-content .contactUs{
+    display: block;
+}
+
+#aboutUs:checked ~ .text-content .help,
+#contactUs:checked ~ .text-content .help{
+    display: none;
+}
+
+.content1 .text-content .title{
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.content1 .text-content p{
+    text-align: justify;
+}

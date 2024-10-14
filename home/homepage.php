@@ -88,7 +88,7 @@
     <div>
         <div class="container">
             <!-- กล่องที่ 1: สำหรับ "สิ่งที่ต้องทำ" -->
-            <div class="box" onclick="window.location.href='สิ่งที่ต้องทำ.html'">
+            <div class="box" onclick="window.location.href='todo.php'">
                 <img src="register/image/remindd.png" alt="สิ่งที่ต้องทำ"> <!-- ไอคอนรูปภาพ -->
                 <p>สิ่งที่ต้องทำ!</p> <!-- ข้อความในกล่อง -->
             </div>
