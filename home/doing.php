@@ -19,9 +19,9 @@ if (!isset($_SESSION['id'])) {
     die("Error: User not logged in.");
 }
 
-// ดึงข้อมูลกิจกรรมจากฐานข้อมูล
+// ดึงข้อมูลกิจกรรมที่มี status เป็น 2
 $userId = $_SESSION['id'];
-$sql = "SELECT id, title, location, details, color, start_time, end_time, liked, share_email, status FROM events WHERE user_id = ? AND status = 1";
+$sql = "SELECT id, title, location, details, color, start_time, end_time, liked, share_email, status FROM events WHERE user_id = ? AND status = 2";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $userId);
 $stmt->execute();
@@ -34,7 +34,7 @@ $result = $stmt->get_result();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>สิ่งที่ต้องทำ</title>
+    <title>กำลังดำเนินการ</title>
     <link rel="stylesheet" href="todo.css"> <!-- เชื่อมโยงไฟล์ CSS ถ้ามี -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- ใช้ jQuery -->
     <script>
@@ -43,7 +43,7 @@ $result = $stmt->get_result();
             detailsElement.style.display = (detailsElement.style.display === 'block') ? 'none' : 'block';
         }
 
-        function moveToDoing(eventId) {
+        function incrementStatus(eventId) {
             $.ajax({
                 url: 'update_status.php', // ไฟล์ PHP สำหรับอัปเดตสถานะ
                 type: 'POST',
@@ -62,7 +62,7 @@ $result = $stmt->get_result();
 </head>
 <body>
 <a href="homepage.php" class="back-button">ย้อนกลับ</a>
-    <h1>สิ่งที่ต้องทำ</h1>
+    <h1>กำลังดำเนินการ</h1>
 
     <div class="todo-list">
         <?php if ($result->num_rows > 0): ?>
@@ -76,12 +76,12 @@ $result = $stmt->get_result();
                         <p><strong>สิ้นสุดเวลา:</strong> <?= htmlspecialchars($row['end_time']) ?></p>
                         <p><strong>อีเมลแชร์:</strong> <?= htmlspecialchars($row['share_email']) ?></p>
                         
-                        <button class="move-button" onclick="event.stopPropagation(); moveToDoing(<?= $row['id'] ?>)">ดำเนินการ</button>
+                        <button class="move-button" onclick="event.stopPropagation(); incrementStatus(<?= $row['id'] ?>)">เสร็จสิ้น</button>
                     </div>
                 </div>
             <?php endwhile; ?>
         <?php else: ?>
-            <p class="no-events-message">ไม่มีกิจกรรมที่จะทำ</p>
+            <p class="no-events-message">ไม่มีกิจกรรมที่กำลังดำเนิน</p>
             <style>
     .no-events-message {
         background-color: #f8d7da; /* สีพื้นหลังแดงอ่อน */
@@ -95,7 +95,6 @@ $result = $stmt->get_result();
         font-weight: bold; /* ตัวหนา */
     }
 </style>
-
         <?php endif; ?>
     </div>
 </body>
