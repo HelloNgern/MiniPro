@@ -5,7 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="styles.css"> 
+    <style>
+    .main-content {
+        margin-left: 300px;
+        padding: 0px;
+        margin-right: 10px;
+    }
     
+    
+    </style>
+    
+
 </head>
 <body>
 
@@ -150,7 +160,7 @@ $conn->close();
         </form>
     </div>
 </div>
-
+</div>
 <!-- Delete Confirmation Modal -->
  <center>
 <div id="deleteConfirmationModal" class="modal" >
@@ -165,7 +175,7 @@ $conn->close();
 </center>
 
         
-    </div>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="script.js"></script> <!-- Link to external JavaScript -->

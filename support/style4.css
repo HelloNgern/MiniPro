@@ -15,7 +15,7 @@
 }*/
 
 .container1{
-    max-width: 1000px;
+    max-width: 1490px;
     width: 100%;
     background: #fff;
     border-radius: 12px;
@@ -30,15 +30,22 @@
     margin-bottom: 20px;
 }
 
+.container1 .content1{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .container1 .content1 .list1{
     display: flex;
     flex-direction: column;
     position: relative;
     width: 20%;
+    margin-right: 100px;
 }
 
 .content1 .list1 label{
-    height: 60px;
+    height: 120px;
     /*background: rebeccapurple;*/
     font-size: 22px;
     font-weight: 500;
@@ -46,7 +53,7 @@
     line-height: 60px;
     cursor: pointer;
     margin: 5px 0;
-    padding-left: 25px;
+    padding-left: 10px;
     color: #333;
     z-index: 12;
     transition: all 0.4s ease;
@@ -56,10 +63,16 @@
     color: #f0ad4e;
 }
 
+#help:checked ~ .list1 .help,
+#aboutUs:checked ~ .list1 .aboutUs,
+#contactUs:checked ~ .list1 .contactUs{
+    color: #fff;
+}
+
 .content1 .indicator{
     position: absolute;
     height: 60px;
-    width: 100%;
+    width: 110%;
     top: 0;
     left: 0;
     background: #f0ad4e;
@@ -72,9 +85,46 @@
 }
 
 #aboutUs:checked ~ .list1 .indicator{
-    top: 60;
+    top: 130px;
 }
 
 #contactUs:checked ~ .list1 .indicator{
-    top: 120;
+    top: 260px;
+}
+
+.container1 input[type="radio"]{
+    display: none;
+}
+
+.container1 .content1 .text-content{
+    width: 80%;
+    height: 100%;
+}
+
+.content1 .text-content .text{
+    display: none;
+}
+.content1 .text-content .help{
+    display: block;
+}
+
+#help:checked ~ .text-content .help,
+#aboutUs:checked ~ .text-content .aboutUs,
+#contactUs:checked ~ .text-content .contactUs{
+    display: block;
+}
+
+#aboutUs:checked ~ .text-content .help,
+#contactUs:checked ~ .text-content .help{
+    display: none;
+}
+
+.content1 .text-content .title{
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.content1 .text-content p{
+    text-align: justify;
 }

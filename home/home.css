@@ -1,0 +1,404 @@
+  /* ตั้งค่าพื้นฐานให้กับ body เช่น font และ margin */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1D0066;
+    background: linear-gradient(135deg, #1D0066, #4A1C80);
+}
+
+/* Navbar  สไตล์สำหรับ Navbar (แถบเมนูด้านบน) */
+.navbar {
+    background-color: #E8A44B; /* กำหนดสีพื้นหลังเป็นสีส้ม */
+    color: white; /* กำหนดสีตัวอักษรเป็นสีขาว */
+    padding: 5px 10px; /* กำหนดระยะห่าง (padding) ด้านบนและด้านล่าง 5px, ด้านซ้ายและขวา 10px */
+    height: 50px; /* กำหนดความสูงของแถบนำทางให้เป็น 50px */
+    position: relative;         /* กำหนดตำแหน่งเป็น relative เพื่อให้สามารถจัดวางองค์ประกอบภายในได้อย่างยืดหยุ่น */
+    display: flex;              /* ใช้ Flexbox เพื่อจัดเรียงองค์ประกอบภายใน Navbar */
+    justify-content: space-between; /* กระจายองค์ประกอบภายใน Navbar ให้มีระยะห่างเท่ากัน (ซ้ายสุดและขวาสุด) */
+    align-items: center;        /* จัดให้องค์ประกอบภายในอยู่ตรงกลางในแนวตั้ง */
+    /* overflow: auto; */       /* ถ้าใช้จะช่วยจัดการเนื้อหาที่เกินในกรณีที่ Navbar มีความกว้างไม่พอ */
+    
+}
+/* 
+คือระยะห่างภายในขององค์ประกอบ (element)
+รูปแบบของ padding สามารถกำหนดได้หลายทิศทาง เช่น
+padding-top: ระยะห่างด้านบน
+padding-right: ระยะห่างด้านขวา
+padding-bottom: ระยะห่างด้านล่าง 
+padding-left: ระยะห่างด้านซ้าย
+
+margin คือระยะห่างภายนอกขององค์ประกอบ (element)
+รูปแบบของ margin สามารถกำหนดได้หลายทิศทางเช่นเดียวกับ padding
+*/
+
+/* ตั้งค่าขนาดและตำแหน่งของภาพ
+.navbar img {
+    width: 100px;
+    height: 120px;  กำหนดความสูงของภาพ 
+    margin-right: 20px;  เพิ่มช่องว่างระหว่างภาพกับข้อความ 
+    margin-left: 50px;
+}*/
+
+/* ตั้งค่าสไตล์สำหรับชื่อใน Navbar */
+.navbar h2 {
+    padding: 0;
+    margin-left: 40px;
+    display: flex; /* จัดให้ข้อความและภาพอยู่ในบรรทัดเดียวกัน */
+    align-items: center; /* จัดให้ข้อความอยู่ตรงกลางแนวตั้งของภาพ */
+}
+
+/* สไตล์สำหรับปุ่ม Hamburger Menu */
+.hamburger {
+    margin-left: 20;
+    margin-right: 40px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* กำหนดสไตล์สำหรับขีดแต่ละอันใน Hamburger (ใช้ div 3 อัน) */
+.hamburger div {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+    transition: transform 0.4s, background-color 0.4s;
+}
+
+.hamburger div:nth-child(1) {
+    transform-origin: 5% 50%;
+}
+
+.hamburger div:nth-child(2) {
+    opacity: 1;
+}
+
+.hamburger div:nth-child(3) {
+    transform-origin: 5% 50%;
+}
+
+/* การหมุนและซ่อนบรรทัดตรงกลางเมื่อคลิก */
+.hamburger.active div:nth-child(1) {
+    transform: rotate(45deg);
+}
+
+.hamburger.active div:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active div:nth-child(3) {
+    transform: rotate(-45deg);
+}
+
+/* Menu Hidden by Default สไตล์สำหรับเมนูที่ซ่อนอยู่ (เริ่มต้นจะซ่อน) */
+.menu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+/* สไตล์สำหรับลิงก์ภายในเมนู */
+.menu a {
+    display: block; /* ลิงก์แต่ละอันเป็นบล็อกแยก */
+    padding: 10px 20px; /* เพิ่มระยะห่างภายในลิงก์ */
+    text-decoration: none; /* ลบเส้นใต้ลิงก์ */
+    color: #333; /* ตั้งค่าสีของลิงก์ */
+}
+
+/* เอฟเฟกต์เมื่อ hover ที่ลิงก์ในเมนู */
+.menu a:hover {
+    background-color: #f4f4f4; /* เปลี่ยนสีพื้นหลังของลิงก์เมื่อ hover */
+}
+
+/* แสดงเมนูเมื่อมี class "show" */
+.menu.show {
+    display: block; /* เมื่อมี class show จะแสดงเมนู */
+}
+
+.navbar a {
+    float: left;
+    padding: 5px;
+    margin-left: 60px;
+    margin-right: 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.navbar a:hover {
+background-color: #7082de;
+}
+
+.active {
+background-color: #7082de;
+}
+
+/* จัดการการวางกล่องให้เรียงเป็นแนวนอนและอยู่ตรงกลาง */
+.container {
+    position: absolute; /* ใช้ position absolute เพื่อจัดวาง */
+    /* top: 25%;  ตั้งค่าตำแหน่งให้อยู่ 10% จากด้านบนของหน้า */
+    right: 145px; 
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: center; /* จัดกล่องให้อยู่กลาง */
+}
+
+/* ตั้งค่าพื้นฐานของกล่อง */
+.box {
+    width: 150px;              /* ความกว้างของกล่อง */
+    height: 100px;             /* ความสูงของกล่อง */
+    margin: 10px;              /* ระยะห่างระหว่างกล่อง */
+    padding: 10px;             /* ระยะห่างภายในกล่อง */
+    background-color: #e99f37; /* สีพื้นหลังของกล่อง (เหลือง) */
+    color: white;              /* สีของข้อความในกล่อง (ขาว) */
+    text-align: center;        /* จัดข้อความและภาพให้อยู่กลาง */
+    border-radius: 10px;       /* ทำให้มุมของกล่องโค้งมน */
+    transition: background-color 0.3s ease; /* ตั้งค่าให้สีเปลี่ยนอย่างนุ่มนวลเมื่อมีการ hover */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* เปลี่ยนสีของกล่องเมื่อมีการ hover (วางเมาส์เหนือกล่อง) */
+.box:hover {
+    background-color: #ff9100; /* สีเมื่อ hover (เหลืองเข้มขึ้น) */
+    cursor: pointer;           /* เปลี่ยนรูปเมาส์เป็นมือเมื่อ hover */
+    transform: translateY(-5px); /* เลื่อนขึ้นเมื่อ hover */
+}
+
+/* กำหนดขนาดของรูปภาพภายในกล่อง */
+.box img {
+    width: 50px;  /* ความกว้างของภาพ */
+    height: 70px; /* ความสูงของภาพ */
+}
+
+/* กำหนดระยะห่างของข้อความภายในกล่อง */
+.box p {
+    margin: 10px 0 0 0; /* ตั้งค่าให้มีระยะห่างจากด้านบน 10px */
+}
+
+/* ตั้งค่าสีพื้นหลังของแต่ละกล่องที่แตกต่างกัน */
+.student { background-color: #5cb85c; } /* สีเขียวสำหรับกล่องนักศึกษา */
+.research { background-color: #d9534f; } /* สีแดงสำหรับกล่องนักวิจัย */
+.staff { background-color: #5bc0de; }    /* สีฟ้าสำหรับกล่องเจ้าหน้าที่ */
+
+/* ตั้งค่าเมื่อ hover แต่ละกล่อง */
+.student:hover { background-color: #24eb24; }  /* เปลี่ยนสีเป็นเขียวเข้มเมื่อ hover นักศึกษา */
+.research:hover { background-color: #ff1b14; } /* เปลี่ยนสีเป็นแดงเข้มเมื่อ hover นักวิจัย */
+.staff:hover { background-color: #00c3ff; }    /* เปลี่ยนสีเป็นฟ้าเข้มเมื่อ hover เจ้าหน้าที่ */
+
+.move-down{
+    margin-right: 370px;
+    text-align: right;
+    margin-top: 50px;
+    color: #f4f4f4;
+}
+/*สร้างโปรไฟล์*/
+.profile {
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.profile img {
+    margin-left: 40px;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.profile-info {
+    font-size: 1.2em;
+}
+
+.main-content {
+    display: flex; /* จัดเนื้อหาเป็นแถว */
+    align-items: flex-start; /* จัดให้อยู่บนบรรทัดเดียวกัน */
+    margin: 20px;
+}
+.main-content img {
+    margin-right: 20px; /* ระยะห่างระหว่างรูปภาพกับ content */
+}
+#content {
+    padding: 80px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    min-height: 400px;
+    flex: 1; /* ขยาย content ให้เต็มที่เท่าที่จะทำได้ */
+    margin-left: 40px; /* เพิ่มระยะห่างจากขอบซ้าย */
+    margin-right: 40px; /* เพิ่มระยะห่างจากขอบขวา */
+    margin-top: 40px;
+}
+.bottom-left-button {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    padding: 30px 40px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/* ปุ่มวงกลมเพิ่ม Event */
+.add-event-btn {
+    position: fixed;
+    left: 20px; /* จัดปุ่มไว้ที่ด้านซ้ายของหน้าจอ */
+    bottom: 20px; /* จัดปุ่มไว้ที่ด้านล่างของหน้าจอ */
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* ตั้งค่าให้สีเปลี่ยนอย่างนุ่มนวลเมื่อมีการ hover */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.add-event-btn:hover {
+    background-color: #ff3c00;
+}
+
+/* ฟอร์มเพิ่ม Event */
+.event-form {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    z-index: 1000;
+    width: 450px;
+    font-family: 'Arial', sans-serif;
+}
+
+.event-form h3 {
+    margin-top: 0;
+    text-align: center;
+    color: #333;
+    font-size: 1.5em;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 1em;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.form-group input, 
+.form-group textarea {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #66afe9;
+    box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+textarea {
+    resize: none;
+    height: 80px;
+}
+
+.form-group input[type="color"] {
+    padding: 0;
+    height: 40px;
+}
+
+.like-icon-group {
+    text-align: center;
+    margin: 15px 0;
+}
+
+.like-icon-group i {
+    font-size: 24px;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.like-icon-group i.liked {
+    color: red;
+}
+
+/* ปุ่มบันทึก */
+.submit-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 1.2em;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background-color: #45a049;
+}
+
+/* เพิ่ม margin ให้ฟอร์มไม่ชิดเกินไป */
+.form-group input, .form-group textarea {
+    margin-top: 5px;
+}
+
+
+
+
+
+.heart-icon {
+    font-size: 36px;
+    color: #555; /* สีปกติ */
+    cursor: pointer;
+    margin-left: 40px;
+    /* ระยะห่างระหว่างสีและไอคอนหัวใจ */
+}
+
+.heart-icon.active {
+    color: red; /* สีเมื่อชอบ */
+}
+
+.color-container {
+    display: flex; /* ใช้ flexbox เพื่อจัดเรียงไอคอนหัวใจและช่องสี */
+    align-items:center; /* จัดแนวให้อยู่กลาง */
+}
+
+button[type="submit"] {
+    background-color: #3ddd42;
+    color: white;
+    padding: 10px 20px;
+    border: 4px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px; /* ระยะห่างด้าน บน */
+    
+  }
+
+button[type="submit"]:hover {
+    background-color: #3dbe43;
+}

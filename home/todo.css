@@ -1,0 +1,113 @@
+/* พื้นหลังและฟอนต์ */
+body {
+    font-family: 'Poppins', sans-serif; /* ฟอนต์ทันสมัย */
+    background-color: #1D0066; /* พื้นหลังสีอ่อน */
+    background: linear-gradient(135deg, #1D0066, #4A1C80);
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+
+/* หัวข้อหลัก */
+h1 {
+    text-align: center;
+    color: #f0f8ff; /* สีน้ำเงินเข้ม */
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+/* กล่องรายการกิจกรรม */
+.todo-list {
+    margin: 20px 0;
+}
+
+.todo-item {
+    background: linear-gradient(135deg, #f0a848 0%, #ff9d1a 100%); /* สีส้มสดใสใกล้เคียง */
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* เงานุ่ม */
+    transition: transform 0.3s, box-shadow 0.3s;
+    color: #fff; /* ใช้สีตัวอักษรขาว */
+    cursor: pointer;
+}
+
+.todo-item:hover {
+    transform: translateX(-5px); /* ยกขึ้นเล็กน้อยเมื่อวางเมาส์ */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* เงาลึกขึ้น */
+ 
+}
+
+.todo-title {
+   
+    color: #fff; /* สีขาวเพื่อความชัดเจน */
+    font-size: 1.5em;
+    margin: 0;
+    transition: color 0.3s;
+}
+
+
+
+/* กล่องรายละเอียดที่ซ่อน */
+.todo-details {
+    margin-top: 10px;
+    padding: 15px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    display: none;
+    color: #333;
+}
+
+/* ปุ่มกลมๆ เพื่อย้ายไป Doing */
+.move-button {
+    background-color: #2cdd2c; /* สีส้มจากตัวอย่าง */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1em;
+    display: inline-block;
+    margin-top: 10px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.move-button:hover {
+    background-color: #00c90a; /* สีส้มสดใสขึ้น */
+    transform: scale(1.1); /* ขยายเล็กน้อยเมื่อวางเมาส์ */
+}
+
+/* กล่องด้านล่างสำหรับกลับไปยังหน้าสิ่งที่ต้องทำ */
+
+
+
+
+
+
+/* กล่องสำหรับสิ่งที่ต้องทำ */
+.todo-item.collapsed .todo-details {
+    display: none; /* ซ่อนรายละเอียดเริ่มต้น */
+}
+
+.todo-item.expanded .todo-details {
+    display: block; /* แสดงรายละเอียดเมื่อกด */
+}
+
+/* ปุ่มสำหรับกดดูรายละเอียด */
+.show-details-button {
+    background-color: #007bff; /* สีน้ำเงินสดใส */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 8px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+.show-details-button:hover {
+    background-color: #0056b3; /* เข้มขึ้นเมื่อวางเมาส์ */
+}
