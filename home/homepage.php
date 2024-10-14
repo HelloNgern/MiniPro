@@ -27,8 +27,9 @@ if (!isset($_SESSION['id'])) {
             <a href="../calendar/calendar.html" onclick="loadContent('calendar01.html')"><i class="fa fa fa-calendar"></i> ปฏิทิน</a>
             <a href="../favpage/favpage.html" onclick="loadContent('favorites.html')"><i class="fa fas fa-heart"></i> รายการโปรด</a>
             <a href="#" onclick="loadContent('HomepageMP3.html')"><i class="fa fa fa fa-bell"> </i>การแจ้งเตือน</a>
-            <a href="../search/search.html" ><i class="fa fa-fw fa-search"></i> Search</a>
-          </div>
+            <a href="../search/search.html" ><i class="fa fa-fw fa-search"></i>ค้นหา</a>
+        </div>
+       
     
         <!-- ปุ่ม Hamburger -->
         <div class="hamburger" onclick="toggleMenu()">
@@ -36,6 +37,7 @@ if (!isset($_SESSION['id'])) {
             <div></div>
             <div></div>
         </div>
+        
     </div>
     
     <!-- เมนูที่ซ่อนอยู่ -->
