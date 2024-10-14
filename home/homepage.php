@@ -94,13 +94,13 @@
             </div>
 
             <!-- กล่องที่ 2: สำหรับ "กำลังดำเนินการ" -->
-            <div class="box student" onclick="window.location.href='กำลังดำเนินการ.html'">
+            <div class="box student" onclick="window.location.href='doing.php'">
                 <img src="register/image/remindd.png" alt="กำลังดำเนินการ"> <!-- ไอคอนรูปภาพ -->
                 <p>กำลังดำเนินการ...</p> <!-- ข้อความในกล่อง -->
             </div>
     
             <!-- กล่องที่ 3: สำหรับ "เสร็จสิ้นแล้ว" -->
-            <div class="box research" onclick="window.location.href='เสร็จสิ้นแล้ว.html'">
+            <div class="box research" onclick="window.location.href='succeed.php'">
                 <img src="register/image/remindd.png" alt="เสร็จสิ้นแล้ว"> <!-- ไอคอนรูปภาพ -->
                 <p>เสร็จสิ้นแล้ว</p> <!-- ข้อความในกล่อง -->
             </div>
