@@ -21,7 +21,7 @@
 .search-bar {
     display: flex;
     align-items: center;
-    min-width: 700px;
+    width: 550px; /* ปรับความกว้างของกล่อง */
     border-radius: 50px;
     background-color: #9ab3f5;
 }
