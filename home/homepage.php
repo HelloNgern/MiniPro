@@ -23,10 +23,10 @@ if (!isset($_SESSION['id'])) {
             
     
         <div class="navbar">
-            <a class="active" href="#" onclick="loadContent('home.html')"><i class="fa fa-fw fa-home"></i>หน้าหลัก</a>
-            <a href="../calendar/calendar.html" onclick="loadContent('calendar01.html')"><i class="fa fa fa-calendar"></i> ปฏิทิน</a>
-            <a href="../favpage/favpage.html" onclick="loadContent('favorites.html')"><i class="fa fas fa-heart"></i> รายการโปรด</a>
-            <a href="#" onclick="loadContent('HomepageMP3.html')"><i class="fa fa fa fa-bell"> </i>การแจ้งเตือน</a>
+            <a class="active" href="homepage.php"><i class="fa fa-fw fa-home"></i>หน้าหลัก</a>
+            <a href="../calendar/calendar.html"><i class="fa fa fa-calendar"></i> ปฏิทิน</a>
+            <a href="../favpage/favpage.html"><i class="fa fas fa-heart"></i> รายการโปรด</a>
+            <a href="#"><i class="fa fa fa fa-bell"> </i>การแจ้งเตือน</a>
             <a href="../search/search.html" ><i class="fa fa-fw fa-search"></i> Search</a>
           </div>
     
@@ -41,7 +41,7 @@ if (!isset($_SESSION['id'])) {
     <!-- เมนูที่ซ่อนอยู่ -->
     <div class="menu" id="menu"> <!-- เมนูที่ถูกซ่อนอยู่ มี id="menu" เพื่อให้เรียกใช้ได้ง่าย -->
         <a href="#">Profile</a> <!-- ลิงก์ไปยังหน้า Profile -->
-        <a href="#">Settings</a> <!-- ลิงก์ไปยังหน้า Settings -->
+        <a href="#">About Us</a> <!-- ลิงก์ไปยังหน้า Settings -->
         <a onclick="lockoutUser()" href="#">Logout</a> <!-- ลิงก์ไปยังหน้า Logout -->
     </div>
     <script>
@@ -73,19 +73,6 @@ if (!isset($_SESSION['id'])) {
     </div>
     </div>
 
-    <script>
-        function loadContent(filename) {
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', filename, true);
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    document.getElementById('content').innerHTML = xhr.responseText;
-                }
-            };
-            xhr.send();
-        }
-    </script>
-
     <div>
         <h2 class="move-down" >งานของฉัน</h2>
     </div>
@@ -95,19 +82,19 @@ if (!isset($_SESSION['id'])) {
         <div class="container">
             <!-- กล่องที่ 1: สำหรับ "สิ่งที่ต้องทำ" -->
             <div class="box" onclick="window.location.href='todo.php'">
-                <img src="register/image/remindd.png" alt="สิ่งที่ต้องทำ"> <!-- ไอคอนรูปภาพ -->
+                <img src="../register/image/remindd.png" alt="สิ่งที่ต้องทำ"> <!-- ไอคอนรูปภาพ -->
                 <p>สิ่งที่ต้องทำ!</p> <!-- ข้อความในกล่อง -->
             </div>
 
             <!-- กล่องที่ 2: สำหรับ "กำลังดำเนินการ" -->
             <div class="box student" onclick="window.location.href='doing.php'">
-                <img src="register/image/remindd.png" alt="กำลังดำเนินการ"> <!-- ไอคอนรูปภาพ -->
+                <img src="../register/image/remindd.png" alt="กำลังดำเนินการ"> <!-- ไอคอนรูปภาพ -->
                 <p>กำลังดำเนินการ...</p> <!-- ข้อความในกล่อง -->
             </div>
     
             <!-- กล่องที่ 3: สำหรับ "เสร็จสิ้นแล้ว" -->
             <div class="box research" onclick="window.location.href='succeed.php'">
-                <img src="register/image/remindd.png" alt="เสร็จสิ้นแล้ว"> <!-- ไอคอนรูปภาพ -->
+                <img src="../register/image/remindd.png" alt="เสร็จสิ้นแล้ว"> <!-- ไอคอนรูปภาพ -->
                 <p>เสร็จสิ้นแล้ว</p> <!-- ข้อความในกล่อง -->
             </div>
         </div>
