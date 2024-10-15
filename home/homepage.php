@@ -23,10 +23,10 @@ if (!isset($_SESSION['id'])) {
             
     
         <div class="navbar">
-            <a class="active" href="#" onclick="loadContent('home.html')"><i class="fa fa-fw fa-home"></i>หน้าหลัก</a>
-            <a href="../calendar/calendar.html" onclick="loadContent('calendar01.html')"><i class="fa fa fa-calendar"></i> ปฏิทิน</a>
-            <a href="../favpage/favpage.html" onclick="loadContent('favorites.html')"><i class="fa fas fa-heart"></i> รายการโปรด</a>
-            <a href="#" onclick="loadContent('HomepageMP3.html')"><i class="fa fa fa fa-bell"> </i>การแจ้งเตือน</a>
+            <a class="active" href="homepage.php"><i class="fa fa-fw fa-home"></i>หน้าหลัก</a>
+            <a href="../calendar/calendar.html"><i class="fa fa fa-calendar"></i> ปฏิทิน</a>
+            <a href="../favpage/favpage.html"><i class="fa fas fa-heart"></i> รายการโปรด</a>
+            <a href="#""><i class="fa fa fa fa-bell"> </i>การแจ้งเตือน</a>
             <a href="../search/search.html" ><i class="fa fa-fw fa-search"></i>ค้นหา</a>
         </div>
        
@@ -74,20 +74,7 @@ if (!isset($_SESSION['id'])) {
     <p>นี่คือเนื้อหาหน้าแรก</p>
     </div>
     </div>
-
-    <script>
-        function loadContent(filename) {
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', filename, true);
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    document.getElementById('content').innerHTML = xhr.responseText;
-                }
-            };
-            xhr.send();
-        }
-    </script>
-
+    
     <div>
         <h2 class="move-down" >งานของฉัน</h2>
     </div>
