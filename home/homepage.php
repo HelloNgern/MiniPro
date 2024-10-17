@@ -44,7 +44,7 @@ if (!isset($_SESSION['id'])) {
     
     <!-- เมนูที่ซ่อนอยู่ -->
     <div class="menu" id="menu"> <!-- เมนูที่ถูกซ่อนอยู่ มี id="menu" เพื่อให้เรียกใช้ได้ง่าย -->
-        <a href="#">Profile</a> <!-- ลิงก์ไปยังหน้า Profile -->
+        <a href="../profile/profile.php">Profile</a> <!-- ลิงก์ไปยังหน้า Profile -->
         <a href="../support/support.html">Support</a> <!-- ลิงก์ไปยังหน้า Support -->
         <a onclick="lockoutUser()" href="#">Logout</a> <!-- ลิงก์ไปยังหน้า Logout -->
     </div>

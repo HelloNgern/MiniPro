@@ -37,7 +37,7 @@ $user = mysqli_fetch_array($query, MYSQLI_ASSOC);
             
     
         <div class="navbar">
-            <a class="active" href="homepage.php"><i class="fa fa-fw fa-home"></i>หน้าหลัก</a>
+            <a href="../home/homepage.php"><i class="fa fa-fw fa-home"></i>หน้าหลัก</a>
             <a href="../calendar/calendar.html"><i class="fa fa fa-calendar"></i> ปฏิทิน</a>
             <a href="../favpage/favpage.html"><i class="fa fas fa-heart"></i> รายการโปรด</a>
             <a href="#"><i class="fa fa fa fa-bell"> </i>การแจ้งเตือน</a>
@@ -56,8 +56,8 @@ $user = mysqli_fetch_array($query, MYSQLI_ASSOC);
     
     <!-- เมนูที่ซ่อนอยู่ -->
     <div class="menu" id="menu"> <!-- เมนูที่ถูกซ่อนอยู่ มี id="menu" เพื่อให้เรียกใช้ได้ง่าย -->
-        <a href="../profile/profile.php">Profile</a> <!-- ลิงก์ไปยังหน้า Profile -->
-        <a href="#">Settings</a> <!-- ลิงก์ไปยังหน้า Settings -->
+        <a href="profile.php">Profile</a> <!-- ลิงก์ไปยังหน้า Profile -->
+        <a href="../support/support.html">Support</a> <!-- ลิงก์ไปยังหน้า Support -->
         <a onclick="lockoutUser()" href="#">Logout</a> <!-- ลิงก์ไปยังหน้า Logout -->
     </div>
     <script>

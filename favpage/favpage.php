@@ -88,8 +88,8 @@
     </div>
 
     <div class="menu" id="menu">
-        <a href="#">Profile</a>
-        <a href="#">Settings</a>
+        <a href="../profile/profile.php">Profile</a>
+        <a href="../support/support.html">Support</a>
         <a onclick="lockoutUser()" href="#">Logout</a>
     </div>
 
@@ -183,6 +183,18 @@
                 // ส่ง event_id ไปยัง remove_fav.php
                 xhr.send(JSON.stringify({ id: id }));
             }
+        }
+    </script>
+    
+    <script>
+        function lockoutUser() {
+    if (confirm("คุณต้องการล็อกเอาท์ใช่ไหม?")) {
+        window.location.href = 'logout.php'; // เปลี่ยนเส้นทางไปยังหน้า logout
+    }
+}
+        function toggleMenu() {
+            var menu = document.getElementById("menu"); // เข้าถึงเมนูด้วย id="menu"
+            menu.classList.toggle("show"); // สลับการเพิ่ม/ลบ class "show" เพื่อแสดงหรือซ่อนเมนู
         }
     </script>
 </body>
