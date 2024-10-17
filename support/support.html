@@ -6,225 +6,7 @@
     <title>Support</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link rel="stylesheet" href="style4.css"/>
-    <style>
-        /* ตั้งค่าพื้นฐานให้กับ body เช่น font และ margin */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Navbar  สไตล์สำหรับ Navbar (แถบเมนูด้านบน) */
-        .navbar {
-            background-color: #E8A44B; /* กำหนดสีพื้นหลังเป็นสีส้ม */
-            color: white; /* กำหนดสีตัวอักษรเป็นสีขาว */
-            padding: 5px 10px; /* กำหนดระยะห่าง (padding) ด้านบนและด้านล่าง 5px, ด้านซ้ายและขวา 10px */
-            height: 50px; /* กำหนดความสูงของแถบนำทางให้เป็น 50px */
-            position: relative;         /* กำหนดตำแหน่งเป็น relative เพื่อให้สามารถจัดวางองค์ประกอบภายในได้อย่างยืดหยุ่น */
-            display: flex;              /* ใช้ Flexbox เพื่อจัดเรียงองค์ประกอบภายใน Navbar */
-            justify-content: space-between; /* กระจายองค์ประกอบภายใน Navbar ให้มีระยะห่างเท่ากัน (ซ้ายสุดและขวาสุด) */
-            align-items: center;        /* จัดให้องค์ประกอบภายในอยู่ตรงกลางในแนวตั้ง */
-            /* overflow: auto; */       /* ถ้าใช้จะช่วยจัดการเนื้อหาที่เกินในกรณีที่ Navbar มีความกว้างไม่พอ */
-        }
-        /* 
-        คือระยะห่างภายในขององค์ประกอบ (element)
-        รูปแบบของ padding สามารถกำหนดได้หลายทิศทาง เช่น
-        padding-top: ระยะห่างด้านบน
-        padding-right: ระยะห่างด้านขวา
-        padding-bottom: ระยะห่างด้านล่าง 
-        padding-left: ระยะห่างด้านซ้าย
-        
-        margin คือระยะห่างภายนอกขององค์ประกอบ (element)
-        รูปแบบของ margin สามารถกำหนดได้หลายทิศทางเช่นเดียวกับ padding
-        */
-
-        /* ตั้งค่าขนาดและตำแหน่งของภาพ
-        .navbar img {
-            width: 100px;
-            height: 120px;  กำหนดความสูงของภาพ 
-            margin-right: 20px;  เพิ่มช่องว่างระหว่างภาพกับข้อความ 
-            margin-left: 50px;
-        }*/
-
-        /* ตั้งค่าสไตล์สำหรับชื่อใน Navbar */
-        .navbar h2 {
-            padding: 0;
-            margin-left: 40px;
-            display: flex; /* จัดให้ข้อความและภาพอยู่ในบรรทัดเดียวกัน */
-            align-items: center; /* จัดให้ข้อความอยู่ตรงกลางแนวตั้งของภาพ */
-        }
-
-        /* สไตล์สำหรับปุ่ม Hamburger Menu */
-        .hamburger {
-            margin-left: 20;
-            margin-right: 40px;
-            display: inline-block;
-            cursor: pointer;
-        }
-
-        /* กำหนดสไตล์สำหรับขีดแต่ละอันใน Hamburger (ใช้ div 3 อัน) */
-        .hamburger div {
-            width: 30px;
-            height: 3px;
-            background-color: white;
-            margin: 5px 0;
-            transition: 0.4s;
-        }
-
-        /* Menu Hidden by Default สไตล์สำหรับเมนูที่ซ่อนอยู่ (เริ่มต้นจะซ่อน) */
-        .menu {
-            display: none;
-            position: absolute;
-            top: 60px;
-            right: 10px;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-        }
-        /* สไตล์สำหรับลิงก์ภายในเมนู */
-        .menu a {
-            display: block; /* ลิงก์แต่ละอันเป็นบล็อกแยก */
-            padding: 10px 20px; /* เพิ่มระยะห่างภายในลิงก์ */
-            text-decoration: none; /* ลบเส้นใต้ลิงก์ */
-            color: #333; /* ตั้งค่าสีของลิงก์ */
-        }
-
-        /* เอฟเฟกต์เมื่อ hover ที่ลิงก์ในเมนู */
-        .menu a:hover {
-            background-color: #f4f4f4; /* เปลี่ยนสีพื้นหลังของลิงก์เมื่อ hover */
-        }
-
-        /* แสดงเมนูเมื่อมี class "show" */
-        .menu.show {
-            display: block; /* เมื่อมี class show จะแสดงเมนู */
-        }
-        
-        .navbar a {
-            float: left;
-            padding: 5px;
-            margin-left: 60px;
-            margin-right: 20px;
-            color: white;
-            text-decoration: none;
-            font-size: 17px;
-        }
-
-        .navbar a:hover {
-        background-color: #7082de;
-        }
-
-        .active {
-        background-color: #7082de;
-        }
-
-        /* จัดการการวางกล่องให้เรียงเป็นแนวนอนและอยู่ตรงกลาง */
-        .container {
-            position: absolute; /* ใช้ position absolute เพื่อจัดวาง */
-            /* top: 25%;  ตั้งค่าตำแหน่งให้อยู่ 10% จากด้านบนของหน้า */
-            right: 145px; 
-            padding-bottom: 30px;
-            display: flex;
-            justify-content: center; /* จัดกล่องให้อยู่กลาง */
-        }
-
-        /* ตั้งค่าพื้นฐานของกล่อง */
-        .box {
-            width: 150px;              /* ความกว้างของกล่อง */
-            height: 100px;             /* ความสูงของกล่อง */
-            margin: 10px;              /* ระยะห่างระหว่างกล่อง */
-            padding: 10px;             /* ระยะห่างภายในกล่อง */
-            background-color: #f0ad4e; /* สีพื้นหลังของกล่อง (เหลือง) */
-            color: white;              /* สีของข้อความในกล่อง (ขาว) */
-            text-align: center;        /* จัดข้อความและภาพให้อยู่กลาง */
-            border-radius: 10px;       /* ทำให้มุมของกล่องโค้งมน */
-            transition: background-color 0.3s ease; /* ตั้งค่าให้สีเปลี่ยนอย่างนุ่มนวลเมื่อมีการ hover */
-        }
-
-        /* เปลี่ยนสีของกล่องเมื่อมีการ hover (วางเมาส์เหนือกล่อง) */
-        .box:hover {
-            background-color: #ec971f; /* สีเมื่อ hover (เหลืองเข้มขึ้น) */
-            cursor: pointer;           /* เปลี่ยนรูปเมาส์เป็นมือเมื่อ hover */
-        }
-
-        /* กำหนดขนาดของรูปภาพภายในกล่อง */
-        .box img {
-            width: 50px;  /* ความกว้างของภาพ */
-            height: 70px; /* ความสูงของภาพ */
-        }
-
-        /* กำหนดระยะห่างของข้อความภายในกล่อง */
-        .box p {
-            margin: 10px 0 0 0; /* ตั้งค่าให้มีระยะห่างจากด้านบน 10px */
-        }
-
-        /* ตั้งค่าสีพื้นหลังของแต่ละกล่องที่แตกต่างกัน */
-        .student { background-color: #5cb85c; } /* สีเขียวสำหรับกล่องนักศึกษา */
-        .research { background-color: #d9534f; } /* สีแดงสำหรับกล่องนักวิจัย */
-        .staff { background-color: #5bc0de; }    /* สีฟ้าสำหรับกล่องเจ้าหน้าที่ */
-
-        /* ตั้งค่าเมื่อ hover แต่ละกล่อง */
-        .student:hover { background-color: #4cae4c; }  /* เปลี่ยนสีเป็นเขียวเข้มเมื่อ hover นักศึกษา */
-        .research:hover { background-color: #c9302c; } /* เปลี่ยนสีเป็นแดงเข้มเมื่อ hover นักวิจัย */
-        .staff:hover { background-color: #31b0d5; }    /* เปลี่ยนสีเป็นฟ้าเข้มเมื่อ hover เจ้าหน้าที่ */
-
-        .move-down{
-            margin-right: 370px;
-            text-align: right;
-            margin-top: 50px;
-            color: #f4f4f4;
-        }
-        /*สร้างโปรไฟล์*/
-        .profile {
-            display: flex;
-            align-items: center;
-            margin-top: 40px;
-        }
-
-        .profile img {
-            margin-left: 40px;
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            margin-right: 20px;
-        }
-
-        .profile-info {
-            font-size: 1.2em;
-        }
-
-        .main-content {
-            display: flex; /* จัดเนื้อหาเป็นแถว */
-            align-items: flex-start; /* จัดให้อยู่บนบรรทัดเดียวกัน */
-            margin: 20px;
-        }
-        .main-content img {
-            margin-right: 20px; /* ระยะห่างระหว่างรูปภาพกับ content */
-        }
-        #content {
-            padding: 80px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            min-height: 400px;
-            flex: 1; /* ขยาย content ให้เต็มที่เท่าที่จะทำได้ */
-            margin-left: 40px; /* เพิ่มระยะห่างจากขอบซ้าย */
-            margin-right: 40px; /* เพิ่มระยะห่างจากขอบขวา */
-            margin-top: 40px;
-        }
-        .bottom-left-button {
-            position: absolute;
-            bottom: 30px;
-            left: 30px;
-            padding: 30px 40px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="../homepage.css">
 </head>
 <body bgcolor="#1D0066">
     <!-- ส่วนของ Navbar -->
@@ -233,11 +15,11 @@
             
 
         <div class="navbar">
-            <a href="#" onclick="loadContent('home.html')">หน้าหลัก</a>
-            <a href="#" onclick="loadContent('calendar.html')"><i class="fa fa fa-calendar"></i> ปฏิทิน</a>
-            <a href="#" onclick="loadContent('favorites.html')"><i class="fa fa fa-bookmark"></i> รายการโปรด</a>
-            <a href="#" onclick="loadContent('HomepageMP3.html')"><i class="fa fa fa fa-bell"> </i>การแจ้งเตือน</a>
-            <a href="#" onclick="loadContent('search.html')"><i class="fa fa-fw fa-search"></i> Search</a>
+            <a href="../home/homepage.php">หน้าหลัก</a>
+            <a href="../calendar/calendar.html"><i class="fa fa fa-calendar"></i> ปฏิทิน</a>
+            <a href="../favpage/favpage.html"><i class="fa fa fa-bookmark"></i> รายการโปรด</a>
+            <a href="#"><i class="fa fa fa fa-bell"> </i>การแจ้งเตือน</a>
+            <a href="../search/search.html"><i class="fa fa-fw fa-search"></i> Search</a>
           </div>
 
         <!-- ปุ่ม Hamburger -->
@@ -250,9 +32,9 @@
 
     <!-- เมนูที่ซ่อนอยู่ -->
     <div class="menu" id="menu"> <!-- เมนูที่ถูกซ่อนอยู่ มี id="menu" เพื่อให้เรียกใช้ได้ง่าย -->
-        <a href="#">Profile</a> <!-- ลิงก์ไปยังหน้า Profile -->
-        <a href="#">Support</a> <!-- ลิงก์ไปยังหน้า support -->
-        <a href="#">Logout</a> <!-- ลิงก์ไปยังหน้า Logout -->
+        <a href="../profile/profile.php">Profile</a> <!-- ลิงก์ไปยังหน้า Profile -->
+        <a href="support.html">Support</a> <!-- ลิงก์ไปยังหน้า support -->
+        <a onclick="lockoutUser()" href="#">Logout</a> <!-- ลิงก์ไปยังหน้า Logout -->
     </div>
 
 
