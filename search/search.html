@@ -32,18 +32,23 @@
 
     <!-- เมนูที่ซ่อนอยู่ -->
     <div class="menu" id="menu"> <!-- เมนูที่ถูกซ่อนอยู่ มี id="menu" เพื่อให้เรียกใช้ได้ง่าย -->
-        <a href="#">Profile</a> <!-- ลิงก์ไปยังหน้า Profile -->
-        <a href="#">Settings</a> <!-- ลิงก์ไปยังหน้า Settings -->
-        <a href="#">Logout</a> <!-- ลิงก์ไปยังหน้า Logout -->
+        <a href="../profile/profile.php">Profile</a> <!-- ลิงก์ไปยังหน้า Profile -->
+        <a href="../support/support.html">support</a> <!-- ลิงก์ไปยังหน้า Settings -->
+        <a onclick="lockoutUser()" href="#">Logout</a> <!-- ลิงก์ไปยังหน้า Logout -->
     </div>
 
     <!-- สคริปต์สำหรับจัดการ Hamburger Menu -->
     <script>
+        function lockoutUser() {
+    if (confirm("คุณต้องการล็อกเอาท์ใช่ไหม?")) {
+        window.location.href = 'logout.php'; // เปลี่ยนเส้นทางไปยังหน้า logout
+    }
+}
         function toggleMenu() {
             var menu = document.getElementById("menu"); // เข้าถึงเมนูด้วย id="menu"
             menu.classList.toggle("show"); // สลับการเพิ่ม/ลบ class "show" เพื่อแสดงหรือซ่อนเมนู
         }
-    </script>
+    </script> 
 
     <div class="main-content">
     <div class="profile">
