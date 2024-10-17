@@ -26,15 +26,6 @@
     background-color: #9ab3f5;
 }
 
-.dropdown {
-    position: relative;
-    width: 280px;
-    border-radius: 50px;
-    border: 1px solid var(#E8A44B);
-    background-color: #E8A44B;
-    box-shadow: var(--shadow);
-    cursor: pointer;
-}
 
 .dropdown-text {
     display: flex;
