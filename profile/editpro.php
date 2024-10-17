@@ -25,11 +25,12 @@ $user = mysqli_fetch_array($query, MYSQLI_ASSOC);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile Page</title>
+    <title>Edit Profile</title>
     <link rel="stylesheet" href="../home/home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+
 <!-- ส่วนของ Navbar -->
 <div class="navbar">
         <h2> Remind me! <img src="../register/image/remindd.png" width="40" height="50"></h2>
@@ -71,19 +72,44 @@ $user = mysqli_fetch_array($query, MYSQLI_ASSOC);
         }
     </script>
 
-<div class="row">
-    <!-- ข้อมูลปัจจุบันของผู้ใช้ -->
-    <div class="col-md-6 profile-info">
-        <h4>ข้อมูลปัจจุบันของคุณ</h4><br>
-        <p><strong>UserID:</strong> <?php echo $user['id']; ?></p>
-        <p><strong>Username:</strong> <?php echo $user['username']; ?></p>
-        <p><strong>Email:</strong> <?php echo $user['email']; ?></p>
-        <p><strong>Password:</strong> ********</p> <!-- ซ่อนรหัสผ่านด้วยการแสดง ******** -->
-        <p><strong>Role:</strong> <?php echo $user['role']; ?></p>
-        
-        <!-- ปุ่มโยงไปยังหน้า edit -->
-        <button onclick="location.href='editpro.php'" style="margin-top: 20px;">Edit Profile</button>
+<!-- ฟอร์มแก้ไขข้อมูล -->
+<div class="col-md-6 profile-edit">
+                <h4>แก้ไขข้อมูลที่ต้องการ</h4>
+                <form action="updatepro.php" method="post">
+                    <!-- เพิ่ม hidden input สำหรับ UserID -->
+                    <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="editUsername" name="username" placeholder="Username" value="<?php echo $user['username']; ?>" required>
+                        <label for="editUsername">Username</label>
+                    </div>
+
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="editEmail" name="email" placeholder="Email" value="<?php echo $user['email']; ?>" required>
+                        <label for="editEmail">Email</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="editPassword" name="password" placeholder="new password" value="<?php echo $user['password']; ?>" required>
+                        <label for="editPassword">Password</label>
+                    </div>
+
+                    <!-- <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="confirm-password" placeholder="confirm new password">
+                        <label for="confirm-password">confirm password :</label>
+                    </div> -->
+
+                    <button type="submit" class="btn btn-primary">บันทึกการแก้ไข</button>
+                </form>
+            </div>
+        </div>
     </div>
-</div>
+    
 </body>
 </html>
+
+
+<?php
+mysqli_close($conn);
+?>

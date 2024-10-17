@@ -42,11 +42,9 @@ if (!empty($id)) {
         if (mysqli_query($conn, $sql)) { 
             echo "<script>alert('ข้อมูลถูกแก้ไขเรียบร้อยแล้ว');</script>";
             // ทำการแยกประเภท USER หลังอัปเดตข้อมูล หากเป็น ADMIN ให้กลับไปหน้าของ ADMIN
-            if ($_SESSION['role'] == "1"){
+          
                 echo "<script>window.location.href = 'profilead.php';</script>";
-            }else{
-                echo "<script>window.location.href = 'profile.php';</script>";
-            }
+           
         } else {
             echo "Error updating record: " . mysqli_error($conn);
         }
@@ -57,3 +55,4 @@ if (!empty($id)) {
 
 mysqli_close($conn);
 ?>
+

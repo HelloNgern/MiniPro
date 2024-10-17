@@ -161,6 +161,7 @@ $user_count = $result_role_user->fetch_assoc()['total'];
         <ul>
             <li><a href="">Dashboard</a></li>
             <li><a href="dashboard.php">Users Management</a></li>
+            <li><a href="profilead.php">Profile Admin</a></li>
             
             
         </ul>
