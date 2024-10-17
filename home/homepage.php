@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- ลิงก์ FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="home.css"> 
 </head>
 <body bgcolor="#1D0066">
@@ -25,8 +27,8 @@ if (!isset($_SESSION['id'])) {
         <div class="navbar">
             <a class="active" href="homepage.php"><i class="fa fa-fw fa-home"></i>หน้าหลัก</a>
             <a href="../calendar/calendar.html"><i class="fa fa fa-calendar"></i> ปฏิทิน</a>
-            <a href="../favpage/favpage.html"><i class="fa fas fa-heart"></i> รายการโปรด</a>
-            <a href="#""><i class="fa fa fa fa-bell"> </i>การแจ้งเตือน</a>
+            <a href="../favpage/favpage.php"><i class="fa fas fa-heart"></i> รายการโปรด</a>
+            <a href="#"><i class="fa fa fa fa-bell"> </i>การแจ้งเตือน</a>
             <a href="../search/search.html" ><i class="fa fa-fw fa-search"></i>ค้นหา</a>
         </div>
        
@@ -43,7 +45,7 @@ if (!isset($_SESSION['id'])) {
     <!-- เมนูที่ซ่อนอยู่ -->
     <div class="menu" id="menu"> <!-- เมนูที่ถูกซ่อนอยู่ มี id="menu" เพื่อให้เรียกใช้ได้ง่าย -->
         <a href="#">Profile</a> <!-- ลิงก์ไปยังหน้า Profile -->
-        <a href="../support/support.html">Support</a> <!-- ลิงก์ไปยังหน้า Settings -->
+        <a href="../support/support.html">Support</a> <!-- ลิงก์ไปยังหน้า Support -->
         <a onclick="lockoutUser()" href="#">Logout</a> <!-- ลิงก์ไปยังหน้า Logout -->
     </div>
     <script>
@@ -84,19 +86,19 @@ if (!isset($_SESSION['id'])) {
         <div class="container">
             <!-- กล่องที่ 1: สำหรับ "สิ่งที่ต้องทำ" -->
             <div class="box" onclick="window.location.href='todo.php'">
-                <img src="register/image/remindd.png" alt="สิ่งที่ต้องทำ"> <!-- ไอคอนรูปภาพ -->
+                <img src="../register/image/remindd.png" alt="สิ่งที่ต้องทำ"> <!-- ไอคอนรูปภาพ -->
                 <p>สิ่งที่ต้องทำ!</p> <!-- ข้อความในกล่อง -->
             </div>
 
             <!-- กล่องที่ 2: สำหรับ "กำลังดำเนินการ" -->
             <div class="box student" onclick="window.location.href='doing.php'">
-                <img src="register/image/remindd.png" alt="กำลังดำเนินการ"> <!-- ไอคอนรูปภาพ -->
+                <img src="../register/image/remindd.png" alt="กำลังดำเนินการ"> <!-- ไอคอนรูปภาพ -->
                 <p>กำลังดำเนินการ...</p> <!-- ข้อความในกล่อง -->
             </div>
     
             <!-- กล่องที่ 3: สำหรับ "เสร็จสิ้นแล้ว" -->
             <div class="box research" onclick="window.location.href='succeed.php'">
-                <img src="register/image/remindd.png" alt="เสร็จสิ้นแล้ว"> <!-- ไอคอนรูปภาพ -->
+                <img src="../register/image/remindd.png" alt="เสร็จสิ้นแล้ว"> <!-- ไอคอนรูปภาพ -->
                 <p>เสร็จสิ้นแล้ว</p> <!-- ข้อความในกล่อง -->
             </div>
         </div>
@@ -114,6 +116,24 @@ if (!isset($_SESSION['id'])) {
         document.getElementById('profile-image').src = user.profileImage;
         document.getElementById('username').textContent = `Username: ${user.name}`;
         document.getElementById('user-id').textContent = `User ID: ${user.id}`;
+
+
+        function toggleHeart() {
+            var likeEvent = document.getElementById("likeEvent");
+            var likeIcon = document.getElementById("likeIcon");
+
+            if (likeEvent.value == "0") {
+                // เมื่อกดหัวใจ เปลี่ยนเป็นชื่นชอบ
+                likeEvent.value = "1";
+                likeIcon.classList.remove("fa-heart-o"); // ไอคอนหัวใจว่างเปล่า
+                likeIcon.classList.add("fa-heart"); // เปลี่ยนเป็นไอคอนหัวใจเต็ม
+            } else {
+                // หากกดอีกครั้ง เปลี่ยนกลับเป็นไม่ชื่นชอบ
+                likeEvent.value = "0";
+                likeIcon.classList.remove("fa-heart"); // ไอคอนหัวใจเต็ม
+                likeIcon.classList.add("fa-heart-o"); // เปลี่ยนเป็นไอคอนหัวใจว่างเปล่า
+            }
+        }
     </script>
 
     <!--script ปฏิทิน-->
@@ -151,8 +171,10 @@ if (!isset($_SESSION['id'])) {
                     <div class="form-group">
                         <label for="eventColor">เลือกสี:</label>
                         <div class="color-container">
-                            <input type="color" id="eventColor" name="eventColor" required>
-                            <i id="likeIcon" class="fa fa-heart-o heart-icon" onclick="toggleHeart()"></i>
+                        <input type="color" id="eventColor" name="eventColor" required>
+
+                        <input type="hidden" id="likeEvent" name="likeEvent" value="0">
+                        <i id="likeIcon" class="fa fa-heart-o heart-icon" onclick="toggleHeart()"></i>
                         </div>
                     </div>
                 </td>
@@ -183,10 +205,6 @@ if (!isset($_SESSION['id'])) {
     </form>
     </div>
 
-
-
 <script src="home.js"></script>
-</body>
-</html>
 </body>
 </html>
