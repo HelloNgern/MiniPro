@@ -25,6 +25,7 @@
         <ul>
             <li><a href="showdata.php">Dashboard</a></li>
             <li><a href="">Users Management</a></li>
+            <li><a href="profilead.php">Profile Admin</a></li>
           
         </ul>
     </div>

@@ -77,17 +77,17 @@ $user = mysqli_fetch_array($query, MYSQLI_ASSOC);
         <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
 
         <div class="form-floating mb-3 info-row">
-            <strong>Username:</strong>
+            <strong>Username :</strong>
             <input type="text" class="form-control" id="editUsername" name="username" placeholder="Username" value="<?php echo $user['username']; ?>" required>
         </div>
 
         <div class="form-floating mb-3 info-row">
-            <strong>Email:</strong>
+            <strong>Email :</strong>
             <input type="email" class="form-control" id="editEmail" name="email" placeholder="Email" value="<?php echo $user['email']; ?>" required>
         </div>
 
         <div class="form-floating mb-3 info-row">
-            <strong>Password:</strong>
+            <strong>Password :</strong>
             <input type="password" class="form-control" id="editPassword" name="password" placeholder="new password" required>
         </div>
 

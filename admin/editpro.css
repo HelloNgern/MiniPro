@@ -3,6 +3,12 @@
 /* ... (CSS ที่มีอยู่แล้ว) */
 
 /* สไตล์ของฟอร์มแก้ไขข้อมูล */
+body {
+    background-color: #f2f2f2; /* สีพื้นหลัง */
+    font-family: Arial, sans-serif; /* ฟอนต์ที่ใช้ */
+    margin: 0;
+    padding: 0;
+}
 .profile-edit {
     max-width: 600px; /* กำหนดความกว้างสูงสุด */
     margin: auto; /* จัดให้กลางหน้า */
@@ -66,3 +72,44 @@
     font-size: 16px; /* ขนาดฟอนต์ */
 }
 
+/* Sidebar Styles */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #2c3e50;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    color: #ecf0f1;
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 40px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    color: #bdc3c7;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    padding: 10px;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background-color: #34495e;
+    color: #ecf0f1;
+}

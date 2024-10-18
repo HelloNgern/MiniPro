@@ -97,8 +97,9 @@ $user = mysqli_fetch_array($query, MYSQLI_ASSOC);
         </div>
         
         <!-- ปุ่มโยงไปยังหน้า edit -->
-        <button onclick="location.href='editpro.php'">Edit Profile</button>
+        <button onclick="location.href='editpro.php'">แก้ไขโปรไฟล์</button>
     </div>
 </div>
+
 </body>
 </html>
