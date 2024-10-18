@@ -64,6 +64,17 @@ $conn->close();
         <a href="../support/support.html">สนับสนุน</a>
         <a onclick="lockoutUser()" href="#">ออกจากระบบ</a> <!-- ลิงก์ไปยังหน้า Logout -->
     </div>
+    <script>
+    function lockoutUser() {
+        if (confirm("คุณต้องการล็อกเอาท์ใช่ไหม?")) {
+            window.location.href = '../home/logout.php'; 
+        }
+    }
+    function toggleMenu() {
+        var menu = document.getElementById("menu");
+        menu.classList.toggle("show");
+    }
+</script>
 
     <script>
         const events = <?php echo json_encode($events); ?>; // ส่งข้อมูลกิจกรรมไปยัง JavaScript
@@ -309,28 +320,9 @@ $conn->close();
                 ?>
             </div>
 
-
-
             <div id="eventDetailsContainer" style="display: none;">
             <!-- รายละเอียดกิจกรรมจะถูกแสดงที่นี่ -->
             <button onclick="closeEventDetails()">Close</button>
-            </div>
-
-
-            <div class="buttons">
-                <div>
-                    <button class="action-button" id="createEventBtn" disabled onclick="openEventForm()">Create Event</button>
-                    <button class="action-button" id="viewEventBtn" style="display: none;">View Event Details</button>
-                </div>
-                <button class="action-button delete" id="deleteEventBtn" disabled onclick="deleteEvent()">Delete Event</button>
-            </div>
-
-            <div class="event-form" id="eventForm">
-                <h3>Create Event for <span id="selectedDate"></span></h3>
-                <input type="text" id="eventName" placeholder="Event Name" required>
-                <textarea id="eventDescription" rows="3" placeholder="Event Description" required></textarea>
-                <button onclick="saveEvent()">Save Event</button>
-                <button class="cancel" onclick="closeEventForm()">Cancel</button>
             </div>
 
             <!-- ป๊อปอัพเลือกปี -->

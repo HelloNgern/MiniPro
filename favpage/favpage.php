@@ -187,15 +187,15 @@
     </script>
     
     <script>
-        function lockoutUser() {
-    if (confirm("คุณต้องการล็อกเอาท์ใช่ไหม?")) {
-        window.location.href = 'logout.php'; // เปลี่ยนเส้นทางไปยังหน้า logout
-    }
-}
-        function toggleMenu() {
-            var menu = document.getElementById("menu"); // เข้าถึงเมนูด้วย id="menu"
-            menu.classList.toggle("show"); // สลับการเพิ่ม/ลบ class "show" เพื่อแสดงหรือซ่อนเมนู
+    function lockoutUser() {
+        if (confirm("คุณต้องการล็อกเอาท์ใช่ไหม?")) {
+            window.location.href = '../home/logout.php'; 
         }
-    </script>
+    }
+    function toggleMenu() {
+        var menu = document.getElementById("menu");
+        menu.classList.toggle("show");
+    }
+</script>
 </body>
 </html>

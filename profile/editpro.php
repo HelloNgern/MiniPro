@@ -61,7 +61,7 @@ $user = mysqli_fetch_array($query, MYSQLI_ASSOC);
 <script>
     function lockoutUser() {
         if (confirm("คุณต้องการล็อกเอาท์ใช่ไหม?")) {
-            window.location.href = 'logout.php'; 
+            window.location.href = '../home/logout.php'; 
         }
     }
     function toggleMenu() {

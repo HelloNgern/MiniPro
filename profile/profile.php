@@ -71,17 +71,6 @@ $user = mysqli_fetch_array($query, MYSQLI_ASSOC);
             menu.classList.toggle("show"); // สลับการเพิ่ม/ลบ class "show" เพื่อแสดงหรือซ่อนเมนู
         }
     </script>
-    <script>
-        function lockoutUser() {
-    if (confirm("คุณต้องการล็อกเอาท์ใช่ไหม?")) {
-        window.location.href = 'logout.php'; // เปลี่ยนเส้นทางไปยังหน้า logout
-    }
-}
-        function toggleMenu() {
-            var menu = document.getElementById("menu"); // เข้าถึงเมนูด้วย id="menu"
-            menu.classList.toggle("show"); // สลับการเพิ่ม/ลบ class "show" เพื่อแสดงหรือซ่อนเมนู
-        }
-    </script>
 <div class="row">
     <!-- ข้อมูลปัจจุบันของผู้ใช้ -->
     <div class="col-md-6 profile-info">
