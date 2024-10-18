@@ -63,7 +63,7 @@ $user = mysqli_fetch_array($query, MYSQLI_ASSOC);
     <script>
         function lockoutUser() {
     if (confirm("คุณต้องการล็อกเอาท์ใช่ไหม?")) {
-        window.location.href = 'logout.php'; // เปลี่ยนเส้นทางไปยังหน้า logout
+        window.location.href = '../home/logout.php'; // เปลี่ยนเส้นทางไปยังหน้า logout
     }
 }
         function toggleMenu() {
@@ -97,7 +97,7 @@ $user = mysqli_fetch_array($query, MYSQLI_ASSOC);
         </div>
         
         <!-- ปุ่มโยงไปยังหน้า edit -->
-        <button onclick="location.href='editpro.php'">Edit Profile</button>
+        <button onclick="location.href='editpro.php'">แก้ไขข้อมูลส่วนตัว</button>
     </div>
 </div>
 </body>

@@ -34,6 +34,7 @@ $result = $stmt->get_result();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>กำลังดำเนินการ</title>
     <link rel="stylesheet" href="todo.css"> <!-- เชื่อมโยงไฟล์ CSS ถ้ามี -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- ใช้ jQuery -->
@@ -126,8 +127,8 @@ $result = $stmt->get_result();
             }
 
         </style>
-        <a href="succeed.php" class="next-button">เสร็จสิ้นแล้ว ></a>
-        <a href="todo.php" class="backk-button">< สิ่งที่ต้องทำ</a>
+        <a href="succeed.php" class="next-button">เสร็จสิ้นแล้ว <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+        <a href="todo.php" class="backk-button"><i class="fa fa-angle-double-left" aria-hidden="true"></i>สิ่งที่ต้องทำ</a>
     </div>
 </body>
 </html>

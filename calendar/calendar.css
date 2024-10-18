@@ -1,11 +1,16 @@
-.calendar {
+
+
+/* .calendar {
     width: 80%;
     max-width: 600px;
     background-color: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+    margin: auto; /* ใช้ margin auto เพื่อจัดกลาง */
+    /* ถ้าต้องการให้มีระยะห่างจากด้านบนของหน้าก็สามารถเพิ่ม margin-top
+    margin-top: 50px; /* เปลี่ยนค่าได้ตามต้องการ 
+} */
 
 .calendar-header {
     display: flex;

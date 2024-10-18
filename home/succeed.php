@@ -34,6 +34,7 @@ $result = $stmt->get_result();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>กิจกรรมที่สำเร็จ</title>
     <link rel="stylesheet" href="todo.css"> <!-- เชื่อมโยงไฟล์ CSS ถ้ามี -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- ใช้ jQuery -->
@@ -62,7 +63,7 @@ $result = $stmt->get_result();
 </head>
 <body>
 <a href="homepage.php" class="back-button">ย้อนกลับ</a>
-    <h1>เสร็จสินแล้ว</h1>
+    <h1>เสร็จสิ้นแล้ว</h1>
 
     <div class="todo-list">
         <?php if ($result->num_rows > 0): ?>
@@ -112,7 +113,7 @@ $result = $stmt->get_result();
                 color:#ed3636; /* เปลี่ยนสีเมื่อชี้เมาส์ */
             }
         </style>
-        <a href="doing.php" class="backk-button">< กำลังดำเนินการ</a>
+        <a href="doing.php" class="backk-button"><i class="fa fa-angle-double-left" aria-hidden="true"></i>กำลังดำเนินการ</a>
 
     </div>
 </body>

@@ -33,6 +33,7 @@ $result = $stmt->get_result();
 <html lang="th">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>สิ่งที่ต้องทำ</title>
     <link rel="stylesheet" href="todo.css"> <!-- เชื่อมโยงไฟล์ CSS ถ้ามี -->
@@ -111,7 +112,7 @@ $result = $stmt->get_result();
             color:#ed3636; /* เปลี่ยนสีเมื่อชี้เมาส์ */
         }
         </style>
-        <a href="doing.php" class="next">กำลังดำเนินการ></a>
+        <a href="doing.php" class="next">กำลังดำเนินการ<i class="fa fa-angle-double-right" aria-hidden="true"></a>
         
     </div>
 </body>
