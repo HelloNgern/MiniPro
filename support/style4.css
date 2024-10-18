@@ -1,29 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-/*body{
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-items: center;
-    background: #dad3f8;
-}*/
-
-.container1{
-    max-width: 1490px;
-    width: 100%;
-    background: #fff;
-    border-radius: 12px;
-    margin: 0 20px;
-    padding: 40px 50px 40px 40px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-}
-
 .container1 .main-title1{
     font-size: 30px;
     font-weight: 500;
@@ -33,7 +7,7 @@
 .container1 .content1{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; /* จัดให้มีพื้นที่ระหว่างเมนู */
 }
 
 .container1 .content1 .list1{
@@ -178,3 +152,4 @@ button:hover {
 .next {
     right: 10px;
 }
+

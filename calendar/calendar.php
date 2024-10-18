@@ -38,28 +38,50 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../homepage.css">
+    <link rel="stylesheet" href="../home/home.css">
     <link rel="stylesheet" href="calendar.css">
     <title>Calendar</title>
+    <style>
+        .main-content{
+        margin-left: 100px;
+    }
+    .calendar {
+        margin-left: 270px;
+        width: 80%;
+        max-width: 600px;
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    </style>
 </head>
 <body bgcolor="#1D0066">
-    <div class="navbar">
+    <!-- ส่วนของ Navbar -->
+<div class="navbar">
         <h2> Remind me! <img src="../register/image/remindd.png" width="40" height="50"></h2>
+            
+    
         <div class="navbar">
             <a href="../home/homepage.php"><i class="fa fa-fw fa-home"></i>หน้าหลัก</a>
-            <a class="active" href="calendar.php"><i class="fa fa fa-calendar"></i> ปฏิทิน</a>
+            <a href="../calendar/calendar.php"><i class="fa fa fa-calendar"></i> ปฏิทิน</a>
             <a href="../favpage/favpage.php"><i class="fa fas fa-heart"></i> รายการโปรด</a>
-            <a href="#"><i class="fa fa fa-bell"> </i>การแจ้งเตือน</a>
-            <a href="../search/search.html"><i class="fa fa-fw fa-search"></i> Search</a>
+            <a href="#"><i class="fa fa fa fa-bell"> </i>การแจ้งเตือน</a>
+            <a href="../search/search.html" ><i class="fa fa-fw fa-search"></i>ค้นหา</a>
         </div>
+       
+    
+        <!-- ปุ่ม Hamburger -->
         <div class="hamburger" onclick="toggleMenu()">
             <div></div>
             <div></div>
             <div></div>
         </div>
+        
     </div>
-
-    <div class="menu" id="menu">
+    
+    <!-- เมนูที่ซ่อนอยู่ -->
+    <div class="menu" id="menu"> <!-- เมนูที่ถูกซ่อนอยู่ มี id="menu" เพื่อให้เรียกใช้ได้ง่าย -->
         <a href="../profile/profile.php">โปรไฟล์</a>
         <a href="../support/support.html">สนับสนุน</a>
         <a onclick="lockoutUser()" href="#">ออกจากระบบ</a> <!-- ลิงก์ไปยังหน้า Logout -->
@@ -75,6 +97,18 @@ $conn->close();
         menu.classList.toggle("show");
     }
 </script>
+
+    <script>
+        function lockoutUser() {
+        if (confirm("คุณต้องการล็อกเอาท์ใช่ไหม?")) {
+            window.location.href = '../login.html'; // เปลี่ยนเส้นทางไปยังหน้า logout
+            }
+        }
+        function toggleMenu() {
+            var menu = document.getElementById("menu"); // เข้าถึงเมนูด้วย id="menu"
+            menu.classList.toggle("show"); // สลับการเพิ่ม/ลบ class "show" เพื่อแสดงหรือซ่อนเมนู
+        }
+    </script>  
 
     <script>
         const events = <?php echo json_encode($events); ?>; // ส่งข้อมูลกิจกรรมไปยัง JavaScript

@@ -3,24 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support</title>
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="style4.css">
+    <link rel="stylesheet" href="../home/home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style4.css"/>
-    <link rel="stylesheet" href="../homepage.css">
-</head>
-<body bgcolor="#1D0066">
-    <!-- ส่วนของ Navbar -->
-    <div class="navbar">
-        <h2> Remind me! <img src="imageja/remind.png" width="40" height="50"></h2>
-            
 
-        <div class="navbar">
+    <style>
+        .container1{
+    max-width: 1100px;
+    width: 97%;
+    background: #fff;
+    border-radius: 12px;
+    margin-left: 37px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    padding: 20px 50px 40px 40px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+    </style>
+</head>
+<body>
+<!-- ส่วนของ Navbar -->
+<div class="navbar">
+        <h2> Remind me! <img src="../register/image/remindd.png" width="40" height="50"></h2>
             <a href="../home/homepage.php"><i class="fa fa-fw fa-home"></i>หน้าหลัก</a>
             <a href="../calendar/calendar.php"><i class="fa fa fa-calendar"></i> ปฏิทิน</a>
-            <a href="../favpage/favpage.html"><i class="fa fas fa-heart"></i> รายการโปรด</a>
+            <a href="../favpage/favpage.php"><i class="fa fas fa-heart"></i> รายการโปรด</a>
             <a href="#"><i class="fa fa fa fa-bell"> </i>การแจ้งเตือน</a>
-            <a href="../search/search.html"><i class="fa fa-fw fa-search"></i> Search</a>
-          </div>
+            <a href="../search/search.html" ><i class="fa fa-fw fa-search"></i>ค้นหา</a>
+       
 
         <!-- ปุ่ม Hamburger -->
         <div class="hamburger" onclick="toggleMenu()">
@@ -28,40 +39,42 @@
             <div></div>
             <div></div>
         </div>
+        
     </div>
-
+    
     <!-- เมนูที่ซ่อนอยู่ -->
     <div class="menu" id="menu"> <!-- เมนูที่ถูกซ่อนอยู่ มี id="menu" เพื่อให้เรียกใช้ได้ง่าย -->
-        <a href="../profile/profile.php">Profile</a> <!-- ลิงก์ไปยังหน้า Profile -->
-        <a href="support.html">Support</a> <!-- ลิงก์ไปยังหน้า support -->
-        <a onclick="lockoutUser()" href="#">Logout</a> <!-- ลิงก์ไปยังหน้า Logout -->
+        <a href="../profile/profile.php">โปรไฟล์</a>
+        <a href="../support/support.html">สนับสนุน</a>
+        <a onclick="lockoutUser()" href="#">ออกจากระบบ</a> <!-- ลิงก์ไปยังหน้า Logout -->
     </div>
 
 
     <div class="container1">
-            <div class="main-title1">Support</div>
+            <div class="main-title1">สนับสนุน</div>
             <div class="content1">
                 <input type="radio" name="indicator" checked id="help">
                 <input type="radio" name="indicator" id="aboutUs">
                 <input type="radio" name="indicator" id="contactUs">
             <div class="list1">
                 <label for="help" class="help">
-                    <i class="fa-solid fa-circle-question"></i>
-                    <span class="topic">Help</span>
+                    <i class="fa fa-question-circle" aria-hidden="true"></i>
+                    <span class="topic">ช่วยเหลือ</span>
                 </label>
                 <label for="aboutUs" class="aboutUs">
-                    <i class="fa-solid fa-user-group"></i>
-                    <span class="topic">About Us</span>
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                    <span class="topic">เกี่ยวกับเรา</span>
                 </label>
                 <label for="contactUs" class="contactUs">
-                    <i class="fa-solid fa-envelope"></i>
-                    <span class="topic">Contact Us</span>
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                    <span class="topic">ติดต่อ</span>
                 </label>
                 <div class="indicator"></div>
             </div>
+
             <div class="text-content">
                 <div class="help text">
-                <div class="title">Help</div>
+                    <div class="title"></i>ช่วยเหลือ <i class="fa-solid fa-circle-question"></i></div>
                 <p>
                     <div class="slider">
                         <div class="slides">
@@ -79,7 +92,7 @@
                 </p>
             </div>
             <div class="aboutUs text">
-                <div class="title">About Us</div>
+                <div class="title">เกี่ยวกับ Remind me!</div>
                 <p>ยินดีต้อนรับสู่ Remind Me! แพลตฟอร์มการจัดการกิจกรรมที่ถูกออกแบบมาเพื่อช่วยให้ทุกคนสามารถจัดกิจกรรมได้อย่างง่ายดาย ไม่ว่าจะเป็นการจัดกิจกรรมขนาดเล็กสำหรับกลุ่มเพื่อนหรือกิจกรรมใหญ่ระดับองค์กร เรามุ่งมั่นที่จะทำให้กระบวนการจัดการกิจกรรมทุกขั้นตอนเป็นไปอย่างราบรื่น สะดวกสบาย และประหยัดเวลา<br>
                     <br>
                     ภารกิจของเรา<br>
@@ -104,7 +117,7 @@
                 </p>
             </div>
             <div class="contactUs text">
-                <div class="title">Contact Us</div>
+                <div class="title">ติดต่อสอบถาม</div>
                 <p>เรายินดีที่จะให้ความช่วยเหลือและตอบคำถามของคุณ หากคุณต้องการติดต่อเราเกี่ยวกับการใช้งานเว็บไซต์ Remind Me! หรือต้องการสอบถามข้อมูลเพิ่มเติมเกี่ยวกับการจัดการกิจกรรม กรุณาเลือกช่องทางการติดต่อที่สะดวกที่สุดตามรายละเอียดด้านล่าง : <br>
                     <br>
                     ช่องทางการติดต่อ<br>
@@ -146,15 +159,6 @@
         }
     </script>
     <script src="imageSlider.js"></script>
-
-    <!-- สคริปต์สำหรับจัดการ Hamburger Menu -->
-    <script>
-        function toggleMenu() {
-            var menu = document.getElementById("menu"); // เข้าถึงเมนูด้วย id="menu"
-            menu.classList.toggle("show"); // สลับการเพิ่ม/ลบ class "show" เพื่อแสดงหรือซ่อนเมนู
-        }
-    </script>
-
 
 </body>
 </html>
