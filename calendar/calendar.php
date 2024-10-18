@@ -47,7 +47,7 @@ $conn->close();
         <h2> Remind me! <img src="../register/image/remindd.png" width="40" height="50"></h2>
         <div class="navbar">
             <a href="../home/homepage.php"><i class="fa fa-fw fa-home"></i>หน้าหลัก</a>
-            <a class="active" href="calendar.html"><i class="fa fa fa-calendar"></i> ปฏิทิน</a>
+            <a class="active" href="calendar.php"><i class="fa fa fa-calendar"></i> ปฏิทิน</a>
             <a href="../favpage/favpage.php"><i class="fa fas fa-heart"></i> รายการโปรด</a>
             <a href="#"><i class="fa fa fa-bell"> </i>การแจ้งเตือน</a>
             <a href="../search/search.html"><i class="fa fa-fw fa-search"></i> Search</a>
@@ -60,9 +60,9 @@ $conn->close();
     </div>
 
     <div class="menu" id="menu">
-        <a href="../profile/profile.php">Profile</a>
-        <a href="#">Support</a>
-        <a href="#">Logout</a>
+        <a href="../profile/profile.php">โปรไฟล์</a>
+        <a href="../support/support.html">สนับสนุน</a>
+        <a onclick="lockoutUser()" href="#">ออกจากระบบ</a> <!-- ลิงก์ไปยังหน้า Logout -->
     </div>
 
     <script>

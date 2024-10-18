@@ -88,9 +88,9 @@
     </div>
 
     <div class="menu" id="menu">
-        <a href="../profile/profile.php">Profile</a>
-        <a href="../support/support.html">Support</a>
-        <a onclick="lockoutUser()" href="#">Logout</a>
+        <a href="../profile/profile.php">โปรไฟล์</a>
+        <a href="../support/support.html">สนับสนุน</a>
+        <a onclick="lockoutUser()" href="#">ออกจากระบบ</a> <!-- ลิงก์ไปยังหน้า Logout -->
     </div>
 
     <div id="content">
