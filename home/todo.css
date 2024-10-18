@@ -113,40 +113,42 @@ h1 {
 }
 
 
-    .delete-button {
-        background-color: #dc3545; /* สีพื้นหลังแดง */
-        color: white; /* สีข้อความขาว */
-        border: none; /* ไม่มีขอบ */
-        border-radius: 5px; /* มุมโค้ง */
-        padding: 10px 20px; /* ช่องว่างภายใน */
-        font-size: 1em; /* ขนาดตัวอักษร */
-        cursor: pointer; /* เปลี่ยนรูปแบบเมาส์เมื่อชี้ */
-        transition: background-color 0.3s ease; /* เอฟเฟกต์การเปลี่ยนสี */
-    }
+.delete-button {
+    background-color: #dc3545; /* สีพื้นหลังแดง */
+    color: white; /* สีข้อความขาว */
+    border: none; /* ไม่มีขอบ */
+    border-radius: 5px; /* มุมโค้ง */
+    padding: 10px 20px; /* ช่องว่างภายใน */
+    font-size: 1em; /* ขนาดตัวอักษร */
+    cursor: pointer; /* เปลี่ยนรูปแบบเมาส์เมื่อชี้ */
+    transition: background-color 0.3s ease; /* เอฟเฟกต์การเปลี่ยนสี */
+}
 
-    .delete-button:hover {
-        background-color: #c82333; /* สีพื้นหลังเมื่อชี้เมาส์ */
-    }
+.delete-button:hover {
+    background-color: #c82333; /* สีพื้นหลังเมื่อชี้เมาส์ */
+}
 
-    .delete-button:active {
-        background-color: #bd2130; /* สีพื้นหลังเมื่อกดปุ่ม */
-    }
-    .back-button {
-        position: absolute; /* ทำให้สามารถวางในตำแหน่งที่ต้องการ */
-        top: 20px; /* ระยะห่างจากด้านบน */
-        left: 20px; /* ระยะห่างจากด้านซ้าย */
-        background-color: #1dadb8; /* เปลี่ยนเป็นสีเขียว */
-        color: white; /* สีข้อความขาว */
-        padding: 10px 15px; /* ช่องว่างภายใน */
-        text-decoration: none; /* ไม่มีเส้นใต้ */
-        border-radius: 5px; /* มุมโค้ง */
-        font-size: 1em; /* ขนาดตัวอักษร */
-        transition: background-color 0.3s ease; /* เอฟเฟกต์การเปลี่ยนสี */
-    }
+.delete-button:active {
+    background-color: #bd2130; /* สีพื้นหลังเมื่อกดปุ่ม */
+}
+.back-button {
+    position: absolute; /* ทำให้สามารถวางในตำแหน่งที่ต้องการ */
+    top: 20px; /* ระยะห่างจากด้านบน */
+    left: 20px; /* ระยะห่างจากด้านซ้าย */
+    background-color: #1dadb8; /* เปลี่ยนเป็นสีเขียว */
+    color: white; /* สีข้อความขาว */
+    padding: 10px 15px; /* ช่องว่างภายใน */
+    text-decoration: none; /* ไม่มีเส้นใต้ */
+    border-radius: 5px; /* มุมโค้ง */
+    font-size: 1em; /* ขนาดตัวอักษร */
+    transition: background-color 0.3s ease; /* เอฟเฟกต์การเปลี่ยนสี */
+}
 
-    .back-button:hover {
-        background-color: #a322d6; /* เปลี่ยนสีเมื่อชี้เมาส์ */
-    }
+.back-button:hover {
+    background-color: #a322d6; /* เปลี่ยนสีเมื่อชี้เมาส์ */
+}
+
+
 
 
 

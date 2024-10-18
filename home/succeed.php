@@ -96,6 +96,24 @@ $result = $stmt->get_result();
     }
 </style>
         <?php endif; ?>
+
+        <style>
+            .backk-button {
+                position: absolute;
+                margin-top:10px;
+                left: 25px;
+                color: #FFFFFF; /* กำหนดสีข้อความเป็นสีขาว */
+                border: none; /* ไม่ต้องการเส้นขอบ */
+                border-radius: 5px; /* ทำให้มุมปุ่มโค้งมน */
+                text-decoration: underline; /* เพิ่มขีดเส้นใต้ */
+                font-size: 16px; /* ขนาดอักษรตามต้องการ */
+            }
+            .backk-button:hover {
+                color:#ed3636; /* เปลี่ยนสีเมื่อชี้เมาส์ */
+            }
+        </style>
+        <a href="doing.php" class="backk-button">< กำลังดำเนินการ</a>
+
     </div>
 </body>
 </html>

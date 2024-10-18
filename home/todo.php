@@ -60,7 +60,6 @@ $result = $stmt->get_result();
         }
     </script>
 </head>
-<body>
 <a href="homepage.php" class="back-button">ย้อนกลับ</a>
     <h1>สิ่งที่ต้องทำ</h1>
 
@@ -83,20 +82,37 @@ $result = $stmt->get_result();
         <?php else: ?>
             <p class="no-events-message">ไม่มีกิจกรรมที่จะทำ</p>
             <style>
-    .no-events-message {
-        background-color: #f8d7da; /* สีพื้นหลังแดงอ่อน */
-        color: #721c24; /* สีข้อความแดงเข้ม */
-        border: 1px solid #f5c6cb; /* ขอบสีแดง */
-        border-radius: 5px; /* มุมโค้ง */
-        padding: 15px; /* ช่องว่างภายใน */
-        text-align: center; /* จัดกลาง */
-        margin-top: 20px; /* ช่องว่างด้านบน */
-        font-size: 1.2em; /* ขนาดตัวอักษร */
-        font-weight: bold; /* ตัวหนา */
-    }
-</style>
+                .no-events-message {
+                    background-color: #f8d7da; /* สีพื้นหลังแดงอ่อน */
+                    color: #721c24; /* สีข้อความแดงเข้ม */
+                    border: 1px solid #f5c6cb; /* ขอบสีแดง */
+                    border-radius: 5px; /* มุมโค้ง */
+                    padding: 15px; /* ช่องว่างภายใน */
+                    text-align: center; /* จัดกลาง */
+                    margin-top: 20px; /* ช่องว่างด้านบน */
+                    font-size: 1.2em; /* ขนาดตัวอักษร */
+                    font-weight: bold; /* ตัวหนา */
+                }
+            </style>
 
         <?php endif; ?>
+        <style>
+            .next{
+            position: absolute;
+            margin-top:10px;
+            right: 25px;
+            color: #FFFFFF; /* กำหนดสีข้อความเป็นสีขาว */
+            border: none; /* ไม่ต้องการเส้นขอบ */
+            border-radius: 5px; /* ทำให้มุมปุ่มโค้งมน */
+            text-decoration: underline; /* เพิ่มขีดเส้นใต้ */
+            font-size: 16px; /* ขนาดอักษรตามต้องการ */
+        }
+        .next:hover{
+            color:#ed3636; /* เปลี่ยนสีเมื่อชี้เมาส์ */
+        }
+        </style>
+        <a href="doing.php" class="next">กำลังดำเนินการ></a>
+        
     </div>
 </body>
 </html>
