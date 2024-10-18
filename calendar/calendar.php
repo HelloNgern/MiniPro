@@ -1,0 +1,348 @@
+<?php
+session_start();
+// เชื่อมต่อกับฐานข้อมูล
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "login_system";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// ตรวจสอบการเชื่อมต่อ
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$userId = $_SESSION['id']; // สมมติว่าคุณเก็บ user_id ใน session
+
+// ตรวจสอบว่ามีกิจกรรมในฐานข้อมูลหรือไม่
+$sql = "SELECT * FROM events WHERE user_id = '$userId' ORDER BY start_time DESC";
+$result = $conn->query($sql);
+
+$events = [];
+if ($result->num_rows > 0) {
+    // ดึงข้อมูลกิจกรรมทั้งหมด
+    while ($row = $result->fetch_assoc()) {
+        $eventDate = date('Y-m-d', strtotime($row['start_time'])); // เปลี่ยนรูปแบบวันให้ตรง
+        $events[$eventDate][] = $row; // จัดเก็บกิจกรรมตามวันที่
+    }
+}
+
+// ปิดการเชื่อมต่อ
+$conn->close();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../homepage.css">
+    <link rel="stylesheet" href="calendar.css">
+    <title>Calendar</title>
+</head>
+<body bgcolor="#1D0066">
+    <div class="navbar">
+        <h2> Remind me! <img src="../register/image/remindd.png" width="40" height="50"></h2>
+        <div class="navbar">
+            <a href="../home/homepage.php"><i class="fa fa-fw fa-home"></i>หน้าหลัก</a>
+            <a class="active" href="calendar.html"><i class="fa fa fa-calendar"></i> ปฏิทิน</a>
+            <a href="../favpage/favpage.php"><i class="fa fas fa-heart"></i> รายการโปรด</a>
+            <a href="#"><i class="fa fa fa-bell"> </i>การแจ้งเตือน</a>
+            <a href="../search/search.html"><i class="fa fa-fw fa-search"></i> Search</a>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <div class="menu" id="menu">
+        <a href="../profile/profile.php">Profile</a>
+        <a href="#">Support</a>
+        <a href="#">Logout</a>
+    </div>
+
+    <script>
+        const events = <?php echo json_encode($events); ?>; // ส่งข้อมูลกิจกรรมไปยัง JavaScript
+
+        function displayEvents() {
+            const daysContainer = document.getElementById('daysContainer');
+            const days = daysContainer.getElementsByClassName('day');
+
+            // วนลูปผ่านวันในปฏิทิน
+            for (let day of days) {
+                const date = day.getAttribute('data-date'); // ดึงวันที่จาก data-date
+                const dayNumber = new Date(date).getDate(); // ดึงเลขวันที่
+                day.innerHTML = dayNumber; // แสดงเลขวันที่
+
+                // ตรวจสอบว่ามีกิจกรรมสำหรับวันที่นี้หรือไม่
+                if (events[date]) {
+                    day.innerHTML += ` <span style="color: red;">*</span>`; // ทำเครื่องหมายวันที่ด้วยดอกจันสีแดง
+                    day.onclick = function() {
+                        showEventDetails(events[date]); // เรียกฟังก์ชันเพื่อแสดงรายละเอียดกิจกรรม
+                    };
+                } else {
+                    day.onclick = function() {
+                        showEventDetails([]); // ส่ง array ว่างเมื่อคลิกวันที่ไม่มีการจัดกิจกรรม
+                    };
+                }
+            }
+        }
+
+
+        let currentlyDisplayedEvents = null; // ตัวแปรเพื่อเก็บสถานะกิจกรรมที่แสดงอยู่
+        let currentlyHighlightedDay = null; // ตัวแปรเพื่อเก็บวันที่ที่ถูกไฮไลต์
+
+        function showEventDetails(eventsForDate) {
+            const eventDetailsContainer = document.getElementById('eventDetailsContainer');
+            eventDetailsContainer.innerHTML = ''; // เคลียร์เนื้อหาก่อน
+
+            // ตรวจสอบว่ากิจกรรมที่คลิกซ้ำคือกิจกรรมเดียวกันหรือไม่
+            if (currentlyDisplayedEvents === eventsForDate) {
+                // ถ้าเป็นกิจกรรมเดียวกัน ให้ซ่อนรายละเอียด
+                closeEventDetails();
+                currentlyDisplayedEvents = null; // ตั้งค่าสถานะกลับเป็น null
+                clearHighlightedDay(); // เคลียร์การไฮไลต์วันก่อนหน้า
+                return; // ออกจากฟังก์ชัน
+            }
+
+            // เคลียร์การไฮไลต์วันก่อนหน้า
+            clearHighlightedDay();
+
+            // ตรวจสอบว่ามีกิจกรรมสำหรับวันที่นี้หรือไม่
+            if (eventsForDate && eventsForDate.length > 0) {
+                // ถ้ามีกิจกรรมให้แสดงรายละเอียด
+                eventsForDate.forEach(event => {
+                    const eventElement = document.createElement('div');
+                    eventElement.className = 'event-detail';
+                    eventElement.innerHTML = `<strong>${event.title}</strong><br>${event.details}<br>`;
+                    eventDetailsContainer.appendChild(eventElement);
+                });
+                eventDetailsContainer.style.display = 'block'; // แสดงรายละเอียดใน UI
+
+                // ไฮไลต์วันที่ถูกคลิก
+                currentlyHighlightedDay = document.querySelector(`.day[data-date="${eventsForDate[0].date}"]`);
+                if (currentlyHighlightedDay) {
+                    currentlyHighlightedDay.classList.add('highlighted-day'); // เพิ่มคลาสเพื่อเปลี่ยนพื้นหลัง
+                }
+            } else {
+                // ถ้าไม่มี ให้แสดงข้อความว่าไม่มีการจัดกิจกรรม
+                const noEventMessage = document.createElement('div');
+                noEventMessage.className = 'no-event-message';
+                noEventMessage.innerHTML = 'ไม่มีการจัดกิจกรรมในวันที่เลือก';
+                eventDetailsContainer.appendChild(noEventMessage);
+                eventDetailsContainer.style.display = 'block'; // แสดงข้อความ
+            }
+
+            currentlyDisplayedEvents = eventsForDate; // อัปเดตสถานะที่แสดงอยู่
+        }
+
+        // ฟังก์ชันเพื่อเคลียร์การไฮไลต์วัน
+        function clearHighlightedDay() {
+            if (currentlyHighlightedDay) {
+                currentlyHighlightedDay.classList.remove('highlighted-day'); // ลบคลาสที่ใช้เพื่อไฮไลต์
+                currentlyHighlightedDay = null; // รีเซ็ตตัวแปร
+            }
+        }
+
+        // ปิดการแสดงรายละเอียดกิจกรรม
+        function closeEventDetails() {
+            const eventDetailsContainer = document.getElementById('eventDetailsContainer');
+            eventDetailsContainer.style.display = 'none';
+        }
+        let currentMonth = new Date().getMonth(); // เดือนปัจจุบัน
+        let currentYear = new Date().getFullYear(); // ปีปัจจุบัน
+
+        function nextMonth() {
+            // ถ้าหากเดือนคือ ธันวาคม (11) ให้เปลี่ยนไปมกราคม (0) ของปีถัดไป
+            if (currentMonth === 11) {
+                currentMonth = 0;
+                currentYear++;
+            } else {
+                currentMonth++;
+            }
+            updateCalendar(); // อัปเดตปฏิทิน
+        }
+
+        function prevMonth() {
+            // ถ้าหากเดือนคือ มกราคม (0) ให้เปลี่ยนไปธันวาคม (11) ของปีที่ผ่านมา
+            if (currentMonth === 0) {
+                currentMonth = 11;
+                currentYear--;
+            } else {
+                currentMonth--;
+            }
+            updateCalendar(); // อัปเดตปฏิทิน
+        }
+
+        function updateCalendar() {
+            const daysContainer = document.getElementById('daysContainer');
+            daysContainer.innerHTML = ''; // เคลียร์วันที่เดิม
+
+            const firstDayOfMonth = new Date(currentYear, currentMonth, 1);
+            const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0);
+            const today = new Date(); // วันที่ปัจจุบัน
+
+            // คำนวณวันแรกของเดือน (วันในสัปดาห์)
+            const firstDayOfWeek = firstDayOfMonth.getDay();
+
+            // สร้างช่องว่างสำหรับวันในเดือนก่อนหน้า
+            for (let i = 0; i < firstDayOfWeek; i++) {
+                const emptyDayDiv = document.createElement('div');
+                daysContainer.appendChild(emptyDayDiv); // เพิ่ม div ว่างเพื่อการจัดระเบียบ
+            }
+
+            // สร้างวันที่ในเดือนปัจจุบัน
+            for (let day = 1; day <= lastDayOfMonth.getDate(); day++) {
+                const dateString = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                const dayDiv = document.createElement('div');
+                dayDiv.className = 'day';
+                dayDiv.setAttribute('data-date', dateString);
+                dayDiv.innerHTML = day;
+
+                // ตรวจสอบว่ามันคือวันที่ปัจจุบันหรือไม่
+                if (today.getFullYear() === currentYear && today.getMonth() === currentMonth && today.getDate() === day) {
+                    dayDiv.classList.add('current-day'); // เพิ่มคลาสเพื่อไฮไลต์วันที่ปัจจุบัน
+                }
+
+                // ตรวจสอบว่ามีกิจกรรมสำหรับวันที่นี้หรือไม่
+                if (events[dateString]) {
+                    dayDiv.innerHTML += ` <span style="color: red;">*</span>`;
+                    dayDiv.onclick = function() {
+                        showEventDetails(events[dateString]);
+                    };
+                }
+
+                daysContainer.appendChild(dayDiv); // เพิ่มวันลงในปฏิทิน
+            }
+
+            // อัปเดตชื่อเดือนและปี
+            document.getElementById('monthName').textContent = firstDayOfMonth.toLocaleString('default', { month: 'long' });
+            document.getElementById('yearDisplay').textContent = currentYear;
+        }
+
+
+        // เรียกใช้เพื่อแสดงปฏิทินเมื่อโหลดหน้า
+        window.onload = function() {
+            updateCalendar();
+        };
+
+        function openYearPopup() {
+            document.getElementById('yearPopup').style.display = 'block';
+            generateYearList();
+        }
+
+        function closeYearPopup() {
+            document.getElementById('yearPopup').style.display = 'none';
+        }
+
+        function generateYearList() {
+            const yearListDiv = document.getElementById('yearList');
+            yearListDiv.innerHTML = '';
+
+            for (let i = 2000; i <= 2050; i++) {
+                const yearDiv = document.createElement('div');
+                yearDiv.textContent = i;
+                yearDiv.onclick = function() {
+                    changeYear(i);
+                };
+                yearListDiv.appendChild(yearDiv);
+            }
+        }
+
+        function changeYear(selectedYear) {
+            currentYear = selectedYear; // เปลี่ยนปี
+            closeYearPopup(); // ปิดป๊อปอัพ
+            updateCalendar(); // อัปเดตปฏิทินเพื่อแสดงวันที่ใหม่
+        }
+
+        function toggleMenu() {
+            var menu = document.getElementById("menu");
+            menu.classList.toggle("show");
+        }
+    </script>
+
+    <div class="main-content">
+        <div class="calendar">
+            <div class="calendar-header">
+                <button class="nav-button" onclick="prevMonth()">❮</button>
+                <div class="month-year">
+                    <span id="monthName"></span>
+                    <span id="yearDisplay" class="month-year" onclick="openYearPopup()"></span>
+                </div>
+                <button class="nav-button" onclick="nextMonth()">❯</button>
+            </div>
+
+            <div class="calendar-grid">
+                <div class="day-name">Sun</div>
+                <div class="day-name">Mon</div>
+                <div class="day-name">Tue</div>
+                <div class="day-name">Wed</div>
+                <div class="day-name">Thu</div>
+                <div class="day-name">Fri</div>
+                <div class="day-name">Sat</div>
+            </div>
+
+            <div class="calendar-grid" id="daysContainer">
+                <?php
+                // กำหนดเดือนและปีที่ต้องการสร้างปฏิทิน
+                // ใช้เดือนและปีจากการส่งค่า GET ถ้ามี ไม่เช่นนั้นให้ใช้เดือนและปีปัจจุบัน
+                $month = date('n'); // เดือนปัจจุบัน
+                $year = date('Y'); // ปีปัจจุบัน
+
+                if (isset($_GET['month']) && isset($_GET['year'])) {
+                    $month = (int)$_GET['month'];
+                    $year = (int)$_GET['year'];
+                }
+
+                // หาจำนวนวันที่ในเดือน
+                $daysInMonth = cal_days_in_month(CAL_GREGORIAN, $month, $year);
+
+                for ($day = 1; $day <= $daysInMonth; $day++) {
+                    // สร้างวันที่ในรูปแบบ YYYY-MM-DD
+                    $date = sprintf('%04d-%02d-%02d', $year, $month, $day);
+                    echo "<div class='day' data-date='$date'>$day</div>";
+                }
+                ?>
+            </div>
+
+
+
+            <div id="eventDetailsContainer" style="display: none;">
+            <!-- รายละเอียดกิจกรรมจะถูกแสดงที่นี่ -->
+            <button onclick="closeEventDetails()">Close</button>
+            </div>
+
+
+            <div class="buttons">
+                <div>
+                    <button class="action-button" id="createEventBtn" disabled onclick="openEventForm()">Create Event</button>
+                    <button class="action-button" id="viewEventBtn" style="display: none;">View Event Details</button>
+                </div>
+                <button class="action-button delete" id="deleteEventBtn" disabled onclick="deleteEvent()">Delete Event</button>
+            </div>
+
+            <div class="event-form" id="eventForm">
+                <h3>Create Event for <span id="selectedDate"></span></h3>
+                <input type="text" id="eventName" placeholder="Event Name" required>
+                <textarea id="eventDescription" rows="3" placeholder="Event Description" required></textarea>
+                <button onclick="saveEvent()">Save Event</button>
+                <button class="cancel" onclick="closeEventForm()">Cancel</button>
+            </div>
+
+            <!-- ป๊อปอัพเลือกปี -->
+            <div id="yearPopup" class="popup">
+                <div class="popup-content">
+                    <span class="close" onclick="closeYearPopup()">&times;</span>
+                    <h2>เลือกปี</h2>
+                    <div id="yearList"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</bod>
+</html>

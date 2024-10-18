@@ -27,6 +27,7 @@ $user = mysqli_fetch_array($query, MYSQLI_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Page</title>
     <link rel="stylesheet" href="../home/home.css">
+    <link rel="stylesheet" href="profile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -37,8 +38,8 @@ $user = mysqli_fetch_array($query, MYSQLI_ASSOC);
     
         <div class="navbar">
             <a href="../home/homepage.php"><i class="fa fa-fw fa-home"></i>หน้าหลัก</a>
-            <a href="../calendar/calendar.html"><i class="fa fa fa-calendar"></i> ปฏิทิน</a>
-            <a href="../favpage/favpage.html"><i class="fa fas fa-heart"></i> รายการโปรด</a>
+            <a href="../calendar/calendar.php"><i class="fa fa fa-calendar"></i> ปฏิทิน</a>
+            <a href="../favpage/favpage.php"><i class="fa fas fa-heart"></i> รายการโปรด</a>
             <a href="#"><i class="fa fa fa fa-bell"> </i>การแจ้งเตือน</a>
             <a href="../search/search.html" ><i class="fa fa-fw fa-search"></i>ค้นหา</a>
         </div>
@@ -84,15 +85,30 @@ $user = mysqli_fetch_array($query, MYSQLI_ASSOC);
 <div class="row">
     <!-- ข้อมูลปัจจุบันของผู้ใช้ -->
     <div class="col-md-6 profile-info">
-        <h4>ข้อมูลปัจจุบันของคุณ</h4><br>
-        <p><strong>UserID:</strong> <?php echo $user['id']; ?></p>
-        <p><strong>Username:</strong> <?php echo $user['username']; ?></p>
-        <p><strong>Email:</strong> <?php echo $user['email']; ?></p>
-        <p><strong>Password:</strong> ********</p> <!-- ซ่อนรหัสผ่านด้วยการแสดง ******** -->
-        <p><strong>Role:</strong> <?php echo $user['role']; ?></p>
+        <h4>ข้อมูลปัจจุบันของคุณ</h4>
+        <div class="info-row">
+            <strong>UserID:</strong>
+            <span><?php echo $user['id']; ?></span>
+        </div>
+        <div class="info-row">
+            <strong>Username:</strong>
+            <span><?php echo $user['username']; ?></span>
+        </div>
+        <div class="info-row">
+            <strong>Email:</strong>
+            <span><?php echo $user['email']; ?></span>
+        </div>
+        <div class="info-row">
+            <strong>Password:</strong>
+            <span>********</span> <!-- ซ่อนรหัสผ่านด้วยการแสดง ******** -->
+        </div>
+        <div class="info-row">
+            <strong>Role:</strong>
+            <span><?php echo $user['role']; ?></span>
+        </div>
         
         <!-- ปุ่มโยงไปยังหน้า edit -->
-        <button onclick="location.href='editpro.php'" style="margin-top: 20px;">Edit Profile</button>
+        <button onclick="location.href='editpro.php'">Edit Profile</button>
     </div>
 </div>
 </body>

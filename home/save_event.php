@@ -47,6 +47,19 @@ if ($conn->query($sql) === TRUE) {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
+// ตรวจสอบว่ามีกิจกรรมในฐานข้อมูลหรือไม่
+$sql = "SELECT * FROM events WHERE user_id = '$userId' ORDER BY start_time DESC";
+$result = $conn->query($sql);
+
+$events = [];
+if ($result->num_rows > 0) {
+    // ดึงข้อมูลกิจกรรมทั้งหมด
+    while ($row = $result->fetch_assoc()) {
+        $eventDate = date('Y-m-d', strtotime($row['start_time'])); // เปลี่ยนรูปแบบวันให้ตรง
+        $events[$eventDate][] = $row; // จัดเก็บกิจกรรมตามวันที่
+    }
+}
+
 // ปิดการเชื่อมต่อ
 $conn->close();
 ?>

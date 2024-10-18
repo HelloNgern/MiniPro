@@ -1,0 +1,84 @@
+/* home.css */
+
+/* ตั้งค่าพื้นหลังของหน้า */
+body {
+    background-color: #f2f2f2; /* สีพื้นหลัง */
+    font-family: Arial, sans-serif; /* ฟอนต์ที่ใช้ */
+    margin: 0;
+    padding: 0;
+}
+
+/* กำหนดรูปแบบสำหรับส่วนโปรไฟล์ */
+.row {
+    display: flex; /* ใช้ Flexbox */
+    justify-content: center; /* จัดกึ่งกลางแนวนอน */
+    align-items: center; /* จัดกึ่งกลางแนวตั้ง */
+    height: calc(100vh - 100px); /* ใช้ความสูงของหน้าจอ - ความสูงของ navbar */
+}
+
+/* สไตล์ของข้อมูลโปรไฟล์ */
+.profile-info {
+    background-color: white; /* สีพื้นหลังของข้อมูลโปรไฟล์ */
+    border-radius: 10px; /* มุมโค้ง */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* เงา */
+    padding: 30px; /* ช่องว่างภายใน */
+    width: 90%; /* ความกว้าง */
+    max-width: 400px; /* ความกว้างสูงสุด */
+    text-align: left; /* จัดข้อความให้ชิดซ้าย */
+}
+
+/* รูปแบบหัวข้อ */
+.profile-info h4 {
+    text-align: center; /* จัดกลางหัวข้อ */
+    margin-bottom: 20px; /* ช่องว่างด้านล่าง */
+    font-size: 24px; /* ขนาดฟอนต์หัวข้อ */
+}
+
+/* รูปแบบสำหรับข้อความ */
+.profile-info p {
+    margin: 10px 0; /* ช่องว่างด้านบนและล่าง */
+    font-size: 16px; /* ขนาดฟอนต์ข้อความ */
+}
+
+/* สไตล์ของแถวข้อมูล */
+/* สไตล์ของแถวข้อมูล */
+.profile-info .info-row {
+    display: flex; /* ใช้ Flexbox */
+    justify-content: flex-start; /* จัดแนวให้ชิดซ้าย */
+    align-items: center; /* จัดแนวข้อมูลในแนวตั้ง */
+    margin: 10px 0; /* ช่องว่างระหว่างแถว */
+    padding: 10px; /* ช่องว่างภายใน */
+    background-color: #f9f9f9; /* สีพื้นหลังของแถว */
+    border-radius: 5px; /* มุมโค้ง */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* เงาเบา */
+}
+
+/* สำหรับ strong ให้ชิดซ้าย */
+.profile-info .info-row strong {
+    width: 150px; /* กำหนดความกว้างให้กับ strong */
+    text-align: left; /* จัดตำแหน่งให้ชิดซ้าย */
+}
+
+/* จัดตำแหน่งให้ span อยู่กลาง */
+.profile-info .info-row span {
+    flex-grow: 1; /* ทำให้ span เติบโตเต็มที่ */
+    text-align: center; /* จัดตำแหน่งข้อความให้ตรงกลาง */
+}
+
+/* รูปแบบปุ่ม */
+.profile-info button {
+    display: block; /* ทำให้ปุ่มเป็นบล็อก */
+    margin: 20px auto; /* จัดกลางปุ่ม */
+    padding: 10px 15px; /* ช่องว่างภายใน */
+    background-color: #4CAF50; /* สีพื้นหลังของปุ่ม */
+    color: white; /* สีข้อความ */
+    border: none; /* ไม่ใช้กรอบ */
+    border-radius: 5px; /* มุมโค้ง */
+    cursor: pointer; /* แสดงมือเมื่อวางเมาส์ */
+    font-size: 16px; /* ขนาดฟอนต์ */
+}
+
+/* รูปแบบปุ่มเมื่อชี้เมาส์ */
+.profile-info button:hover {
+    background-color: #45a049; /* สีพื้นหลังเมื่อชี้เมาส์ */
+}

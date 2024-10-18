@@ -1,0 +1,54 @@
+/* home.css */
+
+/* ... (CSS ที่มีอยู่แล้ว) */
+
+/* สไตล์ของฟอร์มแก้ไขข้อมูล */
+.profile-edit {
+    max-width: 600px; /* กำหนดความกว้างสูงสุด */
+    margin: auto; /* จัดให้กลางหน้า */
+    padding: 20px; /* ช่องว่างรอบๆ */
+    background-color: #f9f9f9; /* สีพื้นหลัง */
+    border-radius: 8px; /* มุมโค้ง */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* เงาเบา */
+}
+
+/* จัดการแถวข้อมูลในฟอร์ม */
+.info-row {
+    display: flex; /* ใช้ Flexbox */
+    justify-content: flex-start; /* จัดแนวให้ชิดซ้าย */
+    align-items: center; /* จัดแนวข้อมูลในแนวตั้ง */
+    margin: 10px 0; /* ช่องว่างระหว่างแถว */
+    padding: 10px; /* ช่องว่างภายใน */
+}
+
+/* สำหรับ strong ให้ชิดซ้าย */
+.info-row strong {
+    width: 150px; /* กำหนดความกว้างให้กับ strong */
+    text-align: left; /* จัดตำแหน่งให้ชิดซ้าย */
+}
+
+/* จัดตำแหน่งให้ input อยู่กลาง */
+.info-row input {
+    flex-grow: 1; /* ทำให้ input เติบโตเต็มที่ */
+    text-align: left; /* จัดตำแหน่งข้อความให้ชิดซ้าย */
+}
+
+.profile-edit {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 50px auto; /* เพิ่ม margin เพื่อให้ห่างจากด้านบน */
+    width: 90%; /* ความกว้างของกรอบ */
+    max-width: 600px; /* ความกว้างสูงสุดของกรอบ */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.profile-edit h4 {
+    text-align: center; /* ให้ชื่อหัวข้ออยู่กลาง */
+    margin-bottom: 20px; /* เพิ่มช่องว่างด้านล่าง */
+}
+
+.form-floating {
+    margin-bottom: 20px; /* เพิ่มช่องว่างระหว่างฟอร์ม */
+}

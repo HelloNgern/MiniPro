@@ -27,88 +27,76 @@ $user = mysqli_fetch_array($query, MYSQLI_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Profile</title>
     <link rel="stylesheet" href="../home/home.css">
+    <link rel="stylesheet" href="editpro.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
 <!-- ส่วนของ Navbar -->
 <div class="navbar">
-        <h2> Remind me! <img src="../register/image/remindd.png" width="40" height="50"></h2>
-            
-    
-        <div class="navbar">
-            <a href="../home/homepage.php"><i class="fa fa-fw fa-home"></i>หน้าหลัก</a>
-            <a href="../calendar/calendar.html"><i class="fa fa fa-calendar"></i> ปฏิทิน</a>
-            <a href="../favpage/favpage.html"><i class="fa fas fa-heart"></i> รายการโปรด</a>
-            <a href="#"><i class="fa fa fa fa-bell"> </i>การแจ้งเตือน</a>
-            <a href="../search/search.html" ><i class="fa fa-fw fa-search"></i>ค้นหา</a>
-        </div>
-       
-    
-        <!-- ปุ่ม Hamburger -->
-        <div class="hamburger" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        
+    <h2> Remind me! <img src="../register/image/remindd.png" width="40" height="50"></h2>
+    <div class="navbar">
+        <a href="../home/homepage.php"><i class="fa fa-fw fa-home"></i>หน้าหลัก</a>
+        <a href="../calendar/calendar.php"><i class="fa fa fa-calendar"></i> ปฏิทิน</a>
+        <a href="../favpage/favpage.php"><i class="fa fas fa-heart"></i> รายการโปรด</a>
+        <a href="#"><i class="fa fa fa-bell"> </i>การแจ้งเตือน</a>
+        <a href="../search/search.html"><i class="fa fa-fw fa-search"></i>ค้นหา</a>
     </div>
-    
-    <!-- เมนูที่ซ่อนอยู่ -->
-    <div class="menu" id="menu"> <!-- เมนูที่ถูกซ่อนอยู่ มี id="menu" เพื่อให้เรียกใช้ได้ง่าย -->
-        <a href="profile.php">Profile</a> <!-- ลิงก์ไปยังหน้า Profile -->
-        <a href="../support/support.html">Support</a> <!-- ลิงก์ไปยังหน้า Support -->
-        <a onclick="lockoutUser()" href="#">Logout</a> <!-- ลิงก์ไปยังหน้า Logout -->
+
+    <!-- ปุ่ม Hamburger -->
+    <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
     </div>
-    <script>
-        function lockoutUser() {
-    if (confirm("คุณต้องการล็อกเอาท์ใช่ไหม?")) {
-        window.location.href = 'logout.php'; // เปลี่ยนเส้นทางไปยังหน้า logout
-    }
-}
-        function toggleMenu() {
-            var menu = document.getElementById("menu"); // เข้าถึงเมนูด้วย id="menu"
-            menu.classList.toggle("show"); // สลับการเพิ่ม/ลบ class "show" เพื่อแสดงหรือซ่อนเมนู
+</div>
+
+<!-- เมนูที่ซ่อนอยู่ -->
+<div class="menu" id="menu">
+    <a href="profile.php">Profile</a>
+    <a href="../support/support.html">Support</a>
+    <a onclick="lockoutUser()" href="#">Logout</a>
+</div>
+
+<script>
+    function lockoutUser() {
+        if (confirm("คุณต้องการล็อกเอาท์ใช่ไหม?")) {
+            window.location.href = 'logout.php'; 
         }
-    </script>
+    }
+    function toggleMenu() {
+        var menu = document.getElementById("menu");
+        menu.classList.toggle("show");
+    }
+</script>
 
 <!-- ฟอร์มแก้ไขข้อมูล -->
 <div class="col-md-6 profile-edit">
-                <h4>แก้ไขข้อมูลที่ต้องการ</h4>
-                <form action="updatepro.php" method="post">
-                    <!-- เพิ่ม hidden input สำหรับ UserID -->
-                    <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
+    <h4>แก้ไขข้อมูลที่ต้องการ</h4>
+    <form action="updatepro.php" method="post">
+        <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
 
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="editUsername" name="username" placeholder="Username" value="<?php echo $user['username']; ?>" required>
-                        <label for="editUsername">Username</label>
-                    </div>
-
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="editEmail" name="email" placeholder="Email" value="<?php echo $user['email']; ?>" required>
-                        <label for="editEmail">Email</label>
-                    </div>
-
-                    <div class="form-floating mb-3">
-                        <input type="password" class="form-control" id="editPassword" name="password" placeholder="new password" value="<?php echo $user['password']; ?>" required>
-                        <label for="editPassword">Password</label>
-                    </div>
-
-                    <!-- <div class="form-floating mb-3">
-                        <input type="password" class="form-control" id="confirm-password" placeholder="confirm new password">
-                        <label for="confirm-password">confirm password :</label>
-                    </div> -->
-
-                    <button type="submit" class="btn btn-primary">บันทึกการแก้ไข</button>
-                </form>
-            </div>
+        <div class="form-floating mb-3 info-row">
+            <strong>Username:</strong>
+            <input type="text" class="form-control" id="editUsername" name="username" placeholder="Username" value="<?php echo $user['username']; ?>" required>
         </div>
-    </div>
-    
+
+        <div class="form-floating mb-3 info-row">
+            <strong>Email:</strong>
+            <input type="email" class="form-control" id="editEmail" name="email" placeholder="Email" value="<?php echo $user['email']; ?>" required>
+        </div>
+
+        <div class="form-floating mb-3 info-row">
+            <strong>Password:</strong>
+            <input type="password" class="form-control" id="editPassword" name="password" placeholder="new password" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">บันทึกการแก้ไข</button>
+    </form>
+</div>
+
 </body>
 </html>
-
 
 <?php
 mysqli_close($conn);

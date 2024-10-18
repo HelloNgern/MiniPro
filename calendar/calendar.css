@@ -184,15 +184,64 @@
     cursor: pointer;
 }
 .month-year {
-font-size: 1.5em;
-cursor: pointer; /* เพิ่ม cursor pointer */
-transition: color 0.3s; /* เพิ่มการเปลี่ยนสี */
+    font-size: 1.5em;
+    cursor: pointer; /* เพิ่ม cursor pointer */
+    transition: color 0.3s; /* เพิ่มการเปลี่ยนสี */
 }
 
 .month-year:hover {
-color: #4CAF50; /* เปลี่ยนสีเมื่อ hover */
+    color: #4CAF50; /* เปลี่ยนสีเมื่อ hover */
 }
 
 .active {
-background-color: #7082de;
+    background-color: #7082de;
+}
+.highlighted-day {
+    background-color: lightblue; /* หรือสีที่คุณต้องการ */
+}
+
+.current-day {
+    background-color: yellow; /* เปลี่ยนเป็นสีที่ต้องการไฮไลต์ */
+    border-radius: 50%;
+}
+
+/* ปรับสไตล์ของป๊อปอัพ */
+.popup {
+    display: none; /* ซ่อนป๊อปอัพเริ่มต้น */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* ให้ลอยเหนือทุกอย่าง */
+    border-radius: 8px;
+}
+
+.popup-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.popup-content .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#yearList {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+#yearList div {
+    padding: 10px;
+    cursor: pointer;
+}
+
+#yearList div:hover {
+    background-color: #f1f1f1;
 }
