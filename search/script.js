@@ -42,3 +42,37 @@ for (item of listItems) {
         }
     };
 }
+
+document.getElementById('search-button').addEventListener('click', function() {
+    const status = document.querySelector('.dropdown-list-item.selected')?.getAttribute('data-status');
+    const searchTerm = document.getElementById('search-input').value;
+
+    // ทำการส่งข้อมูลไปยัง backend
+    fetch(`search.php?status=${status}&term=${encodeURIComponent(searchTerm)}`)
+        .then(response => response.json())
+        .then(data => {
+            // ทำการแสดงผลข้อมูลที่ค้นหาได้ที่นี่
+            console.log(data); // หรือทำการแสดงใน UI ตามต้องการ
+        });
+});
+
+window.addEventListener('load', function() {
+    // ดึงค่า status จาก URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const status = urlParams.get('status');
+    const searchTerm = urlParams.get('term');
+
+    // ถ้ามีค่าที่เลือกแล้วให้แสดงค่านั้น
+    if (status) {
+        const savedStatus = document.querySelector(`.dropdown-list-item[data-status='${status}']`);
+        if (savedStatus) {
+            document.getElementById('span').textContent = savedStatus.textContent;
+            savedStatus.classList.add('selected');
+        }
+    }
+
+    // กรอกคำค้นหาลงในกล่อง search-input ถ้ามี
+    if (searchTerm) {
+        document.getElementById('search-input').value = decodeURIComponent(searchTerm);
+    }
+});
