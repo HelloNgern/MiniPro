@@ -154,7 +154,7 @@ $conn->close();
 
                 // ตรวจสอบว่ามีกิจกรรมสำหรับวันที่นี้หรือไม่
                 if (events[date]) {
-                    day.innerHTML += ` <span style="color: red;">1</span>`; // ทำเครื่องหมายวันที่ด้วยดอกจันสีแดง
+                    day.innerHTML += ` <span style="color: red;">*</span>`; // ทำเครื่องหมายวันที่ด้วยดอกจันสีแดง
                     day.onclick = function() {
                         showEventDetails(events[date]); // เรียกฟังก์ชันเพื่อแสดงรายละเอียดกิจกรรม
                     };
