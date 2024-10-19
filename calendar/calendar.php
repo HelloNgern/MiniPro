@@ -42,11 +42,9 @@ $conn->close();
     <link rel="stylesheet" href="calendar.css">
     <title>Calendar</title>
     <style>
-        .main-content{
-        margin-left: 100px;
-    }
+      
     .calendar {
-        margin-left: 270px;
+        
         width: 80%;
         max-width: 600px;
         background-color: white;
@@ -54,6 +52,37 @@ $conn->close();
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
+    .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 คอลัมน์ โดยแต่ละคอลัมน์มีขนาดเท่ากัน */
+    
+    gap: 100px; /* ระยะห่างระหว่างคอลัมน์ */
+    padding: 100px;
+}
+
+.grid-item {
+    background-color: #76c7c0;
+    padding: 20px;
+    text-align: center;
+    border: 2px solid #333;
+    font-size: 20px;
+}
+.grid-item1 {
+    margin-left: 100px;
+    width: 80%;
+        max-width: 400px;
+        background-color: white;
+     
+        
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: black;
+    font-family: 'Poppins', sans-serif; /* ใช้ฟอนต์ Poppins จาก Google Fonts */
+    font-size: 16px; /* ขนาดฟอนต์ */
+    line-height: 1.6; /* เพิ่มระยะห่างบรรทัดเพื่อให้อ่านง่าย */
+}
+
     </style>
 </head>
 <body bgcolor="#1D0066">
@@ -125,7 +154,7 @@ $conn->close();
 
                 // ตรวจสอบว่ามีกิจกรรมสำหรับวันที่นี้หรือไม่
                 if (events[date]) {
-                    day.innerHTML += ` <span style="color: red;">*</span>`; // ทำเครื่องหมายวันที่ด้วยดอกจันสีแดง
+                    day.innerHTML += ` <span style="color: red;">1</span>`; // ทำเครื่องหมายวันที่ด้วยดอกจันสีแดง
                     day.onclick = function() {
                         showEventDetails(events[date]); // เรียกฟังก์ชันเพื่อแสดงรายละเอียดกิจกรรม
                     };
@@ -163,7 +192,7 @@ $conn->close();
                 eventsForDate.forEach(event => {
                     const eventElement = document.createElement('div');
                     eventElement.className = 'event-detail';
-                    eventElement.innerHTML = `<strong>${event.title}</strong><br>${event.details}<br>`;
+                    eventElement.innerHTML = `<strong>${event.title}</strong><br>${event.location}<br>${event.details}<br>${event.start_time}<br>${event.end_time}<br></div>`;
                     eventDetailsContainer.appendChild(eventElement);
                 });
                 eventDetailsContainer.style.display = 'block'; // แสดงรายละเอียดใน UI
@@ -310,8 +339,8 @@ $conn->close();
         }
     </script>
 
-    <div class="main-content">
-        <div class="calendar">
+    <div class="main-content" class="grid-container">
+        <div class="calendar" class="grid-item">
             <div class="calendar-header">
                 <button class="nav-button" onclick="prevMonth()">❮</button>
                 <div class="month-year">
@@ -354,10 +383,7 @@ $conn->close();
                 ?>
             </div>
 
-            <div id="eventDetailsContainer" style="display: none;">
-            <!-- รายละเอียดกิจกรรมจะถูกแสดงที่นี่ -->
-            <button onclick="closeEventDetails()">Close</button>
-            </div>
+            
 
             <!-- ป๊อปอัพเลือกปี -->
             <div id="yearPopup" class="popup">
@@ -368,7 +394,12 @@ $conn->close();
                 </div>
             </div>
 
-        </div>
+        </div>  
+        <div id="eventDetailsContainer" style="display: none;" class="grid-item1">
+            <!-- รายละเอียดกิจกรรมจะถูกแสดงที่นี่ -->
+            
+            </div>
     </div>
+    
 </bod>
 </html>

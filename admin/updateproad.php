@@ -19,7 +19,7 @@ if (!$conn) {
 $id = $_POST['id'];
 $username = $_POST['username'];
 $email = $_POST['email'];
-$password = $_POST['password'];
+$password =  password_hash($_POST['password'], PASSWORD_DEFAULT);
 
 // ตรวจสอบว่าค่า UserID ไม่ว่างเปล่า
 if (!empty($id)) {

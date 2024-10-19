@@ -46,7 +46,7 @@ $user = mysqli_fetch_array($query, MYSQLI_ASSOC);
 <!-- ฟอร์มแก้ไขข้อมูล -->
 <div class="col-md-6 profile-edit">
     <h4>แก้ไขข้อมูลที่ต้องการ</h4>
-    <form action="updatepro.php" method="post">
+    <form action="updateproad.php" method="post">
         <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
 
         <div class="form-floating mb-3 info-row">

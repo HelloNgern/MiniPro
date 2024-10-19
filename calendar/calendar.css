@@ -59,6 +59,10 @@
     background-color: #4CAF50;
     color: white;
 }
+.day:active {
+    background-color: #4CAF50;
+    color: white;
+}
 
 .empty {
     visibility: hidden;
@@ -202,11 +206,11 @@
     background-color: #7082de;
 }
 .highlighted-day {
-    background-color: lightblue; /* หรือสีที่คุณต้องการ */
+    background-color: rgb(35, 218, 35); /* หรือสีที่คุณต้องการ */
 }
 
 .current-day {
-    background-color: yellow; /* เปลี่ยนเป็นสีที่ต้องการไฮไลต์ */
+    background-color: rgb(247, 168, 21); /* เปลี่ยนเป็นสีที่ต้องการไฮไลต์ */
     border-radius: 50%;
 }
 
@@ -250,3 +254,4 @@
 #yearList div:hover {
     background-color: #f1f1f1;
 }
+
