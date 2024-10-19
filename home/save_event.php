@@ -22,7 +22,7 @@ $details = $_POST['eventDetails'];
 $color = $_POST['eventColor'];
 $startTime = $_POST['eventStart'];
 $endTime = $_POST['eventEnd'];
-$liked = isset($_POST['likeEvent']) ? 1 : 0;
+$liked = $_POST['likeEvent'];
 $shareEmail = $_POST['shareEmail'];
 
 // SQL สำหรับบันทึกกิจกรรม
