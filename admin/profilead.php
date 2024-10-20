@@ -37,9 +37,16 @@ $user = mysqli_fetch_array($query, MYSQLI_ASSOC);
             <li><a href="showdata.php">Dashboard</a></li>
             <li><a href="dashboard.php">Users Management</a></li>
             <li><a href="">Profile Admin</a></li>
-            
+            <li><a onclick="lockoutUser()" href="#">Logout</a><li>  
         </ul>
     </div>
+    <script>
+    function lockoutUser() {
+        if (confirm("คุณต้องการล็อกเอาท์ใช่ไหม?")) {
+            window.location.href = '../home/logout.php'; 
+        }
+    }
+    </script>
 
 <div class="row">
     <!-- ข้อมูลปัจจุบันของผู้ใช้ -->
