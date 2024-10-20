@@ -27,10 +27,6 @@
     border-radius: 5px;
 }
 
-.month-year {
-    font-size: 1.5em;
-}
-
 .calendar-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);

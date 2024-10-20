@@ -162,10 +162,16 @@ $user_count = $result_role_user->fetch_assoc()['total'];
             <li><a href="">Dashboard</a></li>
             <li><a href="dashboard.php">Users Management</a></li>
             <li><a href="profilead.php">Profile Admin</a></li>
-            
-            
+            <li><a onclick="lockoutUser()" href="#">Logout</a><li>  
         </ul>
     </div>
+    <script>
+    function lockoutUser() {
+        if (confirm("คุณต้องการล็อกเอาท์ใช่ไหม?")) {
+            window.location.href = '../home/logout.php'; 
+        }
+    }
+    </script>
 
     <!-- Main Content Area -->
     <div class="main-content">

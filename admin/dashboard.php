@@ -26,11 +26,16 @@
             <li><a href="showdata.php">Dashboard</a></li>
             <li><a href="">Users Management</a></li>
             <li><a href="profilead.php">Profile Admin</a></li>
-          
+            <li><a onclick="lockoutUser()" href="#">Logout</a><li>  
         </ul>
     </div>
-    
-
+    <script>
+    function lockoutUser() {
+        if (confirm("คุณต้องการล็อกเอาท์ใช่ไหม?")) {
+            window.location.href = '../home/logout.php'; 
+        }
+    }
+    </script>
 
 <?php
 // เชื่อมต่อฐานข้อมูล
