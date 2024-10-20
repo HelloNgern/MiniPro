@@ -38,6 +38,7 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="../home/home.css">
     <link rel="stylesheet" href="calendar.css">
     <title>Calendar</title>
@@ -230,7 +231,7 @@ $conn->close();
 
                 // ตรวจสอบว่ามีกิจกรรมสำหรับวันที่นี้หรือไม่
                 if (events[date]) {
-                    day.innerHTML += ` <span style="color: red;">1</span>`; // ทำเครื่องหมายวันที่ด้วยดอกจันสีแดง
+                    day.innerHTML += `<span class="bi bi-pin-fill" style="color: red;"></span>`; // ทำเครื่องหมายวันที่ด้วยดอกจันสีแดง
                     day.onclick = function() {
                         showEventDetails(events[date]); // เรียกฟังก์ชันเพื่อแสดงรายละเอียดกิจกรรม
                     };
@@ -360,7 +361,7 @@ $conn->close();
 
                 // ตรวจสอบว่ามีกิจกรรมสำหรับวันที่นี้หรือไม่
                 if (events[dateString]) {
-                    dayDiv.innerHTML += ` <span style="color: red;">*</span>`;
+                    dayDiv.innerHTML += `<span class="bi bi-pin-fill red-icon" style="color: red;"></span>`;
                     dayDiv.onclick = function() {
                         showEventDetails(events[dateString]);
                     };
