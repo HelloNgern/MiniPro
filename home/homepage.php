@@ -29,7 +29,8 @@ if (!isset($_SESSION['id'])) {
             <a href="../calendar/calendar.php"><i class="fa fa fa-calendar"></i> ปฏิทิน</a>
             <a href="../favpage/favpage.php"><i class="fa fas fa-heart"></i> รายการโปรด</a>
             <a href="../notification/notification.php"><i class="fa fa fa fa-bell"> </i>การแจ้งเตือน</a>
-            <a href="../search/search.html" ><i class="fa fa-fw fa-search"></i>ค้นหา</a>
+            <a href="../search/search.php" ><i class="fa fa-fw fa-search"></i>ค้นหา</a>
+
         </div>
        
     
