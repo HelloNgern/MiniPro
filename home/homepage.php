@@ -205,7 +205,7 @@ if (!isset($_SESSION['id'])) {
         </table>
     </form>
     </div>
-
+    <iframe src="../notification/notification.php" style="display:none;"></iframe>
 <script src="home.js"></script>
 </body>
 </html>

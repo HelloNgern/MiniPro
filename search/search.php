@@ -184,6 +184,6 @@ $conn->close();
             }
         });
     </script>
-
+<iframe src="../notification/notification.php" style="display:none;"></iframe>
 </body>
 </html>

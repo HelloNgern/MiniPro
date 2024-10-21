@@ -197,5 +197,6 @@
         menu.classList.toggle("show");
     }
 </script>
+<iframe src="../notification/notification.php" style="display:none;"></iframe>
 </body>
 </html>

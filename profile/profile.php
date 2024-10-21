@@ -100,5 +100,6 @@ $user = mysqli_fetch_array($query, MYSQLI_ASSOC);
         <button onclick="location.href='editpro.php'">แก้ไขข้อมูลส่วนตัว</button>
     </div>
 </div>
+<iframe src="../notification/notification.php" style="display:none;"></iframe>
 </body>
 </html>

@@ -476,6 +476,6 @@ $conn->close();
             
             </div>
     </div>
-    
+    <iframe src="../notification/notification.php" style="display:none;"></iframe>
 </bod>
 </html>

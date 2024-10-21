@@ -5,14 +5,3 @@ document.getElementById('addEventButton').addEventListener('click', function() {
 });
 
 // การเปลี่ยนสีไอคอนหัวใจเมื่อกด
-document.getElementById('likeIcon').addEventListener('click', function() {
-    var icon = document.getElementById('likeIcon');
-    var checkbox = document.getElementById('likeEvent');
-    if (icon.classList.contains('liked')) {
-        icon.classList.remove('liked');
-        checkbox.checked = false; // ไม่ชอบแล้ว
-    } else {
-        icon.classList.add('liked');
-        checkbox.checked = true; // ชอบกิจกรรมนี้
-    }
-});
