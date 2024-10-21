@@ -170,7 +170,7 @@ $conn->close();
     
         <div class="navbar">
             <a href="../home/homepage.php"><i class="fa fa-fw fa-home"></i>หน้าหลัก</a>
-            <a href="../calendar/calendar.php"><i class="fa fa fa-calendar"></i> ปฏิทิน</a>
+            <a class="active" href="../calendar/calendar.php"><i class="fa fa fa-calendar"></i> ปฏิทิน</a>
             <a href="../favpage/favpage.php"><i class="fa fas fa-heart"></i> รายการโปรด</a>
             <a href="#"><i class="fa fa fa fa-bell"> </i>การแจ้งเตือน</a>
             <a href="../search/search.php" ><i class="fa fa-fw fa-search"></i>ค้นหา</a>
@@ -198,23 +198,7 @@ $conn->close();
             window.location.href = '../home/logout.php'; 
         }
     }
-    function toggleMenu() {
-        var menu = document.getElementById("menu");
-        menu.classList.toggle("show");
-    }
 </script>
-
-    <script>
-        function lockoutUser() {
-        if (confirm("คุณต้องการล็อกเอาท์ใช่ไหม?")) {
-            window.location.href = '../login.html'; // เปลี่ยนเส้นทางไปยังหน้า logout
-            }
-        }
-        function toggleMenu() {
-            var menu = document.getElementById("menu"); // เข้าถึงเมนูด้วย id="menu"
-            menu.classList.toggle("show"); // สลับการเพิ่ม/ลบ class "show" เพื่อแสดงหรือซ่อนเมนู
-        }
-    </script>  
 
     <script>
         const events = <?php echo json_encode($events); ?>; // ส่งข้อมูลกิจกรรมไปยัง JavaScript
