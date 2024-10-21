@@ -38,6 +38,7 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="../home/home.css">
     <link rel="stylesheet" href="calendar.css">
     <title>Calendar</title>
@@ -169,7 +170,7 @@ $conn->close();
     
         <div class="navbar">
             <a href="../home/homepage.php"><i class="fa fa-fw fa-home"></i>หน้าหลัก</a>
-            <a href="../calendar/calendar.php"><i class="fa fa fa-calendar"></i> ปฏิทิน</a>
+            <a class="active" href="../calendar/calendar.php"><i class="fa fa fa-calendar"></i> ปฏิทิน</a>
             <a href="../favpage/favpage.php"><i class="fa fas fa-heart"></i> รายการโปรด</a>
             <a href="#"><i class="fa fa fa fa-bell"> </i>การแจ้งเตือน</a>
             <a href="../search/search.php" ><i class="fa fa-fw fa-search"></i>ค้นหา</a>
@@ -197,23 +198,7 @@ $conn->close();
             window.location.href = '../home/logout.php'; 
         }
     }
-    function toggleMenu() {
-        var menu = document.getElementById("menu");
-        menu.classList.toggle("show");
-    }
 </script>
-
-    <script>
-        function lockoutUser() {
-        if (confirm("คุณต้องการล็อกเอาท์ใช่ไหม?")) {
-            window.location.href = '../login.html'; // เปลี่ยนเส้นทางไปยังหน้า logout
-            }
-        }
-        function toggleMenu() {
-            var menu = document.getElementById("menu"); // เข้าถึงเมนูด้วย id="menu"
-            menu.classList.toggle("show"); // สลับการเพิ่ม/ลบ class "show" เพื่อแสดงหรือซ่อนเมนู
-        }
-    </script>  
 
     <script>
         const events = <?php echo json_encode($events); ?>; // ส่งข้อมูลกิจกรรมไปยัง JavaScript
@@ -230,7 +215,8 @@ $conn->close();
 
                 // ตรวจสอบว่ามีกิจกรรมสำหรับวันที่นี้หรือไม่
                 if (events[date]) {
-                    day.innerHTML += ` <span style="color: red;">*</span>`; // ทำเครื่องหมายวันที่ด้วยดอกจันสีแดง
+               
+                    day.innerHTML += `<span class="bi bi-pin-fill" style="color: red;"></span>`; // ทำเครื่องหมายวันที่ด้วยดอกจันสีแดง
                     day.onclick = function() {
                         showEventDetails(events[date]); // เรียกฟังก์ชันเพื่อแสดงรายละเอียดกิจกรรม
                     };
@@ -360,7 +346,7 @@ $conn->close();
 
                 // ตรวจสอบว่ามีกิจกรรมสำหรับวันที่นี้หรือไม่
                 if (events[dateString]) {
-                    dayDiv.innerHTML += ` <span style="color: red;">*</span>`;
+                    dayDiv.innerHTML += `<span class="bi bi-pin-fill red-icon" style="color: red;"></span>`;
                     dayDiv.onclick = function() {
                         showEventDetails(events[dateString]);
                     };

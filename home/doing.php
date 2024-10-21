@@ -59,6 +59,22 @@ $result = $stmt->get_result();
                 }
             });
         }
+
+        function deleteEvent(eventId) {
+            $.ajax({
+                url: 'delete_event.php', // ไฟล์ PHP สำหรับลบ event
+                type: 'POST',
+                data: { event_id: eventId },
+                success: function(response) {
+                    // ถ้าลบ event สำเร็จให้ทำการรีเฟรชหรือซ่อน event นั้น
+                    if (response == 'success') {
+                        $('#event-' + eventId).remove(); // ลบ event ออกจาก DOM
+                    } else {
+                        alert('เกิดข้อผิดพลาดในการลบกิจกรรม');
+                    }
+                }
+            });
+        }
     </script>
 </head>
 <body>
@@ -78,6 +94,7 @@ $result = $stmt->get_result();
                         <p><strong>อีเมลแชร์:</strong> <?= htmlspecialchars($row['share_email']) ?></p>
                         
                         <button class="move-button" onclick="event.stopPropagation(); incrementStatus(<?= $row['id'] ?>)">เสร็จสิ้น</button>
+                        <button class="delete-button" onclick="event.stopPropagation(); deleteEvent(<?= $row['id'] ?>)">ลบกิจกรรม</button>
                     </div>
                 </div>
             <?php endwhile; ?>

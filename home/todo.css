@@ -72,12 +72,14 @@ h1 {
     display: inline-block;
     margin-top: 10px;
     transition: background-color 0.3s, transform 0.3s;
+    
 }
 
 .move-button:hover {
     background-color: #00c90a; /* สีส้มสดใสขึ้น */
     transform: scale(1.1); /* ขยายเล็กน้อยเมื่อวางเมาส์ */
 }
+
 
 /* กล่องด้านล่างสำหรับกลับไปยังหน้าสิ่งที่ต้องทำ */
 
@@ -117,11 +119,15 @@ h1 {
     background-color: #dc3545; /* สีพื้นหลังแดง */
     color: white; /* สีข้อความขาว */
     border: none; /* ไม่มีขอบ */
-    border-radius: 5px; /* มุมโค้ง */
-    padding: 10px 20px; /* ช่องว่างภายใน */
     font-size: 1em; /* ขนาดตัวอักษร */
     cursor: pointer; /* เปลี่ยนรูปแบบเมาส์เมื่อชี้ */
     transition: background-color 0.3s ease; /* เอฟเฟกต์การเปลี่ยนสี */
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 10px;
+    float: right; /* ย้ายปุ่มไปอยู่ริมขวา */
 }
 
 .delete-button:hover {
@@ -148,7 +154,19 @@ h1 {
     background-color: #a322d6; /* เปลี่ยนสีเมื่อชี้เมาส์ */
 }
 
-
+.delete-buttonn {
+    background-color: #bd2130; /* สีส้มจากตัวอย่าง */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1em;
+    display: inline-block;
+    margin-top: 10px;
+    transition: background-color 0.3s, transform 0.3s;
+    
+}
 
 
 
