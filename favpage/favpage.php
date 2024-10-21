@@ -97,7 +97,11 @@
     <h1>รายการโปรด</h1>
     <div class="event-container">
         <?php
-        session_start();
+         session_start();
+         if ($_SESSION['id'] == "") {
+            header("Location: ../register/login.html"); // เปลี่ยนเส้นทางไปยังหน้า login.html
+            exit();
+        }
         error_reporting(E_ALL); // เปิดการแสดงข้อผิดพลาดทั้งหมด
         ini_set('display_errors', 1); // แสดงข้อผิดพลาดบนหน้าเว็บ
 

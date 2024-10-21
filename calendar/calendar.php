@@ -1,6 +1,9 @@
 <?php
-session_start();
-// เชื่อมต่อกับฐานข้อมูล
+ session_start();
+ if ($_SESSION['id'] == "") {
+    header("Location: ../register/login.html"); // เปลี่ยนเส้นทางไปยังหน้า login.html
+    exit();
+}
 $servername = "localhost";
 $username = "root";
 $password = "";

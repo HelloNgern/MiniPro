@@ -1,6 +1,9 @@
 <?php
-session_start();
-
+ session_start();
+ if ($_SESSION['id'] == "") {
+    header("Location: ../register/login.html"); // เปลี่ยนเส้นทางไปยังหน้า login.html
+    exit();
+}
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -12,9 +15,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-if (!isset($_SESSION['id'])) {
-    die("Error: User not logged in.");
-}
+
 
 $userId = $_SESSION['id'];
 

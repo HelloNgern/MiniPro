@@ -10,12 +10,11 @@
 <body>
     <!-- ส่วนของ Navbar และอื่น ๆ ยังเหมือนเดิม -->
     <?php
-    session_start(); // เริ่ม session
-
-    // ตรวจสอบว่า session มีค่า user_id หรือไม่
-    if (!isset($_SESSION['id'])) {
-        die("Error: User not logged in.");
-    }
+    session_start();
+    if ($_SESSION['id'] == "") {
+       header("Location: ../register/login.html"); // เปลี่ยนเส้นทางไปยังหน้า login.html
+       exit();
+   }
     ?>
 
     <!-- ส่วนของ Navbar -->
