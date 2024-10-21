@@ -29,6 +29,16 @@ $user = mysqli_fetch_array($query, MYSQLI_ASSOC);
     <link rel="stylesheet" href="../home/home.css">
     <link rel="stylesheet" href="profile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    .circle-profile {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* ทำให้รูปภาพเป็นวงกลม */
+    object-fit: cover; /* ทำให้รูปภาพถูกครอบให้พอดีกับขนาด */
+    border: 2px solid #ccc; /* เพิ่มขอบรอบรูป */
+    }
+   
+    </style>
 </head>
 <body>
 <!-- ส่วนของ Navbar -->
@@ -75,6 +85,10 @@ $user = mysqli_fetch_array($query, MYSQLI_ASSOC);
     <!-- ข้อมูลปัจจุบันของผู้ใช้ -->
     <div class="col-md-6 profile-info">
         <h4>ข้อมูลปัจจุบันของคุณ</h4>
+        <div class="profile-pic">
+           
+            <img src="../uploads/<?php echo $user['profile_pic']; ?>" alt="Profile Picture" class="circle-profile">
+        </div>
         <div class="info-row">
             <strong>UserID:</strong>
             <span><?php echo $user['id']; ?></span>
@@ -91,10 +105,7 @@ $user = mysqli_fetch_array($query, MYSQLI_ASSOC);
             <strong>Password:</strong>
             <span>********</span> <!-- ซ่อนรหัสผ่านด้วยการแสดง ******** -->
         </div>
-        <div class="info-row">
-            <strong>Role:</strong>
-            <span><?php echo $user['role']; ?></span>
-        </div>
+     
         
         <!-- ปุ่มโยงไปยังหน้า edit -->
         <button onclick="location.href='editpro.php'">แก้ไขข้อมูลส่วนตัว</button>

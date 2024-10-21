@@ -27,6 +27,16 @@ $user = mysqli_fetch_array($query, MYSQLI_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="profilead.css">
     <title>Profile Page</title>
+    <style>
+    .circle-profile {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* ทำให้รูปภาพเป็นวงกลม */
+    object-fit: cover; /* ทำให้รูปภาพถูกครอบให้พอดีกับขนาด */
+    border: 2px solid #ccc; /* เพิ่มขอบรอบรูป */
+    }
+   
+    </style>
 </head>
 <body>
 
@@ -52,29 +62,30 @@ $user = mysqli_fetch_array($query, MYSQLI_ASSOC);
     <!-- ข้อมูลปัจจุบันของผู้ใช้ -->
     <div class="col-md-6 profile-info">
         <h4>ข้อมูลปัจจุบันของคุณ</h4>
+        <div class="profile-pic">
+           
+            <img src="../uploads/<?php echo $user['profile_pic']; ?>" alt="Profile Picture" class="circle-profile">
+        </div>
         <div class="info-row">
             <strong>UserID:</strong>
             <span><?php echo $user['id']; ?></span>
         </div>
         <div class="info-row">
-            <strong>Username :</strong>
+            <strong>Username:</strong>
             <span><?php echo $user['username']; ?></span>
         </div>
         <div class="info-row">
-            <strong>Email :</strong>
+            <strong>Email:</strong>
             <span><?php echo $user['email']; ?></span>
         </div>
         <div class="info-row">
-            <strong>Password :</strong>
+            <strong>Password:</strong>
             <span>********</span> <!-- ซ่อนรหัสผ่านด้วยการแสดง ******** -->
         </div>
-        <div class="info-row">
-            <strong>Role :</strong>
-            <span><?php echo $user['role']; ?></span>
-        </div>
+     
         
         <!-- ปุ่มโยงไปยังหน้า edit -->
-        <button onclick="location.href='editpro.php'">แก้ไขโปรไฟล์</button>
+        <button onclick="location.href='editpro.php'">แก้ไขข้อมูลส่วนตัว</button>
     </div>
 </div>
 

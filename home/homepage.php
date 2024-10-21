@@ -11,12 +11,25 @@
 </head>
 <body bgcolor="#1D0066">
 <?php
-session_start(); // เริ่ม session
-
-// ตรวจสอบว่า session มีค่า user_id หรือไม่
-if (!isset($_SESSION['id'])) {
-    die("Error: User not logged in.");
+ session_start();
+if ($_SESSION['id'] == "") {
+    header("Location: ../register/login.html"); // เปลี่ยนเส้นทางไปยังหน้า login.html
+    exit();
 }
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "login_system";
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+$sql = "SELECT profile_pic, username,id FROM users WHERE id = '" . $_SESSION['id'] . "'";
+$query = mysqli_query($conn, $sql);
+$user = mysqli_fetch_array($query, MYSQLI_ASSOC);
 ?>
 
     <!-- ส่วนของ Navbar -->
@@ -64,12 +77,17 @@ if (!isset($_SESSION['id'])) {
     <div class="main-content">
     <div class="profile">
         <!-- รูปโปรไฟล์จะแสดงที่นี่ -->
-        <img id="profile-image" src="" alt="Profile Image">
+        <div class="profile-pic">
+           
+            <img src="../uploads/<?php echo $user['profile_pic']; ?>" alt="Profile Picture" class="circle-profile">
+        </div>
 
         <!-- ข้อมูลผู้ใช้จะแสดงที่นี่ -->
         <div class="profile-info">
-            <p id="username">Username: </p>
-            <p id="user-id">User ID: </p>
+        <span>Username:</span>
+        <span><?php echo $user['username']; ?></span><br>
+        <span>Id:</span>
+        <span><?php echo $user['id']; ?></span>
         </div>
     </div>
     <div id="content">

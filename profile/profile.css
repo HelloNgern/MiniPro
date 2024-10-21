@@ -1,5 +1,11 @@
 /* home.css */
-
+.circle-profile {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* ทำให้รูปภาพเป็นวงกลม */
+    object-fit: cover; /* ทำให้รูปภาพถูกครอบให้พอดีกับขนาด */
+    border: 2px solid #ccc; /* เพิ่มขอบรอบรูป */
+}
 /* ตั้งค่าพื้นหลังของหน้า */
 body {
     background-color: #f2f2f2; /* สีพื้นหลัง */
@@ -82,3 +88,5 @@ body {
 .profile-info button:hover {
     background-color: #45a049; /* สีพื้นหลังเมื่อชี้เมาส์ */
 }
+
+

@@ -29,6 +29,15 @@ $user = mysqli_fetch_array($query, MYSQLI_ASSOC);
     <link rel="stylesheet" href="../home/home.css">
     <link rel="stylesheet" href="editpro.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    .profile-pic img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* ทำให้รูปเป็นวงกลม */
+    object-fit: cover; /* ทำให้รูปอยู่ในขนาดและสัดส่วนที่ถูกต้อง */
+    border: 2px solid #ccc; /* สามารถเพิ่มกรอบบางๆ ให้ดูมีลูกเล่น */
+}
+    </style>
 </head>
 <body>
 
@@ -68,13 +77,37 @@ $user = mysqli_fetch_array($query, MYSQLI_ASSOC);
         var menu = document.getElementById("menu");
         menu.classList.toggle("show");
     }
-</script>
 
+    // ฟังก์ชันสำหรับแสดงพรีวิวรูปภาพและอัปโหลดฟอร์มอัตโนมัติ
+    function previewAndUpload() {
+        var fileInput = document.getElementById('profileInput');
+        var image = document.getElementById('profileImage');
+        var form = document.getElementById('uploadForm');
+
+        // แสดงรูปพรีวิว
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            image.src = e.target.result;
+        }
+        reader.readAsDataURL(fileInput.files[0]);
+
+        // ส่งฟอร์มอัตโนมัติ
+        form.submit();
+    }
+</script>
 <!-- ฟอร์มแก้ไขข้อมูล -->
 <div class="col-md-6 profile-edit">
     <h4>แก้ไขข้อมูลที่ต้องการ</h4>
-    <form action="updatepro.php" method="post">
+    <form action="updatepro.php" method="post" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
+        <div class="profile-pic">
+            <img id="profileImage" src="../uploads/<?php echo $user['profile_pic']; ?>" alt="Profile Picture" width="150" height="150">
+            
+            <!-- ฟอร์มการอัปโหลดรูป -->
+            
+                <input type="file" name="profile_pic" id="profileInput" accept="image/*"  onchange="previewAndUpload()">
+            
+        </div>
 
         <div class="form-floating mb-3 info-row">
             <strong>Username :</strong>
