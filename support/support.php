@@ -91,7 +91,7 @@
             <a href="../home/homepage.php"><i class="fa fa-fw fa-home"></i>หน้าหลัก</a>
             <a href="../calendar/calendar.php"><i class="fa fa fa-calendar"></i> ปฏิทิน</a>
             <a href="../favpage/favpage.php"><i class="fa fas fa-heart"></i> รายการโปรด</a>
-            <a href="#"><i class="fa fa fa fa-bell"> </i>การแจ้งเตือน</a>
+            <a href="../notification/notification.php"><i class="fa fa fa fa-bell"> </i>การแจ้งเตือน</a>
             <a href="../search/search.php" ><i class="fa fa-fw fa-search"></i>ค้นหา</a>
        
 
