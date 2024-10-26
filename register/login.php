@@ -28,6 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       
         if (password_verify($pass, $row['password'])) {
             $_SESSION['id'] = $row['id']; 
+            $_SESSION['role'] = $row['role'];
             if($role == '0'){
                 header("Location: ../home/homepage.php"); // เปลี่ยนเส้นทางไปยังหน้า Home
             }else{

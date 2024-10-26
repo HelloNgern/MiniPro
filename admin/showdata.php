@@ -113,8 +113,8 @@
 <body>
 <?php
  session_start();
- if ($_SESSION['id'] == "") {
-    header("Location: ../register/login.html"); // เปลี่ยนเส้นทางไปยังหน้า login.html
+ if ($_SESSION['id'] == "" || $_SESSION['role'] != "1") {
+    header("Location: ../register/login.html"); // เปลี่ยนเส้นทางไปยังหน้า login.html หรือหน้าอื่นๆ เช่นหน้าแจ้งเตือน
     exit();
 }
 $servername = "localhost";
