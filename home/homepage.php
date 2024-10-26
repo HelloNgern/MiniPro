@@ -98,7 +98,7 @@ $conn->query($sql_update_active);
         <span><?php echo $user['id']; ?></span>
         </div>
     </div>
-    <div id="content"></div>
+    <div id="content-promote"></div>
     </div>
     
     <div>

@@ -237,6 +237,17 @@ background-color: #7082de;
 }
 #content {
     padding: 80px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    min-height: 400px;
+    flex: 1; /* ขยาย content ให้เต็มที่เท่าที่จะทำได้ */
+    margin-left: 40px; /* เพิ่มระยะห่างจากขอบซ้าย */
+    margin-right: 40px; /* เพิ่มระยะห่างจากขอบขวา */
+    margin-top: 40px;
+}
+#content-promote {
+    padding: 80px;
     background-image: url("../register/image/promote.png"); /* เปลี่ยนเป็นที่อยู่ของรูปภาพที่ต้องการ */
     background-size: cover; /* ปรับขนาดรูปให้เต็มพื้นที่ */
     background-position: center; /* จัดรูปให้อยู่ตรงกลาง */
