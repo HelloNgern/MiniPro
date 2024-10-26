@@ -48,6 +48,7 @@ $conn->close();
     <style>
     body{
         overflow-y: scroll;
+        background-color:#1D0066;
     }
     .calendar {
         width: 80%;
@@ -167,7 +168,7 @@ $conn->close();
 
     </style>
 </head>
-<body bgcolor="#1D0066">
+<body>
     <!-- ส่วนของ Navbar -->
 <div class="navbar">
         <h2> Remind me! <img src="../register/image/remindd.png" width="40" height="50"></h2>

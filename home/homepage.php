@@ -8,8 +8,27 @@
     <!-- ลิงก์ FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="home.css"> 
+    <style>
+        .profilee{
+        font-size: 1.2em;
+        margin-top: -270px; /* ระยะห่างระหว่างภาพและข้อมูล */
+        margin-left: 60px; /* ขยับชิดขอบซ้าย 10px */
+        color:white;
+        }
+    #content-promote {
+        padding: 5px; 
+        background-size: cover; /* ปรับขนาดรูปให้เต็มพื้นที่ */
+        background-position: center; /* จัดรูปให้อยู่ตรงกลาง */
+        border-radius: 10px;
+        min-height: 200px;
+        flex: 1; /* ขยาย content ให้เต็มที่เท่าที่จะทำได้ */
+        margin-left: 60px; /* เพิ่มระยะห่างจากขอบซ้าย */
+        margin-top: 30px;
+    }
+    </style>
+
 </head>
-<body bgcolor="#1D0066">
+<body>
 <?php
  session_start();
 if ($_SESSION['id'] == "") {
@@ -89,18 +108,10 @@ $conn->query($sql_update_active);
            
             <img src="../uploads/<?php echo $user['profile_pic']; ?>" alt="Profile Picture" class="circle-profile">
         </div>
-
-        <!-- ข้อมูลผู้ใช้จะแสดงที่นี่ -->
-        <div class="profile-info">
-        <span>Username:</span>
-        <span><?php echo $user['username']; ?></span><br>
-        <span>Id:</span>
-        <span><?php echo $user['id']; ?></span>
-        </div>
     </div>
     <div id="content-promote" ><img src="../register/image/promote.png" width="900" height="320" ></div>
     </div>
-    
+
     <div>
         <h2 class="move-down" >งานของฉัน</h2>
     </div>
@@ -126,6 +137,14 @@ $conn->query($sql_update_active);
                 <p>เสร็จสิ้นแล้ว</p> <!-- ข้อความในกล่อง -->
             </div>
         </div>
+    </div>
+    
+    <!-- ข้อมูลผู้ใช้จะแสดงที่นี่ -->
+    <div class="profilee">
+        <span>Username:</span>
+        <span><?php echo $user['username']; ?></span><br>
+        <span>Id:</span>
+        <span><?php echo $user['id']; ?></span>
     </div>
     <script>
         // ตัวอย่างข้อมูลผู้ใช้ที่สามารถดึงมาจาก backend

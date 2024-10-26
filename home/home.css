@@ -1,5 +1,4 @@
-  /* ตั้งค่าพื้นฐานให้กับ body เช่น font และ margin */
-  body {
+body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -7,6 +6,7 @@
     background: linear-gradient(135deg, #1D0066, #4A1C80);
     overflow-y: scroll;
 }
+  
 
 /* Navbar  สไตล์สำหรับ Navbar (แถบเมนูด้านบน) */
 .navbar {
@@ -212,7 +212,6 @@ background-color: #7082de;
     display: flex;
     align-items: center;
     margin-top: 40px;
-    flex-direction: column;
 }
 
 .profile img {
@@ -222,11 +221,6 @@ background-color: #7082de;
     height: 150px;
     object-fit: cover;
     margin-right: 20px;
-}
-
-.profile-info {
-    font-size: 1.2em;
-    margin-top: 20px; /* ระยะห่างระหว่างภาพและข้อมูล */
 }
 
 .main-content {
@@ -244,20 +238,9 @@ background-color: #7082de;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     min-height: 400px;
     flex: 1; /* ขยาย content ให้เต็มที่เท่าที่จะทำได้ */
-    margin-left: 40px; /* เพิ่มระยะห่างจากขอบซ้าย */
+    margin-left: 60px; /* เพิ่มระยะห่างจากขอบซ้าย */
     margin-right: 40px; /* เพิ่มระยะห่างจากขอบขวา */
     margin-top: 40px;
-}
-#content-promote {
-    padding: 5px; 
-    background-size: cover; /* ปรับขนาดรูปให้เต็มพื้นที่ */
-    background-position: center; /* จัดรูปให้อยู่ตรงกลาง */
-    border-radius: 10px;
-    min-height: 200px;
-    margin-left: 300px; /* เพิ่มระยะห่างจากขอบซ้าย */
-    margin-right: 10px; /* เพิ่มระยะห่างจากขอบขวา */
-    margin-top: 40px;
-    float: right;
 }
 .bottom-left-button {
     position: absolute;
@@ -392,8 +375,6 @@ textarea {
 .form-group input, .form-group textarea {
     margin-top: 5px;
 }
-
-
 
 
 .heart-icon {
