@@ -212,6 +212,7 @@ background-color: #7082de;
     display: flex;
     align-items: center;
     margin-top: 40px;
+    flex-direction: column;
 }
 
 .profile img {
@@ -225,6 +226,7 @@ background-color: #7082de;
 
 .profile-info {
     font-size: 1.2em;
+    margin-top: 20px; /* ระยะห่างระหว่างภาพและข้อมูล */
 }
 
 .main-content {
@@ -252,7 +254,7 @@ background-color: #7082de;
     background-position: center; /* จัดรูปให้อยู่ตรงกลาง */
     border-radius: 10px;
     min-height: 200px;
-    margin-left: 180px; /* เพิ่มระยะห่างจากขอบซ้าย */
+    margin-left: 300px; /* เพิ่มระยะห่างจากขอบซ้าย */
     margin-right: 10px; /* เพิ่มระยะห่างจากขอบขวา */
     margin-top: 40px;
     float: right;
