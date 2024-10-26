@@ -32,8 +32,16 @@ if (!$conn) {
 $sql = "SELECT profile_pic, username,id FROM users WHERE id = '" . $_SESSION['id'] . "'";
 $query = mysqli_query($conn, $sql);
 $user = mysqli_fetch_array($query, MYSQLI_ASSOC);
+$userId = $_SESSION['id'];
+$sql_update_active = "UPDATE users SET status = 'active' WHERE id = '$userId'";
+$conn->query($sql_update_active);
 ?>
-
+<script>
+    // ใช้ JavaScript และ jQuery เพื่ออัปเดตสถานะเป็น inactive เมื่อผู้ใช้ออกจากเว็บไซต์
+    window.addEventListener("beforeunload", function () {
+        navigator.sendBeacon('update_status_user.php', JSON.stringify({status: 'inactive', userId: <?php echo $userId; ?>}));
+    });
+</script>
     <!-- ส่วนของ Navbar -->
     <div class="navbar">
         <h2> Remind me! <img src="../register/image/remindd.png" width="40" height="50"></h2>
