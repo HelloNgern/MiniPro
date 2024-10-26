@@ -94,7 +94,7 @@
     </div>
 
     <div id="content">
-    <h1>รายการโปรด</h1>
+    <h1>รายการโปรด <i class="fa fa-heart-o" aria-hidden="true"></i></h1>
     <div class="event-container">
         <?php
          session_start();
