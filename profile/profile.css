@@ -65,12 +65,6 @@ body {
     text-align: left; /* จัดตำแหน่งให้ชิดซ้าย */
 }
 
-/* จัดตำแหน่งให้ span อยู่กลาง */
-.profile-info .info-row span {
-    flex-grow: 1; /* ทำให้ span เติบโตเต็มที่ */
-    text-align: center; /* จัดตำแหน่งข้อความให้ตรงกลาง */
-}
-
 /* รูปแบบปุ่ม */
 .profile-info button {
     display: block; /* ทำให้ปุ่มเป็นบล็อก */

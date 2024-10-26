@@ -37,7 +37,12 @@ $user = mysqli_fetch_array($query, MYSQLI_ASSOC);
     object-fit: cover; /* ทำให้รูปภาพถูกครอบให้พอดีกับขนาด */
     border: 2px solid #ccc; /* เพิ่มขอบรอบรูป */
     }
-   
+        /* จัดตำแหน่งให้ span อยู่กลาง */
+    .profile-info .info-row span {
+        flex-grow: 1; /* ทำให้ span เติบโตเต็มที่ */
+        text-align: left; /* จัดตำแหน่งข้อความให้ตรงกลาง */
+    }
+
     </style>
 </head>
 <body>
