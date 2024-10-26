@@ -46,18 +46,21 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "SELECT profile_pic, username,id FROM users WHERE id = '" . $_SESSION['id'] . "'";
+$sql = "SELECT profile_pic, username,id ,role FROM users WHERE id = '" . $_SESSION['id'] . "'";
 $query = mysqli_query($conn, $sql);
 $user = mysqli_fetch_array($query, MYSQLI_ASSOC);
 $userId = $_SESSION['id'];
 $sql_update_active = "UPDATE users SET status = 'active' WHERE id = '$userId'";
 $conn->query($sql_update_active);
+$role = $user['role'];
 ?>
 <script>
     // ใช้ JavaScript และ jQuery เพื่ออัปเดตสถานะเป็น inactive เมื่อผู้ใช้ออกจากเว็บไซต์
     window.addEventListener("beforeunload", function () {
         navigator.sendBeacon('update_status_user.php', JSON.stringify({status: 'inactive', userId: <?php echo $userId; ?>}));
     });
+
+
 </script>
     <!-- ส่วนของ Navbar -->
     <div class="navbar">
@@ -65,6 +68,7 @@ $conn->query($sql_update_active);
             
     
         <div class="navbar-item">
+            
             <a class="active" href="homepage.php"><i class="fa fa-fw fa-home"></i>หน้าหลัก</a>
             <a href="../calendar/calendar.php"><i class="fa fa fa-calendar"></i> ปฏิทิน</a>
             <a href="../favpage/favpage.php"><i class="fa fas fa-heart"></i> รายการโปรด</a>
@@ -79,6 +83,7 @@ $conn->query($sql_update_active);
             <div></div>
             <div></div>
             <div></div>
+            <div></div>
         </div>
         
     </div>
@@ -88,7 +93,21 @@ $conn->query($sql_update_active);
         <a href="../profile/profile.php">โปรไฟล์</a> <!-- ลิงก์ไปยังหน้า Profile -->
         <a href="../support/support.php">สนับสนุน</a> <!-- ลิงก์ไปยังหน้า Support -->
         <a onclick="lockoutUser()" href="#">ออกจากระบบ</a> <!-- ลิงก์ไปยังหน้า Logout -->
+        <a id="adminButton" style="display: none;" onclick="goToDashboard()">Admind dashboard</a>
     </div>
+    <script>
+        const role = "<?php echo $role; ?>";
+        
+        // ถ้า role เป็น 'admin' ให้แสดงปุ่มที่ซ่อนอยู่
+        if (role === "1") {
+            document.getElementById("adminButton").style.display = "block";
+        }
+
+        // ฟังก์ชันเปลี่ยนหน้าไปที่ Dashboard
+        function goToDashboard() {
+            window.location.href = "../admin/dashboard.php"; // กำหนด URL ของหน้า Dashboard ที่ต้องการ
+        }
+    </script>
     <script>
         function lockoutUser() {
     if (confirm("คุณต้องการล็อกเอาท์ใช่ไหม?")) {
