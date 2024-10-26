@@ -8,8 +8,6 @@
     <!-- ลิงก์ FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="home.css"> 
-
-    
 </head>
 <body bgcolor="#1D0066">
 <?php
@@ -92,10 +90,7 @@ $user = mysqli_fetch_array($query, MYSQLI_ASSOC);
         <span><?php echo $user['id']; ?></span>
         </div>
     </div>
-    <div id="content">
-    <h2>ยินดีต้อนรับสู่หน้าแรก</h2>
-    <p>นี่คือเนื้อหาหน้าแรก</p>
-    </div>
+    <div id="content"></div>
     </div>
     
     <div>
@@ -124,7 +119,6 @@ $user = mysqli_fetch_array($query, MYSQLI_ASSOC);
             </div>
         </div>
     </div>
-
     <script>
         // ตัวอย่างข้อมูลผู้ใช้ที่สามารถดึงมาจาก backend
         const user = {
