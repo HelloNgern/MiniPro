@@ -22,7 +22,7 @@
         border-radius: 10px;
         min-height: 200px;
         flex: 1; /* ขยาย content ให้เต็มที่เท่าที่จะทำได้ */
-        margin-left: 60px; /* เพิ่มระยะห่างจากขอบซ้าย */
+        margin-left: 300px; /* เพิ่มระยะห่างจากขอบซ้าย */
         margin-top: 30px;
     }
     </style>
