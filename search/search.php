@@ -55,6 +55,11 @@ $conn->close();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- ลิงก์ FontAwesome -->
     <title>Search Events</title>
+    <style>
+        body{
+        overflow-y: scroll;
+    }
+    </style>
 </head>
 
 <body>

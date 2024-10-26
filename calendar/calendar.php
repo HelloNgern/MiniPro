@@ -46,15 +46,17 @@ $conn->close();
     <link rel="stylesheet" href="calendar.css">
     <title>Calendar</title>
     <style>
-      
+    body{
+        overflow-y: scroll;
+    }
     .calendar {
-        
         width: 80%;
         max-width: 600px;
         background-color: white;
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-left:40px;
     }
     .grid-container {
     display: grid;
@@ -62,106 +64,106 @@ $conn->close();
     
     gap: 100px; /* ระยะห่างระหว่างคอลัมน์ */
     padding: 100px;
-}
+    }
 
-.grid-item {
-    background-color: #76c7c0;
-    padding: 20px;
-    text-align: center;
-    border: 2px solid #333;
-    font-size: 20px;
-}
-.grid-item1 {
-    margin-left: 100px;
-    width: 80%;
-        max-width: 400px;
-        background-color: white;
-     
+    .grid-item {
+        background-color: #76c7c0;
+        padding: 20px;
+        text-align: center;
+        border: 2px solid #333;
+        font-size: 20px;
+    }
+    .grid-item1 {
+        margin-left: 100px;
+        width: 80%;
+            max-width: 400px;
+            background-color: white;
         
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    color: black;
-    font-family: 'Poppins', sans-serif; /* ใช้ฟอนต์ Poppins จาก Google Fonts */
-    font-size: 16px; /* ขนาดฟอนต์ */
-    line-height: 1.6; /* เพิ่มระยะห่างบรรทัดเพื่อให้อ่านง่าย */
-}
+            
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        color: black;
+        font-family: 'Poppins', sans-serif; /* ใช้ฟอนต์ Poppins จาก Google Fonts */
+        font-size: 16px; /* ขนาดฟอนต์ */
+        line-height: 1.6; /* เพิ่มระยะห่างบรรทัดเพื่อให้อ่านง่าย */
+    }
 
 
-.nav-button:hover {
-    background-color: #59a69e; /* เปลี่ยนสีพื้นหลังของปุ่มเมื่อ hover */
-}
+    .nav-button:hover {
+        background-color: #59a69e; /* เปลี่ยนสีพื้นหลังของปุ่มเมื่อ hover */
+    }
 
-.month-year {
-    font-size: 30px; /* กำหนดขนาดตัวอักษร */
-    font-weight: bold; /* ทำให้ตัวอักษรหนา */
-    color: #333; /* กำหนดสีของตัวอักษรเป็นสีเทาเข้ม */
-    cursor: pointer; /* เปลี่ยนเคอร์เซอร์เมื่อเลื่อนเมาส์ */
-}
+    .month-year {
+        font-size: 30px; /* กำหนดขนาดตัวอักษร */
+        font-weight: bold; /* ทำให้ตัวอักษรหนา */
+        color: #333; /* กำหนดสีของตัวอักษรเป็นสีเทาเข้ม */
+        cursor: pointer; /* เปลี่ยนเคอร์เซอร์เมื่อเลื่อนเมาส์ */
+    }
 
-.calendar-grid {
-    display: grid; /* ใช้ grid layout เพื่อจัดการกริดของปฏิทิน */
-    grid-template-columns: repeat(7, 1fr); /* สร้าง 7 คอลัมน์ที่มีขนาดเท่ากัน */
-    gap: 10px; /* เพิ่มช่องว่างระหว่างกริด */
-}
+    .calendar-grid {
+        display: grid; /* ใช้ grid layout เพื่อจัดการกริดของปฏิทิน */
+        grid-template-columns: repeat(7, 1fr); /* สร้าง 7 คอลัมน์ที่มีขนาดเท่ากัน */
+        gap: 10px; /* เพิ่มช่องว่างระหว่างกริด */
+    }
 
-.day-name {
-    text-align: center; /* จัดข้อความให้อยู่กลาง */
-    font-weight: bold; /* ทำให้ตัวอักษรหนา */
-    color: black; /* กำหนดสีตัวอักษรเป็นสีเทาเข้ม */
-    font-size: 18px; /* กำหนดขนาดตัวอักษร */
-    background-color:#E8A44B;
-    border-radius:8px;
-}
+    .day-name {
+        text-align: center; /* จัดข้อความให้อยู่กลาง */
+        font-weight: bold; /* ทำให้ตัวอักษรหนา */
+        color: black; /* กำหนดสีตัวอักษรเป็นสีเทาเข้ม */
+        font-size: 18px; /* กำหนดขนาดตัวอักษร */
+        background-color:#E8A44B;
+        border-radius:8px;
+    }
 
-.day {
-    background-color:#FFF8DC; /* กำหนดสีพื้นหลังของแต่ละวัน */
-    padding: 15px; /* เพิ่มช่องว่างในแต่ละวัน */
-    text-align: center; /* จัดข้อความให้อยู่กลาง */
-    border-radius: 5px; /* ทำให้ขอบมีความโค้งมน */
-    font-size: 16px; /* กำหนดขนาดตัวอักษร */
-    color: #333; /* กำหนดสีตัวอักษรเป็นสีเทาเข้ม */
-    cursor: pointer; /* เปลี่ยนเคอร์เซอร์เมื่อเลื่อนเมาส์ */
-    transition: background-color 0.3s ease; /* เพิ่มเอฟเฟกต์เปลี่ยนสีพื้นหลังเมื่อ hover */
-}
+    .day {
+        background-color:#FFF8DC; /* กำหนดสีพื้นหลังของแต่ละวัน */
+        padding: 15px; /* เพิ่มช่องว่างในแต่ละวัน */
+        text-align: center; /* จัดข้อความให้อยู่กลาง */
+        border-radius: 5px; /* ทำให้ขอบมีความโค้งมน */
+        font-size: 16px; /* กำหนดขนาดตัวอักษร */
+        color: #333; /* กำหนดสีตัวอักษรเป็นสีเทาเข้ม */
+        cursor: pointer; /* เปลี่ยนเคอร์เซอร์เมื่อเลื่อนเมาส์ */
+        transition: background-color 0.3s ease; /* เพิ่มเอฟเฟกต์เปลี่ยนสีพื้นหลังเมื่อ hover */
+    }
 
-.current-day {
-    background-color: rgb(247, 168, 21); /* กำหนดสีพื้นหลังสำหรับวันที่ปัจจุบัน */
-    border-radius: 50%;
-}
-
-
-.event-detail {
-    background-color: #f9f9f9; /* กำหนดพื้นหลังของกล่องรายละเอียดเหตุการณ์ */
-    padding: 15px; /* เพิ่มช่องว่างภายในกล่อง */
-    margin-bottom: 10px; /* เพิ่มระยะห่างด้านล่าง */
-    border-radius: 5px; /* ทำให้ขอบมีความโค้งมน */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* เพิ่มเงาเล็กน้อย */
-}
-
-.event-detail strong {
-    font-size: 18px; /* กำหนดขนาดตัวอักษร */
-    color: #333; /* กำหนดสีตัวอักษรเป็นสีเทาเข้ม */
-}
-
-.no-event-message {
-    font-size: 16px; /* กำหนดขนาดตัวอักษรสำหรับข้อความไม่มีเหตุการณ์ */
-    color: #666; /* กำหนดสีตัวอักษรเป็นสีเทาอ่อน */
-}
-
-#eventDetailsContainer {
-    background-color: #E8A44B; /* กำหนดพื้นหลังเป็นสีขาว */
-    padding: 20px; /* เพิ่มช่องว่างภายใน */
-    border-radius: 10px; /* ทำให้ขอบมีความโค้งมน */
-    box-shadow: 0 0 10px rgba(15, 6, 6, 0.018); /* เพิ่มเงารอบกล่อง */
-}
+    .current-day {
+        background-color: rgb(247, 168, 21); /* กำหนดสีพื้นหลังสำหรับวันที่ปัจจุบัน */
+        border-radius: 50%;
+    }
 
 
-#yearList div:hover {
-    background-color: #4CAF50; /* เปลี่ยนสีพื้นหลังเมื่อ hover */
-    color: white; /* เปลี่ยนสีตัวอักษรเมื่อ hover */
-}
+    .event-detail {
+        background-color: #f9f9f9; /* กำหนดพื้นหลังของกล่องรายละเอียดเหตุการณ์ */
+        padding: 15px; /* เพิ่มช่องว่างภายในกล่อง */
+        margin-bottom: 10px; /* เพิ่มระยะห่างด้านล่าง */
+        border-radius: 5px; /* ทำให้ขอบมีความโค้งมน */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* เพิ่มเงาเล็กน้อย */
+    }
 
+    .event-detail strong {
+        font-size: 18px; /* กำหนดขนาดตัวอักษร */
+        color: #333; /* กำหนดสีตัวอักษรเป็นสีเทาเข้ม */
+    }
+
+    .no-event-message {
+        font-size: 16px; /* กำหนดขนาดตัวอักษรสำหรับข้อความไม่มีเหตุการณ์ */
+        color: #666; /* กำหนดสีตัวอักษรเป็นสีเทาอ่อน */
+    }
+
+    #eventDetailsContainer {
+        background-color: #E8A44B; /* กำหนดพื้นหลังเป็นสีขาว */
+        padding: 20px; /* เพิ่มช่องว่างภายใน */
+        border-radius: 10px; /* ทำให้ขอบมีความโค้งมน */
+        box-shadow: 0 0 10px rgba(15, 6, 6, 0.018); /* เพิ่มเงารอบกล่อง */
+        margin-right:30px;
+    }
+
+
+    #yearList div:hover {
+        background-color: #4CAF50; /* เปลี่ยนสีพื้นหลังเมื่อ hover */
+        color: white; /* เปลี่ยนสีตัวอักษรเมื่อ hover */
+    }
 
     </style>
 </head>

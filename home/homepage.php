@@ -8,6 +8,8 @@
     <!-- ลิงก์ FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="home.css"> 
+
+    
 </head>
 <body bgcolor="#1D0066">
 <?php
@@ -37,7 +39,7 @@ $user = mysqli_fetch_array($query, MYSQLI_ASSOC);
         <h2> Remind me! <img src="../register/image/remindd.png" width="40" height="50"></h2>
             
     
-        <div class="navbar">
+        <div class="navbar-item">
             <a class="active" href="homepage.php"><i class="fa fa-fw fa-home"></i>หน้าหลัก</a>
             <a href="../calendar/calendar.php"><i class="fa fa fa-calendar"></i> ปฏิทิน</a>
             <a href="../favpage/favpage.php"><i class="fa fas fa-heart"></i> รายการโปรด</a>

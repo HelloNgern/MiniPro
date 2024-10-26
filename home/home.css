@@ -5,6 +5,7 @@
     padding: 0;
     background-color: #1D0066;
     background: linear-gradient(135deg, #1D0066, #4A1C80);
+    overflow-y: scroll;
 }
 
 /* Navbar  สไตล์สำหรับ Navbar (แถบเมนูด้านบน) */
@@ -20,6 +21,18 @@
     /* overflow: auto; */       /* ถ้าใช้จะช่วยจัดการเนื้อหาที่เกินในกรณีที่ Navbar มีความกว้างไม่พอ */
     
 }
+
+   
+.navbar-item{
+    padding: 10px 15px; /* หรือขนาดที่คุณต้องการ */
+    margin: 0;
+    border: none;
+}
+
+.navbar-item:focus {
+    outline: none;
+}
+
 /* 
 คือระยะห่างภายในขององค์ประกอบ (element)
 รูปแบบของ padding สามารถกำหนดได้หลายทิศทาง เช่น
@@ -366,7 +379,6 @@ textarea {
 .form-group input, .form-group textarea {
     margin-top: 5px;
 }
-
 
 
 

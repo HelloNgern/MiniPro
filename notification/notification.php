@@ -6,6 +6,11 @@
     <title>การแจ้งเตือนกิจกรรม</title>
     <link rel="stylesheet" href="../home/home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    body{
+        overflow-y: scroll;
+    }
+    </style>
 </head>
 <body>
     <!-- ส่วนของ Navbar และอื่น ๆ ยังเหมือนเดิม -->

@@ -5,6 +5,7 @@ body {
     padding: 0;
     background-color: #1D0066;
     background: linear-gradient(135deg, #1D0066, #4A1C80);
+    overflow-y: scroll;
 }
 
 /* Navbar  สไตล์สำหรับ Navbar (แถบเมนูด้านบน) */
