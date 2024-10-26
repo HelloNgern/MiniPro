@@ -109,7 +109,7 @@
     <!-- เมนูที่ซ่อนอยู่ -->
     <div class="menu" id="menu"> <!-- เมนูที่ถูกซ่อนอยู่ มี id="menu" เพื่อให้เรียกใช้ได้ง่าย -->
         <a href="../profile/profile.php">โปรไฟล์</a>
-        <a href="../support/support.html">สนับสนุน</a>
+        <a href="../support/support.php">สนับสนุน</a>
         <a onclick="lockoutUser()" href="#">ออกจากระบบ</a> <!-- ลิงก์ไปยังหน้า Logout -->
     </div>
 
