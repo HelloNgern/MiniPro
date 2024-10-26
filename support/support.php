@@ -149,7 +149,9 @@
                             <div class="slide"><img src="imageja/4.png" alt="Image 4"></div>
                             <div class="slide"><img src="imageja/5.png" alt="Image 5"></div>
                             <div class="slide"><img src="imageja/6.png" alt="Image 6"></div>
-                            <div class="slide"><img src="" alt="Image 7"></div>
+                            <div class="slide"><img src="imageja/7.png" alt="Image 7"></div>
+                            <div class="slide"><img src="imageja/8.png" alt="Image 8"></div>
+                            <div class="slide"><img src="imageja/9.png" alt="Image 9"></div>
                         </div>
                         
                         <!-- Navigation buttons -->
