@@ -98,7 +98,7 @@ $conn->query($sql_update_active);
         <span><?php echo $user['id']; ?></span>
         </div>
     </div>
-    <div id="content-promote"></div>
+    <div id="content-promote" ><img src="../register/image/promote.png" width="900" height="320" ></div>
     </div>
     
     <div>
