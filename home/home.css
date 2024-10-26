@@ -252,10 +252,10 @@ background-color: #7082de;
     background-position: center; /* จัดรูปให้อยู่ตรงกลาง */
     border-radius: 10px;
     min-height: 200px;
-    flex: 1; /* ขยาย content ให้เต็มที่เท่าที่จะทำได้ */
-    margin-left: 200px; /* เพิ่มระยะห่างจากขอบซ้าย */
+    margin-left: 180px; /* เพิ่มระยะห่างจากขอบซ้าย */
     margin-right: 10px; /* เพิ่มระยะห่างจากขอบขวา */
     margin-top: 40px;
+    float: right;
 }
 .bottom-left-button {
     position: absolute;
