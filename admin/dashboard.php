@@ -55,6 +55,9 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+$userId = $_SESSION['id'];
+$sql_update_active = "UPDATE users SET status = 'active' WHERE id = '$userId'";
+$conn->query($sql_update_active);
 // รับข้อมูลจากฟอร์มค้นหา
 $searchQuery = '';
 if (isset($_POST['searchQuery'])) {
@@ -68,7 +71,12 @@ $result = $conn->query($sql);
 
 $conn->close();
 ?>
-
+<script>
+    // ใช้ JavaScript และ jQuery เพื่ออัปเดตสถานะเป็น inactive เมื่อผู้ใช้ออกจากเว็บไซต์
+    window.addEventListener("beforeunload", function () {
+        navigator.sendBeacon('../home/update_status_user.php', JSON.stringify({status: 'inactive', userId: <?php echo $userId; ?>}));
+    });
+</script>
     <!-- Main Content Area -->
     <div class="main-content">
     <div class="search-bar">
