@@ -9,12 +9,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="home.css"> 
     <style>
-        .profilee{
-        font-size: 1.2em;
-        margin-top: -270px; /* ระยะห่างระหว่างภาพและข้อมูล */
-        margin-left: 60px; /* ขยับชิดขอบซ้าย 10px */
-        color:white;
-        }
+        .profilee {
+    font-size: 1.3em;
+    margin-top: -270px; /* ระยะห่างระหว่างภาพและข้อมูล */
+    margin-left: 60px; /* ขยับชิดขอบซ้าย 10px */
+    color: white;
+    font-weight: 600; /* เพิ่มความหนาของฟอนต์ */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6); /* เพิ่มเงาให้อ่านง่ายขึ้น */
+    letter-spacing: 0.5px; /* เพิ่มระยะห่างระหว่างตัวอักษร */
+    line-height: 1.5; /* เพิ่มระยะห่างบรรทัด */
+    }
+        
     #content-promote {
         padding: 5px; 
         background-size: cover; /* ปรับขนาดรูปให้เต็มพื้นที่ */
