@@ -44,11 +44,6 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.profile-edit h4 {
-    text-align: center; /* ให้ชื่อหัวข้ออยู่กลาง */
-    margin-bottom: 20px; /* เพิ่มช่องว่างด้านล่าง */
-}
-
 .form-floating {
     margin-bottom: 20px; /* เพิ่มช่องว่างระหว่างฟอร์ม */
 }

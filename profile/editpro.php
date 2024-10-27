@@ -37,6 +37,12 @@ $user = mysqli_fetch_array($query, MYSQLI_ASSOC);
     object-fit: cover; /* ทำให้รูปอยู่ในขนาดและสัดส่วนที่ถูกต้อง */
     border: 2px solid #ccc; /* สามารถเพิ่มกรอบบางๆ ให้ดูมีลูกเล่น */
 }
+.profile-edit h4 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:larger;
+    text-align: center; /* ให้ชื่อหัวข้ออยู่กลาง */
+    margin-bottom: 20px; /* เพิ่มช่องว่างด้านล่าง */
+}
     </style>
 </head>
 <body>
@@ -97,7 +103,26 @@ $user = mysqli_fetch_array($query, MYSQLI_ASSOC);
 </script>
 <!-- ฟอร์มแก้ไขข้อมูล -->
 <div class="col-md-6 profile-edit">
+
     <h4>แก้ไขข้อมูลที่ต้องการ</h4>
+    <style>
+            .next {
+    position: absolute;
+    top: 140px; /* กำหนดตำแหน่งให้กึ่งกลางแนวตั้ง */
+    left: 365px; /* กำหนดตำแหน่งให้กึ่งกลางแนวนอน */
+    transform: translate(-50%, -50%); /* ขยับกลับให้ปุ่มมาอยู่ตรงกลาง */
+    color: black; /* กำหนดสีข้อความเป็นสีดำ */
+    border: none; /* ไม่ต้องการเส้นขอบ */
+    border-radius: 5px; /* ทำให้มุมปุ่มโค้งมน */
+    text-decoration: underline; /* เพิ่มขีดเส้นใต้ */
+    font-size: 16px; /* ขนาดอักษรตามต้องการ */
+}
+
+        .next:hover{
+            color:#ed3636; /* เปลี่ยนสีเมื่อชี้เมาส์ */
+        }
+        </style>
+        <a href="profile.php" class="next"><i class="fa fa-angle-double-left" aria-hidden="true"></i>ย้อนกลับ</a>
     <form action="updatepro.php" method="post" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
         <div class="profile-pic">
